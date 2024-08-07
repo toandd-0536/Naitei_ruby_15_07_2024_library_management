@@ -13,4 +13,10 @@ class User < ApplicationRecord
   enum role: {admin: 0, user: 1}
 
   has_secure_password
+
+  validates :email, presence: true,
+            length: {maximum: Settings.models.user.email.max_length},
+            format: {with: Settings.models.user.email.valid_email_regex}
+  validates :password, presence: true,
+            length: {maximum: Settings.models.user.password.max_length}
 end
