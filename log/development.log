@@ -6,3 +6,521 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 338ms (Views: 67.8ms | ActiveRecord: 0.0ms | Allocations: 7360)
 
 
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT GET_LOCK('7879438643346964470', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (110.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20240807022533)
+  [1m[35m (27.8ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255), `password_digest` varchar(255), `role` int, `dob` date, `phone` varchar(255), `lost_time` int, `blacklisted` tinyint(1), `activated` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('7879438643346964470')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (9.9ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.0ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (681.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS `rails_tutorial_development`[0m
+  [1m[35m (104.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS `rails_tutorial_test`[0m
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE DATABASE `rails_tutorial_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (22.8ms)[0m  [1m[35mCREATE DATABASE `rails_tutorial_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (85.2ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (72.8ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT GET_LOCK('7879438643346964470', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20240807022533)
+  [1m[35m (76.5ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255), `password_digest` varchar(255), `role` int, `dob` date, `phone` varchar(255), `lost_time` int, `blacklisted` tinyint(1), `activated` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (14.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807022533')[0m
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBooks (20240807022627)
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE `books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `publisher_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_books_on_publisher_id` (`publisher_id`), CONSTRAINT `fk_rails_d7ae2b039e`
+FOREIGN KEY (`publisher_id`)
+  REFERENCES `publishers` (`id`)
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT RELEASE_LOCK('7879438643346964470')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT GET_LOCK('7879438643346964470', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20240807022533)
+  [1m[35m (69.1ms)[0m  [1m[35mDROP TABLE `users`[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (13.9ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20240807022533'[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('7879438643346964470')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (74.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS `rails_tutorial_development`[0m
+  [1m[35m (15.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS `rails_tutorial_test`[0m
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE DATABASE `rails_tutorial_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE DATABASE `rails_tutorial_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (70.7ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (64.3ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT GET_LOCK('7879438643346964470', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20240807022533)
+  [1m[35m (136.0ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255), `password_digest` varchar(255), `role` int, `dob` date, `phone` varchar(255), `lost_time` int, `blacklisted` tinyint(1), `activated` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807022533')[0m
+  [1m[36mTRANSACTION (15.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePublishers (20240807035121)
+  [1m[35m (105.0ms)[0m  [1m[35mCREATE TABLE `publishers` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035121')[0m
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAuthors (20240807035235)
+  [1m[35m (105.7ms)[0m  [1m[35mCREATE TABLE `authors` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `intro` varchar(255), `bio` varchar(255), `dob` date, `dod` date, `thumb` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035235')[0m
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20240807035348)
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE `categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `parent_category_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_categories_on_parent_category_id` (`parent_category_id`), CONSTRAINT `fk_rails_b7f1bb9825`
+FOREIGN KEY (`parent_category_id`)
+  REFERENCES `parent_categories` (`id`)
+)[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('7879438643346964470')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT GET_LOCK('7879438643346964470', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateCategories (20240807035348)
+  [1m[35m (107.1ms)[0m  [1m[35mCREATE TABLE `categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `parent_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_categories_on_parent_id` (`parent_id`), CONSTRAINT `fk_rails_82f48f7407`
+FOREIGN KEY (`parent_id`)
+  REFERENCES `categories` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (7.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035348')[0m
+  [1m[36mTRANSACTION (14.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBooks (20240807040000)
+  [1m[35m (87.4ms)[0m  [1m[35mCREATE TABLE `books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `publisher_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_books_on_publisher_id` (`publisher_id`), CONSTRAINT `fk_rails_d7ae2b039e`
+FOREIGN KEY (`publisher_id`)
+  REFERENCES `publishers` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040000')[0m
+  [1m[36mTRANSACTION (12.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEpisodes (20240807040021)
+  [1m[35m (112.1ms)[0m  [1m[35mCREATE TABLE `episodes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `name` varchar(255), `qty` int, `intro` varchar(255), `content` varchar(255), `compensation_fee` int, `thumb` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_episodes_on_book_id` (`book_id`), CONSTRAINT `fk_rails_ff06ecdaaa`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040021')[0m
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookAuthors (20240807040225)
+  [1m[35m (122.5ms)[0m  [1m[35mCREATE TABLE `book_authors` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `author_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_book_authors_on_book_id` (`book_id`), INDEX `index_book_authors_on_author_id` (`author_id`), CONSTRAINT `fk_rails_b23f3934c1`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+, CONSTRAINT `fk_rails_0c0759568d`
+FOREIGN KEY (`author_id`)
+  REFERENCES `authors` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040225')[0m
+  [1m[36mTRANSACTION (11.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookCategories (20240807040242)
+  [1m[35m (219.0ms)[0m  [1m[35mCREATE TABLE `book_categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `category_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_book_categories_on_book_id` (`book_id`), INDEX `index_book_categories_on_category_id` (`category_id`), CONSTRAINT `fk_rails_abeed925a0`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+, CONSTRAINT `fk_rails_457080ef94`
+FOREIGN KEY (`category_id`)
+  REFERENCES `categories` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (4.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040242')[0m
+  [1m[36mTRANSACTION (18.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFavorites (20240807040347)
+  [1m[35m (196.0ms)[0m  [1m[35mCREATE TABLE `favorites` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint NOT NULL, `favoritable_type` varchar(255) NOT NULL, `favoritable_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_favorites_on_user_id` (`user_id`), INDEX `index_favorites_on_favoritable` (`favoritable_type`, `favoritable_id`), CONSTRAINT `fk_rails_d15744e438`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040347')[0m
+  [1m[36mTRANSACTION (22.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBorrowCards (20240807040418)
+  [1m[35m (120.3ms)[0m  [1m[35mCREATE TABLE `borrow_cards` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint NOT NULL, `start_time` date, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_borrow_cards_on_user_id` (`user_id`), CONSTRAINT `fk_rails_fe763ef51c`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040418')[0m
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBorrowBooks (20240807040443)
+  [1m[35m (123.5ms)[0m  [1m[35mCREATE TABLE `borrow_books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `borrow_card_id` bigint NOT NULL, `book_id` bigint NOT NULL, `status` int, `reason` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_borrow_books_on_borrow_card_id` (`borrow_card_id`), INDEX `index_borrow_books_on_book_id` (`book_id`), CONSTRAINT `fk_rails_314b458fa7`
+FOREIGN KEY (`borrow_card_id`)
+  REFERENCES `borrow_cards` (`id`)
+, CONSTRAINT `fk_rails_cb5a59f155`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040443')[0m
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRatings (20240807040459)
+  [1m[35m (158.1ms)[0m  [1m[35mCREATE TABLE `ratings` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `user_id` bigint NOT NULL, `body` varchar(255), `rating` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_ratings_on_book_id` (`book_id`), INDEX `index_ratings_on_user_id` (`user_id`), CONSTRAINT `fk_rails_99afded93e`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+, CONSTRAINT `fk_rails_a7dfeb9f5f`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040459')[0m
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2024-08-07 04:16:05.545211', '2024-08-07 04:16:05.545211')[0m
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('7879438643346964470')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (397.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS `rails_tutorial_development`[0m
+  [1m[35m (23.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS `rails_tutorial_test`[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE DATABASE `rails_tutorial_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE DATABASE `rails_tutorial_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (57.7ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (67.7ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT GET_LOCK('7879438643346964470', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20240807022533)
+  [1m[35m (113.9ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255), `password_digest` varchar(255), `role` int, `dob` date, `phone` varchar(255), `lost_time` int, `blacklisted` tinyint(1), `activated` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807022533')[0m
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePublishers (20240807035121)
+  [1m[35m (80.9ms)[0m  [1m[35mCREATE TABLE `publishers` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035121')[0m
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAuthors (20240807035235)
+  [1m[35m (102.5ms)[0m  [1m[35mCREATE TABLE `authors` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `intro` varchar(255), `bio` varchar(255), `dob` date, `dod` date, `thumb` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035235')[0m
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20240807035348)
+  [1m[35m (109.7ms)[0m  [1m[35mCREATE TABLE `categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `parent_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_categories_on_parent_id` (`parent_id`), CONSTRAINT `fk_rails_82f48f7407`
+FOREIGN KEY (`parent_id`)
+  REFERENCES `categories` (`id`)
+)[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035348')[0m
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBooks (20240807040000)
+  [1m[35m (117.8ms)[0m  [1m[35mCREATE TABLE `books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `publisher_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_books_on_publisher_id` (`publisher_id`), CONSTRAINT `fk_rails_d7ae2b039e`
+FOREIGN KEY (`publisher_id`)
+  REFERENCES `publishers` (`id`)
+)[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040000')[0m
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEpisodes (20240807040021)
+  [1m[35m (113.2ms)[0m  [1m[35mCREATE TABLE `episodes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `name` varchar(255), `qty` int, `intro` varchar(255), `content` varchar(255), `compensation_fee` int, `thumb` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_episodes_on_book_id` (`book_id`), CONSTRAINT `fk_rails_ff06ecdaaa`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040021')[0m
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookAuthors (20240807040225)
+  [1m[35m (106.5ms)[0m  [1m[35mCREATE TABLE `book_authors` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `author_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_book_authors_on_book_id` (`book_id`), INDEX `index_book_authors_on_author_id` (`author_id`), CONSTRAINT `fk_rails_b23f3934c1`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+, CONSTRAINT `fk_rails_0c0759568d`
+FOREIGN KEY (`author_id`)
+  REFERENCES `authors` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040225')[0m
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookCategories (20240807040242)
+  [1m[35m (117.8ms)[0m  [1m[35mCREATE TABLE `book_categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `category_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_book_categories_on_book_id` (`book_id`), INDEX `index_book_categories_on_category_id` (`category_id`), CONSTRAINT `fk_rails_abeed925a0`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+, CONSTRAINT `fk_rails_457080ef94`
+FOREIGN KEY (`category_id`)
+  REFERENCES `categories` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040242')[0m
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFavorites (20240807040347)
+  [1m[35m (113.0ms)[0m  [1m[35mCREATE TABLE `favorites` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint NOT NULL, `favoritable_type` varchar(255) NOT NULL, `favoritable_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_favorites_on_user_id` (`user_id`), INDEX `index_favorites_on_favoritable` (`favoritable_type`, `favoritable_id`), CONSTRAINT `fk_rails_d15744e438`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040347')[0m
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBorrowCards (20240807040418)
+  [1m[35m (99.1ms)[0m  [1m[35mCREATE TABLE `borrow_cards` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint NOT NULL, `start_time` date, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_borrow_cards_on_user_id` (`user_id`), CONSTRAINT `fk_rails_fe763ef51c`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040418')[0m
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBorrowBooks (20240807040443)
+  [1m[35m (118.7ms)[0m  [1m[35mCREATE TABLE `borrow_books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `borrow_card_id` bigint NOT NULL, `book_id` bigint NOT NULL, `status` int, `reason` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_borrow_books_on_borrow_card_id` (`borrow_card_id`), INDEX `index_borrow_books_on_book_id` (`book_id`), CONSTRAINT `fk_rails_314b458fa7`
+FOREIGN KEY (`borrow_card_id`)
+  REFERENCES `borrow_cards` (`id`)
+, CONSTRAINT `fk_rails_cb5a59f155`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040443')[0m
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRatings (20240807040459)
+  [1m[35m (117.8ms)[0m  [1m[35mCREATE TABLE `ratings` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `episode_id` bigint NOT NULL, `user_id` bigint NOT NULL, `body` varchar(255), `rating` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_ratings_on_episode_id` (`episode_id`), INDEX `index_ratings_on_user_id` (`user_id`), CONSTRAINT `fk_rails_26c6861469`
+FOREIGN KEY (`episode_id`)
+  REFERENCES `episodes` (`id`)
+, CONSTRAINT `fk_rails_a7dfeb9f5f`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040459')[0m
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2024-08-07 04:19:58.790095', '2024-08-07 04:19:58.790095')[0m
+  [1m[36mTRANSACTION (12.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('7879438643346964470')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.8ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (432.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS `rails_tutorial_development`[0m
+  [1m[35m (17.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS `rails_tutorial_test`[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE DATABASE `rails_tutorial_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE DATABASE `rails_tutorial_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (168.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (56.1ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT GET_LOCK('7879438643346964470', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20240807022533)
+  [1m[35m (76.5ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255), `password_digest` varchar(255), `role` int, `dob` date, `phone` varchar(255), `lost_time` int, `blacklisted` tinyint(1), `activated` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807022533')[0m
+  [1m[36mTRANSACTION (12.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePublishers (20240807035121)
+  [1m[35m (103.2ms)[0m  [1m[35mCREATE TABLE `publishers` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035121')[0m
+  [1m[36mTRANSACTION (15.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAuthors (20240807035235)
+  [1m[35m (125.4ms)[0m  [1m[35mCREATE TABLE `authors` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `intro` varchar(255), `bio` varchar(255), `dob` date, `dod` date, `thumb` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035235')[0m
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20240807035348)
+  [1m[35m (103.2ms)[0m  [1m[35mCREATE TABLE `categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `parent_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_categories_on_parent_id` (`parent_id`), CONSTRAINT `fk_rails_82f48f7407`
+FOREIGN KEY (`parent_id`)
+  REFERENCES `categories` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035348')[0m
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBooks (20240807040000)
+  [1m[35m (97.2ms)[0m  [1m[35mCREATE TABLE `books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `publisher_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_books_on_publisher_id` (`publisher_id`), CONSTRAINT `fk_rails_d7ae2b039e`
+FOREIGN KEY (`publisher_id`)
+  REFERENCES `publishers` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040000')[0m
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEpisodes (20240807040021)
+  [1m[35m (107.2ms)[0m  [1m[35mCREATE TABLE `episodes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `name` varchar(255), `qty` int, `intro` varchar(255), `content` varchar(255), `compensation_fee` int, `thumb` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_episodes_on_book_id` (`book_id`), CONSTRAINT `fk_rails_ff06ecdaaa`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+)[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040021')[0m
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookAuthors (20240807040225)
+  [1m[35m (121.2ms)[0m  [1m[35mCREATE TABLE `book_authors` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `author_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_book_authors_on_book_id` (`book_id`), INDEX `index_book_authors_on_author_id` (`author_id`), CONSTRAINT `fk_rails_b23f3934c1`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+, CONSTRAINT `fk_rails_0c0759568d`
+FOREIGN KEY (`author_id`)
+  REFERENCES `authors` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040225')[0m
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookCategories (20240807040242)
+  [1m[35m (100.1ms)[0m  [1m[35mCREATE TABLE `book_categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `category_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_book_categories_on_book_id` (`book_id`), INDEX `index_book_categories_on_category_id` (`category_id`), CONSTRAINT `fk_rails_abeed925a0`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+, CONSTRAINT `fk_rails_457080ef94`
+FOREIGN KEY (`category_id`)
+  REFERENCES `categories` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040242')[0m
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFavorites (20240807040347)
+  [1m[35m (99.3ms)[0m  [1m[35mCREATE TABLE `favorites` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint NOT NULL, `favoritable_type` varchar(255) NOT NULL, `favoritable_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_favorites_on_user_id` (`user_id`), INDEX `index_favorites_on_favoritable` (`favoritable_type`, `favoritable_id`), CONSTRAINT `fk_rails_d15744e438`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040347')[0m
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBorrowCards (20240807040418)
+  [1m[35m (105.3ms)[0m  [1m[35mCREATE TABLE `borrow_cards` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint NOT NULL, `start_time` date, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_borrow_cards_on_user_id` (`user_id`), CONSTRAINT `fk_rails_fe763ef51c`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040418')[0m
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBorrowBooks (20240807040443)
+  [1m[35m (101.5ms)[0m  [1m[35mCREATE TABLE `borrow_books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `borrow_card_id` bigint NOT NULL, `book_id` bigint NOT NULL, `status` int, `reason` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_borrow_books_on_borrow_card_id` (`borrow_card_id`), INDEX `index_borrow_books_on_book_id` (`book_id`), CONSTRAINT `fk_rails_314b458fa7`
+FOREIGN KEY (`borrow_card_id`)
+  REFERENCES `borrow_cards` (`id`)
+, CONSTRAINT `fk_rails_cb5a59f155`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040443')[0m
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRatings (20240807040459)
+  [1m[35m (114.8ms)[0m  [1m[35mCREATE TABLE `ratings` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `episode_id` bigint NOT NULL, `user_id` bigint NOT NULL, `body` varchar(255), `rating` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_ratings_on_episode_id` (`episode_id`), INDEX `index_ratings_on_user_id` (`user_id`), CONSTRAINT `fk_rails_26c6861469`
+FOREIGN KEY (`episode_id`)
+  REFERENCES `episodes` (`id`)
+, CONSTRAINT `fk_rails_a7dfeb9f5f`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040459')[0m
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.8ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.6ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2024-08-07 04:37:34.083420', '2024-08-07 04:37:34.083420')[0m
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('7879438643346964470')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (402.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS `rails_tutorial_development`[0m
+  [1m[35m (19.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS `rails_tutorial_test`[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE DATABASE `rails_tutorial_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE DATABASE `rails_tutorial_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (103.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (48.5ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT GET_LOCK('7879438643346964470', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20240807022533)
+  [1m[35m (75.9ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255), `password_digest` varchar(255), `role` int, `dob` date, `phone` varchar(255), `lost_time` int, `blacklisted` tinyint(1), `activated` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (6.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807022533')[0m
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePublishers (20240807035121)
+  [1m[35m (70.4ms)[0m  [1m[35mCREATE TABLE `publishers` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035121')[0m
+  [1m[36mTRANSACTION (11.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAuthors (20240807035235)
+  [1m[35m (84.1ms)[0m  [1m[35mCREATE TABLE `authors` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `intro` varchar(255), `bio` varchar(255), `dob` date, `dod` date, `thumb` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035235')[0m
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20240807035348)
+  [1m[35m (87.8ms)[0m  [1m[35mCREATE TABLE `categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `parent_id` bigint, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_categories_on_parent_id` (`parent_id`), CONSTRAINT `fk_rails_82f48f7407`
+FOREIGN KEY (`parent_id`)
+  REFERENCES `categories` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807035348')[0m
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBooks (20240807040000)
+  [1m[35m (101.2ms)[0m  [1m[35mCREATE TABLE `books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `publisher_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_books_on_publisher_id` (`publisher_id`), CONSTRAINT `fk_rails_d7ae2b039e`
+FOREIGN KEY (`publisher_id`)
+  REFERENCES `publishers` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040000')[0m
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEpisodes (20240807040021)
+  [1m[35m (89.9ms)[0m  [1m[35mCREATE TABLE `episodes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `name` varchar(255), `qty` int, `intro` varchar(255), `content` varchar(255), `compensation_fee` int, `thumb` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_episodes_on_book_id` (`book_id`), CONSTRAINT `fk_rails_ff06ecdaaa`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040021')[0m
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookAuthors (20240807040225)
+  [1m[35m (119.3ms)[0m  [1m[35mCREATE TABLE `book_authors` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `author_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_book_authors_on_book_id` (`book_id`), INDEX `index_book_authors_on_author_id` (`author_id`), CONSTRAINT `fk_rails_b23f3934c1`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+, CONSTRAINT `fk_rails_0c0759568d`
+FOREIGN KEY (`author_id`)
+  REFERENCES `authors` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040225')[0m
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookCategories (20240807040242)
+  [1m[35m (131.9ms)[0m  [1m[35mCREATE TABLE `book_categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `book_id` bigint NOT NULL, `category_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_book_categories_on_book_id` (`book_id`), INDEX `index_book_categories_on_category_id` (`category_id`), CONSTRAINT `fk_rails_abeed925a0`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+, CONSTRAINT `fk_rails_457080ef94`
+FOREIGN KEY (`category_id`)
+  REFERENCES `categories` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040242')[0m
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFavorites (20240807040347)
+  [1m[35m (109.8ms)[0m  [1m[35mCREATE TABLE `favorites` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint NOT NULL, `favoritable_type` varchar(255) NOT NULL, `favoritable_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_favorites_on_user_id` (`user_id`), INDEX `index_favorites_on_favoritable` (`favoritable_type`, `favoritable_id`), CONSTRAINT `fk_rails_d15744e438`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040347')[0m
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBorrowCards (20240807040418)
+  [1m[35m (74.9ms)[0m  [1m[35mCREATE TABLE `borrow_cards` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint NOT NULL, `start_time` date, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_borrow_cards_on_user_id` (`user_id`), CONSTRAINT `fk_rails_fe763ef51c`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040418')[0m
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBorrowBooks (20240807040443)
+  [1m[35m (105.4ms)[0m  [1m[35mCREATE TABLE `borrow_books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `borrow_card_id` bigint NOT NULL, `episode_id` bigint NOT NULL, `status` int, `reason` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_borrow_books_on_borrow_card_id` (`borrow_card_id`), INDEX `index_borrow_books_on_episode_id` (`episode_id`), CONSTRAINT `fk_rails_314b458fa7`
+FOREIGN KEY (`borrow_card_id`)
+  REFERENCES `borrow_cards` (`id`)
+, CONSTRAINT `fk_rails_5bece8341d`
+FOREIGN KEY (`episode_id`)
+  REFERENCES `episodes` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040443')[0m
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRatings (20240807040459)
+  [1m[35m (110.2ms)[0m  [1m[35mCREATE TABLE `ratings` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `episode_id` bigint NOT NULL, `user_id` bigint NOT NULL, `body` varchar(255), `rating` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_ratings_on_episode_id` (`episode_id`), INDEX `index_ratings_on_user_id` (`user_id`), CONSTRAINT `fk_rails_26c6861469`
+FOREIGN KEY (`episode_id`)
+  REFERENCES `episodes` (`id`)
+, CONSTRAINT `fk_rails_a7dfeb9f5f`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20240807040459')[0m
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2024-08-07 04:46:09.217659', '2024-08-07 04:46:09.217659')[0m
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('7879438643346964470')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
