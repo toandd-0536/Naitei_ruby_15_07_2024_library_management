@@ -1,0 +1,16 @@
+vi:
+  hello: "Chào thế giới"
+  views:
+    shared: 
+      toast_error:
+        error: "Có lỗi xảy ra"
+    sessions: 
+      new:
+        title_login: "Đăng nhập"
+        title_register: "Đăng ký"
+        label_email: "Email"
+        label_password: "Mật khẩu"
+        btn_login: "Đăng nhập"
+  controllers:
+    sessions:
+      error_login: "Email hoặc mật khẩu không chính xác"

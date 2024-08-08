@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_07_040459) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_07_052246) do
   create_table "authors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "intro"
@@ -126,6 +126,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_07_040459) do
     t.boolean "activated"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
   end
 
   add_foreign_key "book_authors", "authors"
