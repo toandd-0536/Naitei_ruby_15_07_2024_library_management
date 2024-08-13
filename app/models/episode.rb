@@ -4,4 +4,5 @@ class Episode < ApplicationRecord
   has_many :borrow_books, dependent: :destroy
   has_many :favorites, as: :favoritable, dependent: :destroy
   has_many :ratings, dependent: :destroy
+  has_many :users, through: :carts
 end

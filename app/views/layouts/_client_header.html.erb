@@ -1,0 +1,47 @@
+<header class="header-area header-sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <a href="#" class="logo">
+            <%= image_tag "logo.png" %>
+          </a>
+          <ul class="nav">
+            <li>
+              <a href="#">
+                <%= t "views.layouts.header.home" %>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <%= t "views.layouts.header.shop" %>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="active">
+                <%= t "views.layouts.header.contact" %>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <%= t "views.layouts.header.cart" %>
+              </a>
+            </li>
+            <% if user_signed_in? %>
+              <li>
+                <a href="#"><%= current_user.name %></a>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to t("views.layouts.header.login"), login_path %>
+              </li>
+            <% end %>
+          </ul>   
+          <a class='menu-trigger'>
+            <span><%= t "views.layouts.header.menu" %></span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

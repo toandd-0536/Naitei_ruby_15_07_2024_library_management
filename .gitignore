@@ -29,6 +29,7 @@ build-iPhoneSimulator/
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+.env
 
 config/settings.local.yml
 config/settings/*.local.yml

@@ -1,0 +1,31 @@
+<div class="section categories related-games">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="section-heading">
+          <h6><%= t "views.episodes.show.more" %></h6>
+          <h2><%= t "views.episodes.show.related" %></h2>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="main-button">
+          <a href="shop.html">
+            <%= t "views.episodes.show.all" %>
+          </a>
+        </div>
+      </div>
+      <% @book.episodes.each do |ep| %>
+        <div class="col-sm-6 col-md-3 col-xs-12">
+          <div class="item">
+            <h4 class="truncate-text"><%= ep.name %></h4>
+            <div class="thumb">
+              <%= link_to book_episode_path(@book, ep) do %>
+                <%= image_tag ep.thumb %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,5 @@
+max_book: 10
+default_email: "bibliosphere_library@gmail.com"
 controllers:
   sessions:
     layout: "login_layout"
@@ -10,3 +12,6 @@ models:
       valid_email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
     password:
       max_length: 32
+views:
+  layout:
+    slim_link: "https://unpkg.com/slim-select@latest/dist/slimselect.css"
