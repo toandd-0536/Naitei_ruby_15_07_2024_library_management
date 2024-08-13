@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_08_092129) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_10_094249) do
   create_table "authors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "intro"
@@ -81,6 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_08_092129) do
     t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "thumb"
     t.index ["parent_id"], name: "index_categories_on_parent_id"
   end
 
@@ -88,7 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_08_092129) do
     t.bigint "book_id", null: false
     t.string "name"
     t.integer "qty"
-    t.string "intro"
+    t.text "intro"
     t.text "content"
     t.integer "compensation_fee"
     t.string "thumb"
@@ -125,17 +126,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_08_092129) do
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.integer "role"
-    t.date "dob"
+    t.integer "role", default: 1
     t.string "phone"
-    t.integer "lost_time"
-    t.boolean "blacklisted"
-    t.boolean "activated"
+    t.integer "lost_time", default: 0
+    t.boolean "blacklisted", default: false
+    t.boolean "activated", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "name"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "book_authors", "authors"
