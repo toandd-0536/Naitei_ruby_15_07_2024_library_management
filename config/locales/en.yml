@@ -1,10 +1,80 @@
 en:
-  hello: "Hello world"
+  app_name: "Bibliosphere Library"
+  date:
+    month_names:
+      - "January"
+      - "February"
+      - "March"
+      - "April"
+      - "May"
+      - "June"
+      - "July"
+      - "August"
+      - "September"
+      - "October"
+      - "November"
+      - "December"
+  admin:
+    users:
+      index:
+        title: "Users"
+      show:
+        title: "User Details"
+        email: "Email"
+        date_of_birth: "Date of Birth"
+        phone: "Phone"
+        role: "Role"
+        lost_time: "Lost Time"
+        blacklisted: "Blacklisted"
+        activated: "Activated"
+        joined: "Joined"
+        true: "Yes"
+        false: "No"
+      edit:
+        title: "Edit User"
+        submit_button: "Save changes"
+      form:
+        name: "Name"
+        email: "Email"
+        dob: "Date of Birth"
+        phone: "Phone"
+        lost_time: "Lost Time"
+        blacklisted: "Blacklisted"
+        activated: "Activated"
+    shared:
+      error_messages:
+        error: "error"
+        the_form_contains: "The form contains"
+      breadcrumb:
+        home: "Home"
+      footer:
+        content: "Copyright © 2024 Bibliosphere Library. All rights reserved. &nbsp;&nbsp;"
+      sidebar_menu:
+        dashboard: "Dashboard"
+        users: "Users"
+        genres: "Genres"
+        authors: "Authors"
+        publishers: "Publishers"
+        books: "Books"
+        episodes: "Episodes"
+        requests: "Requests"
+        management: "Management"
+      topbar:
+        profile: "Profile"
+        settings: "Settings"
+        logout: "Logout"
+  message:
+    users:
+      updated: "User updated successfully."
+      update_fail: "Failed to update user."
+      deleted: "User deleted successfully."
+      delete_fail: "Failed to delete user."
+      not_found: "User not found."
   views:
-    shared: 
+    shared:
       toast_error:
         error: "An error occurred"
-    sessions: 
+    sessions:
       new:
         title_login: "Login"
         title_register: "Register"

@@ -1,10 +1,80 @@
 vi:
-  hello: "Chào thế giới"
+  app_name: "Bibliosphere Library"
+  date:
+    month_names:
+      - "Tháng 1"
+      - "Tháng 2"
+      - "Tháng 3"
+      - "Tháng 4"
+      - "Tháng 5"
+      - "Tháng 6"
+      - "Tháng 7"
+      - "Tháng 8"
+      - "Tháng 9"
+      - "Tháng 10"
+      - "Tháng 11"
+      - "Tháng 12"
+  admin:
+    users:
+      index:
+        title: "Người dùng"
+      show:
+        title: "Chi tiết người dùng"
+        email: "Email"
+        date_of_birth: "Ngày sinh"
+        phone: "Điện thoại"
+        role: "Vai trò"
+        lost_time: "Số lần làm mất"
+        blacklisted: "Cấm"
+        activated: "Kích hoạt"
+        joined: "Gia nhập"
+        true: "Có"
+        false: "Không"
+      edit:
+        title: "Chỉnh sửa người dùng"
+        submit_button: "Lưu thay đổi"
+      form:
+        name: "Tên"
+        email: "Email"
+        dob: "Ngày sinh"
+        phone: "Điện thoại"
+        lost_time: "Số lần làm mất"
+        blacklisted: "Cấm"
+        activated: "Kích hoạt"
+    shared:
+      error_messages:
+        error: "lỗi"
+        the_form_contains: "Form có"
+      breadcrumb:
+        home: "Trang chủ"
+      footer:
+        content: "Copyright © 2024 Bibliosphere Library. All rights reserved. &nbsp;&nbsp;"
+      sidebar_menu:
+        dashboard: "Dashboard"
+        users: "Người dùng"
+        genres: "Thể loại"
+        authors: "Tác giả"
+        publishers: "Nhà xuất bản"
+        books: "Sách"
+        episodes: "Tập"
+        requests: "Yêu cầu"
+        management: "Quản lý"
+      topbar:
+        profile: "Hồ sơ"
+        settings: "Cài đặt"
+        logout: "Đăng xuất"
+  message:
+    users:
+      updated: "Cập nhật người dùng thành công."
+      update_fail: "Cập nhật người dùng thất bại."
+      deleted: "Xóa người dùng thành công."
+      delete_fail: "Xóa người dùng thất bại."
+      not_found: "Không tìm thấy người dùng."
   views:
-    shared: 
+    shared:
       toast_error:
         error: "Có lỗi xảy ra"
-    sessions: 
+    sessions:
       new:
         title_login: "Đăng nhập"
         title_register: "Đăng ký"
