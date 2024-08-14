@@ -1,0 +1,139 @@
+<% provide :link_page do %>
+  <%= @book.name %> > <%= @episode.name %>
+<% end %>
+
+<% if flash.any? %>
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1000">
+    <% flash.each do |key, message| %>
+      <% if key == "success" %>
+        <%= render "shared/toast_success", msg: message %> 
+      <% elsif key == "error" %>
+        <%= render "shared/toast_error", msg: message %>     
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render "shared/client_page_heading" %>
+
+<div class="single-product section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="left-image">
+          <%= image_tag @episode.thumb %>
+        </div>
+      </div>
+      <div class="col-lg-6 align-self-center">
+        <h4><%= @episode.name %></h4>
+        <span class="price">
+          <%= @episode.qty %>  
+          <%= t "views.episodes.show.count_unit" %>
+        </span>
+        <p><%= @episode.intro %></p>
+        <%= form_with url: "#", 
+                      data: { turbo: false },
+                      local: true, html: { id: "qty" } do |f| %>
+          <%= f.text_field :qty, class:"form-control", value: "1", disabled: true %>
+          <%= f.button do %>
+            <i class="fa-solid fa-bag-shopping"></i> 
+            <%= t "views.episodes.show.btn_add" %>
+          <% end %>
+        <% end %>
+        <ul>
+          <li><span><%= t "views.episodes.show.author" %></span> 
+            <% @book.authors.each do |author| %>
+              <%= link_to author.name, "#" %>
+              <strong>, </strong>
+            <% end %>
+          </li>
+          <li>
+            <span><%= t "views.episodes.show.episodes" %></span> 
+            <%= @book.episodes.count %>
+          </li>
+          <li><span><%= t "views.episodes.show.cat" %></span>
+            <% @book.categories.each do |cat| %>
+              <%= link_to cat.name, "#" %>
+              <strong>, </strong>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-12">
+        <div class="sep"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="more-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="tabs-content">
+          <div class="row">
+            <div class="nav-wrapper">
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="description-tab" 
+                          data-bs-toggle="tab" data-bs-target="#description" 
+                          type="button" role="tab" aria-controls="description" aria-selected="true">
+                          <%= t "views.episodes.show.description" %>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="reviews-tab" 
+                          data-bs-toggle="tab" data-bs-target="#reviews" 
+                          type="button" role="tab" aria-controls="reviews" aria-selected="false">
+                          <%= t "views.episodes.show.reviews" %>
+                  </button>
+                </li>
+              </ul>
+            </div>              
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="description" 
+                    role="tabpanel" aria-labelledby="description-tab">
+                <%= @episode.content %>
+              </div>
+              <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section categories related-games">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="section-heading">
+          <h6><%= t "views.episodes.show.more" %></h6>
+          <h2><%= t "views.episodes.show.related" %></h2>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="main-button">
+          <%= link_to "#" do %>
+            <%= t "views.episodes.show.all" %>
+          <% end %>
+        </div>
+      </div>
+      <% @book.episodes.each do |ep| %>
+        <div class="col-sm-6 col-md-3 col-xs-12">
+          <div class="item">
+            <h4 class="truncate-text"><%= ep.name %></h4>
+            <div class="thumb">
+              <%= link_to book_episode_path(@book, ep, locale: I18n.locale) do %>
+                <%= image_tag ep.thumb %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

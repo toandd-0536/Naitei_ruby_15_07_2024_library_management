@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <%= render "layouts/preload" %>
+    <%= render "layouts/client_header" %>
+
     <%= yield %>
+
+    <%= render "layouts/client_footer" %>
   </body>
 </html>
