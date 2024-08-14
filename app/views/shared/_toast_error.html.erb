@@ -1,15 +1,9 @@
-<% if object.errors.any? %>
-  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11">
-    <% object.errors.full_messages.each do |msg| %>
-      <div class="toast show">
-        <div class="toast-header bg-danger">
-          <strong class="me-auto text-light"><%= t "views.shared.toast_error.error" %></strong>
-          <button type="button" class="btn-close btn-warning" data-bs-dismiss="toast"></button>
-        </div>
-        <div class="toast-body bg-danger text-light">
-          <p><%= msg %></p>
-        </div>
-      </div>
-    <% end %>
+<div class="toast show">
+  <div class="toast-header bg-danger">
+    <strong class="me-auto text-light"><%= t "views.shared.toast.error" %></strong>
+    <button type="button" class="btn-close btn-warning" data-bs-dismiss="toast"></button>
   </div>
-<% end %>
+  <div class="toast-body bg-danger text-light">
+    <span><%= msg %></span>
+  </div>
+</div>

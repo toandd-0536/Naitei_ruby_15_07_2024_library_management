@@ -1,47 +1,52 @@
-<div class="page-content">
-  <div class="form-v8-content">
-    <div class="form-left">
-      <%= image_tag "form-v8.webp" %>
-    </div>
-    <div class="form-right">
-      <div class="tab">
-        <div class="tab-inner">
-          <button class="tablinks btn-login" id="defaultOpen">
-            <%= t "views.sessions.new.title_login" %>
-          </button>
-        </div>
-        <div class="tab-inner">
-          <button class="tablinks btn-register">
-            <%= t "views.sessions.new.title_register" %>
-          </button>
-        </div>
-      </div>
-      <%= form_with model: @user, url: login_path, html: { class: "form-detail" }, local: true do |f| %>
-        <%= render "shared/toast_error", object: @user %>
-        <div class="tabcontent" id="sign-in">
-          <div class="form-row">
-            <label class="form-row-inner">
-              <%= f.text_field :email, class: "input-text", id: "fullname", required: true %>
-              <span class="label">
-                <%= t "views.sessions.new.label_email" %>
-              </span>
-              <span class="border"></span>
-            </label>
-          </div>
-          <div class="form-row">
-            <label class="form-row-inner">
-              <%= f.password_field :password, class: "input-text", id: "password", required: true %>
-              <span class="label">
-                <%= t "views.sessions.new.label_password" %>
-              </span>
-              <span class="border"></span>
-            </label>
-          </div>
-          <div class="form-row-last">
-            <%= f.submit t("views.sessions.new.btn_login"), class: "register" %>
-          </div>
-        </div>
+<% provide :status, "login" %>
+
+<% if flash.any? || @user.errors.any? %>
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1000">
+    <% if flash.any? %>
+      <% flash.each do |key, message| %>
+        <% if key == "success" %>
+          <%= render "shared/toast_success", msg: message %> 
+        <% elsif key == "error" %>
+          <%= render "shared/toast_error", msg: message %>     
+        <% end %>
       <% end %>
-    </div>
+    <% end %>
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |msg| %>
+        <%= render "shared/toast_error", msg: msg %>
+      <% end %>
+    <% end %>
   </div>
-</div>
+<% end %>
+
+<%= render "shared/user_layout" do %>
+  <%= form_with model: @user, url: login_path, 
+                data: { turbo: false },
+                html: { class: "form-detail" }, local: true do |f| %>
+    <div class="tabcontent" id="sign-in">
+      <div class="form-row">
+        <label class="form-row-inner">
+          <%= f.text_field :email, class: "input-text", id: "fullname", required: true %>
+          <span class="label">
+            <%= t "views.sessions.new.label_email" %>
+          </span>
+          <span class="border"></span>
+        </label>
+      </div>
+      <div class="form-row">
+        <label class="form-row-inner">
+          <%= f.password_field :password, class: "input-text", id: "password", required: true %>
+          <span class="label">
+            <%= t "views.sessions.new.label_password" %>
+          </span>
+          <span class="border"></span>
+        </label>
+      </div>
+      <div class="form-row-last">
+        <%= f.submit t("views.sessions.new.btn_login"), class: "register" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+
