@@ -1,0 +1,32 @@
+<tr>
+  <td><%= borrow_book.borrow_card.user.name %></td>
+  <td><%= borrow_book.episode.book.name %></td>
+  <td><%= borrow_book.episode.name %></td>
+  <td class="text-center">
+    <%
+      status_badge_class = case borrow_book.status
+        when "pending" then "badge bg-secondary"
+        when "confirm" then "badge bg-primary"
+        when "returned" then "badge bg-success"
+        when "overdue" then "badge bg-warning"
+        when "lost" then "badge bg-danger"
+        when "cancel" then "badge bg-dark"
+        else "badge bg-light text-dark"
+      end
+    %>
+    <span class="<%= status_badge_class %>">
+      <%= borrow_book.status.upcase %>
+    </span>
+  </td>
+
+  <% if action_type == "return" %>
+    <td><%= borrow_book.borrow_card.start_time.strftime(Settings.date_format) %></td>
+    <td><%= (borrow_book.borrow_card.start_time + Settings.models.book_borrow.max_borrow_duration.days).strftime(Settings.date_format) %></td>
+  <% end %>
+
+  <td class="text-right pr-5">
+    <%= link_to admin_borrow_book_path(borrow_book), class: "btn btn-primary" do %>
+      <i class="fas fa-magnifying-glass"></i>
+    <% end %>
+  </td>
+</tr>

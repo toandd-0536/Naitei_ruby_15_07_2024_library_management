@@ -30,6 +30,7 @@ class User < ApplicationRecord
   has_secure_password
 
   before_save :downcase_email
+  before_update :blacklist
 
   def currently_borrowing_episodes_count
     borrowing_episodes_count = BorrowBook.by_user(id).active.count
@@ -52,6 +53,13 @@ class User < ApplicationRecord
 
   def downcase_email
     email.downcase!
+  end
+
+  def blacklist
+    return unless lost_time >= 3
+
+    self.activated = false
+    self.blacklisted = true
   end
 
   def validate_activation

@@ -2,13 +2,12 @@ class BorrowBook < ApplicationRecord
   belongs_to :borrow_card
   belongs_to :episode
 
-  enum status: {in_cart: 0,
-                pending: 1,
-                cancel: 2,
-                confirm: 3,
-                paid: 4,
-                overdue: 5,
-                lost: 6}
+  enum status: {pending: 0,
+                cancel: 1,
+                confirm: 2,
+                returned: 3,
+                overdue: 4,
+                lost: 5}
 
   scope(:by_user, lambda do |user_id|
     joins(:borrow_card)

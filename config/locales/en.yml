@@ -52,6 +52,21 @@ en:
       edit:
         title: "Edit Publisher"
         submit_button: "Save changes"
+    borrow_books:
+      borrow:
+        title: "Borrow"
+      return:
+        title: "Return"
+      history:
+        title: "History"
+      show:
+        title: "Request Details"
+        user: "User"
+        book: "Book"
+        episode: "Episode"
+        status: "Status"
+        start_time: "Start Time"
+        due_date: "Due Date"
     shared:
       add_new_button:
         add_new: "Add New"
@@ -71,6 +86,10 @@ en:
         books: "Books"
         episodes: "Episodes"
         requests: "Requests"
+        borrow_books:
+          borrow: "Borrow"
+          return: "Return"
+          history: "History"
         management: "Management"
       topbar:
         profile: "Profile"

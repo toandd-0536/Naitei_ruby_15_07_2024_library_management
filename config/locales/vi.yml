@@ -52,6 +52,22 @@ vi:
       edit:
         title: "Chỉnh sửa nhà xuất bản"
         submit_button: "Lưu thay đổi"
+    borrow_books:
+      borrow:
+        title: "Mượn sách"
+      return:
+        title: "Trả sách"
+      history:
+        title: "Lịch sử"
+      show:
+        title: "Chi tiết yêu cầu"
+        user: "Người dùng"
+        book: "Sách"
+        episode: "Tập"
+        status: "Trạng thái"
+        start_time: "Thời gian bắt đầu"
+        due_date: "Hạn trả"
+        created_at: "Ngày tạo"
     shared:
       add_new_button:
         add_new: "Thêm Mới"
@@ -71,6 +87,10 @@ vi:
         books: "Sách"
         episodes: "Tập"
         requests: "Yêu cầu"
+        borrow_books:
+          borrow: "Mượn sách"
+          return: "Trả sách"
+          history: "Lịch sử"
         management: "Quản lý"
       topbar:
         profile: "Hồ sơ"

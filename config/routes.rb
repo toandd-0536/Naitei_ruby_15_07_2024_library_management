@@ -7,6 +7,14 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users
       resources :publishers
+      resources :authors
+      resources :borrow_books, except: [:index] do
+        collection do
+          get "borrow"
+          get "return"
+          get "history"
+        end
+      end
     end
 
     resources :books do
