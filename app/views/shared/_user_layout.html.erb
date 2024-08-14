@@ -11,7 +11,11 @@
                     #{'active' if content_for?(:status) && content_for(:status) == "login"}" %>
         </div>
         <div class="tab-inner">
+<<<<<<< HEAD
           <%= link_to t("views.sessions.new.title_register"), "#", 
+=======
+          <%= link_to t("views.sessions.new.title_register"), new_user_path, 
+>>>>>>> master
             class: "tablinks btn-register
                     #{'active' if content_for?(:status) && content_for(:status) == "register"}" %>
         </div>

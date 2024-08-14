@@ -64,6 +64,32 @@ figcaption {
   outline: 0;
 }
 
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+body::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(122,153,217)),
+									   color-stop(0.72, rgb(73,125,189)),
+									   color-stop(0.86, rgb(28,58,148)));
+}
+
+
+
 .clearfix:after {
   content: ".";
   display: block;
@@ -756,12 +782,14 @@ Banner Style
   margin-bottom: 70px;
 }
 
-.main-banner .caption form {
+
+.main-banner .caption #search {
   position: relative;
   max-width: 450px;
 }
 
-.main-banner .caption form input {
+
+.main-banner .caption #search input {
   max-width: 450px;
   width: 100%;
   height: 50px;
@@ -774,7 +802,7 @@ Banner Style
   color: #7a7a7a;
 }
 
-.main-banner .caption form button {
+.main-banner .caption #search button {
   display: inline-block;
   height: 50px;
   line-height: 50px;
@@ -792,7 +820,8 @@ Banner Style
   transition: all .3s;
 }
 
-.main-banner .caption form button:hover {
+.main-banner .caption #search button:hover {
+
   background-color: #0071f8;
 }
 
@@ -834,6 +863,40 @@ Banner Style
   line-height: 100px;
 }
 
+
+#list-result {
+  z-index: 1000;
+}
+#list-result .row{
+  max-height: 400px;
+  overflow-y: scroll;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+#list-result .row::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+#list-result .row::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#list-result .row::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(122,153,217)),
+									   color-stop(0.72, rgb(73,125,189)),
+									   color-stop(0.86, rgb(28,58,148)));
+}
 
 
 /* 
@@ -1811,8 +1874,10 @@ body {
     text-align: center;
   }
 
-  .main-banner .caption form,
-  .main-banner .caption form input {
+
+  .main-banner .caption #search,
+  .main-banner .caption #search input {
+
     max-width: 100%;
   }
 

@@ -109,6 +109,11 @@ GEM
     faker (2.21.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.17.0-x86_64-linux-gnu)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
+    font-awesome-sass (6.5.2)
+      sassc (~> 2.0)
+    glob (0.4.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -295,8 +300,12 @@ DEPENDENCIES
   capybara
   config
   debug
-  dotenv-rails
-  faker
+  faker (= 2.21.0)
+  figaro
+  font-awesome-sass
+  i18n
+  i18n-js
+  image_processing (= 1.12.2)
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)

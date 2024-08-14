@@ -6,9 +6,20 @@ import './settings/owl-carousel'
 import './settings/counter'
 import './settings/custom'
 import 'bootstrap'
-import {far} from '@fortawesome/free-regular-svg-icons'
-import {fas} from '@fortawesome/free-solid-svg-icons'
-import {fab} from '@fortawesome/free-brands-svg-icons'
-import {library} from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-free'
-library.add(far, fas, fab)
+import 'custom/admin'
+
+document.addEventListener("turbo:load", function () {
+  var tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  );
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+
+  var dropdownElementList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="dropdown"]')
+  );
+  var dropdownList = dropdownElementList.map(function (dropdownEl) {
+    return new bootstrap.Dropdown(dropdownEl);
+  });
+});

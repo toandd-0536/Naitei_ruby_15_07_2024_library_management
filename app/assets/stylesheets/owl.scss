@@ -4,7 +4,6 @@
   display: none;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
-  /* position relative and z-index fix webkit rendering fonts issue */
   position: relative;
   z-index: 1; 
 }
@@ -17,7 +16,7 @@
 }
 
 .owl-carousel .owl-stage:after {
-  content: ".";
+  content: '.';
   display: block;
   clear: both;
   visibility: hidden;
@@ -157,7 +156,7 @@
   transition: opacity 400ms ease; 
 }
 
-.owl-carousel .owl-item .owl-lazy[src^=""], .owl-carousel .owl-item .owl-lazy:not([src]) {
+.owl-carousel .owl-item .owl-lazy[src^=''], .owl-carousel .owl-item .owl-lazy:not([src]) {
   max-height: 0; 
 }
 
@@ -179,7 +178,7 @@
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  background: url("owl.video.play.png") no-repeat;
+  // background: url('owl.video.play.png') no-repeat;
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;

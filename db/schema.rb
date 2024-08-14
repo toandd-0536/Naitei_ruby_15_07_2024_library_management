@@ -135,8 +135,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_10_094249) do
     t.boolean "activated", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.string "address"
     t.string "name"
+=======
+>>>>>>> master
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
