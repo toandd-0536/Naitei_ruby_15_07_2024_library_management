@@ -20,4 +20,13 @@ class User < ApplicationRecord
             format: {with: Settings.models.user.email.valid_email_regex}
   validates :password, presence: true,
             length: {maximum: Settings.models.user.password.max_length}
+
+  def currently_borrowing_episodes_count
+    borrowing_episodes_count = BorrowBook.joins(:borrow_card)
+                                         .where(borrow_cards: {user_id: id})
+                                         .where.not(status: 5)
+                                         .count
+    cart_episodes_count = carts.count
+    borrowing_episodes_count + cart_episodes_count
+  end
 end

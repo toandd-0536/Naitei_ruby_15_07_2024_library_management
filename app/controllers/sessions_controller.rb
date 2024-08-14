@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :check_signed_in?, only: [:create, :new]
   layout Settings.controllers.sessions.layout
   def new
     @user = User.new
@@ -17,8 +18,20 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    session.delete :user_id
+    flash[:success] = t "controllers.sessions.logout_success"
+    redirect_to login_path
+  end
+
   private
   def session_params
     params.require(:user).permit(:email, :password)
+  end
+
+  def check_signed_in?
+    return unless user_signed_in?
+
+    redirect_back(fallback_location: root_path)
   end
 end

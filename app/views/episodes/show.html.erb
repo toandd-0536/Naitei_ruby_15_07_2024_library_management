@@ -31,7 +31,7 @@
           <%= t "views.episodes.show.count_unit" %>
         </span>
         <p><%= @episode.intro %></p>
-        <%= form_with url: "#", 
+        <%= form_with url: add_to_cart_book_episode_path(@book, @episode, locale: I18n.locale), 
                       data: { turbo: false },
                       local: true, html: { id: "qty" } do |f| %>
           <%= f.text_field :qty, class:"form-control", value: "1", disabled: true %>

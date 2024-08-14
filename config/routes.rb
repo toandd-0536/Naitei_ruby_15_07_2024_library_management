@@ -3,9 +3,12 @@ Rails.application.routes.draw do
     root "users#show"
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
 
     resources :books do
-      resources :episodes
+      resources :episodes do
+        post "add_to_cart", on: :member
+      end
     end
 
     namespace :admin do
@@ -13,5 +16,5 @@ Rails.application.routes.draw do
     end
   end
 
-  match "*unmatched", to: "errors#render_404", via: :all
+  match "*unmatched", to: "errors#render404", via: :all
 end
