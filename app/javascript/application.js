@@ -1,10 +1,11 @@
 import '@hotwired/turbo-rails'
 import 'controllers'
 import './settings/jquery.min'
+import './settings/isotope.min'
+import './settings/owl-carousel'
+import './settings/counter'
+import './settings/custom'
 import 'bootstrap'
-import 'jquery'
-import 'jquery-easing'
-import 'index/login'
 import 'custom/admin'
 
 document.addEventListener("turbo:load", function () {

@@ -1,0 +1,22 @@
+<div class="page-content">
+  <div class="form-v8-content">
+    <div class="form-left">
+      <%= image_tag "form-v8.webp" %>
+    </div>
+    <div class="form-right">
+      <div class="tab">
+        <div class="tab-inner">
+          <%= link_to t("views.sessions.new.title_login"), login_path, 
+            class: "tablinks btn-login 
+                    #{'active' if content_for?(:status) && content_for(:status) == "login"}" %>
+        </div>
+        <div class="tab-inner">
+          <%= link_to t("views.sessions.new.title_register"), new_user_path, 
+            class: "tablinks btn-register
+                    #{'active' if content_for?(:status) && content_for(:status) == "register"}" %>
+        </div>
+      </div>
+      <%= yield %> 
+    </div>
+  </div>
+</div>
