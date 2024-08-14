@@ -1,0 +1,66 @@
+<!-- Divider -->
+<hr class="sidebar-divider my-0">
+
+<!-- Nav Item - Dashboard -->
+<li class="nav-item">
+  <%= link_to root_path, class: "nav-link" do %>
+    <i class="fas fa-fw fa-tachometer-alt"></i>
+    <span><%= t ".dashboard" %></span>
+  <% end %>
+</li>
+
+<!-- Divider -->
+<hr class="sidebar-divider">
+
+<!-- Heading -->
+<div class="sidebar-heading"><%= t(".management") %></div>
+
+<!-- Nav Items -->
+<li class="nav-item <%= "active" if request.path.start_with?(admin_users_path) %>">
+  <%= link_to admin_users_path, class: "nav-link" do %>
+    <i class="fas fa-fw fa-users"></i>
+    <span><%= t ".users" %></span>
+  <% end %>
+</li>
+
+<li class="nav-item <%= "active" if request.path.start_with?("#") %>">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="fas fa-fw fa-tag"></i>
+    <span><%= t ".genres" %></span>
+  <% end %>
+</li>
+
+<li class="nav-item <%= "active" if request.path.start_with?("#") %>">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="fas fa-fw fa-user-edit"></i>
+    <span><%= t ".authors" %></span>
+  <% end %>
+</li>
+
+<li class="nav-item <%= "active" if request.path.start_with?("#") %>">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="fas fa-fw fa-building"></i>
+    <span><%= t ".publishers" %></span>
+  <% end %>
+</li>
+
+<li class="nav-item <%= "active" if request.path.start_with?("#") %>">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="fas fa-fw fa-book"></i>
+    <span><%= t ".books" %></span>
+  <% end %>
+</li>
+
+<li class="nav-item <%= "active" if request.path.start_with?("#") %>">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="fas fa-fw fa-book-open"></i>
+    <span><%= t ".episodes" %></span>
+  <% end %>
+</li>
+
+<li class="nav-item <%= "active" if request.path.start_with?("#") %>">
+  <%= link_to "#", class: "nav-link" do %>
+    <i class="fas fa-fw fa-calendar-check"></i>
+    <span><%= t ".requests" %></span>
+  <% end %>
+</li>

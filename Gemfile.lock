@@ -85,9 +85,6 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.6, < 3)
       sassc-rails (>= 2.0.0)
-    bootstrap-sass (3.4.1)
-      autoprefixer-rails (>= 5.2.1)
-      sassc (>= 2.0.0)
     builder (3.2.4)
     capybara (3.39.2)
       addressable
@@ -115,6 +112,8 @@ GEM
     ffi (1.17.0-x86_64-linux-gnu)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
+    font-awesome-sass (6.5.2)
+      sassc (~> 2.0)
     glob (0.4.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -311,12 +310,12 @@ DEPENDENCIES
   bcrypt (= 3.1.18)
   bootsnap
   bootstrap (~> 5.2.0)
-  bootstrap-sass (= 3.4.1)
   capybara
   config
   debug
   faker (= 2.21.0)
   figaro
+  font-awesome-sass
   i18n
   i18n-js
   image_processing (= 1.12.2)
