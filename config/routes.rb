@@ -7,5 +7,11 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users
     end
+
+    resources :books do
+      resources :episodes
+    end
   end
+
+  match "*unmatched", to: "errors#render404", via: :all
 end

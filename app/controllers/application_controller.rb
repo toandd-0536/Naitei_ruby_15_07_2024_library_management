@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  rescue_from ActiveRecord::RecordNotFound, with: :render404
   include SessionsHelper
   include Pagy::Backend
 
@@ -12,5 +13,9 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+
+  def render404
+    render "errors/404", status: :not_found, layout: "404"
   end
 end

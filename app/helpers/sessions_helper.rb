@@ -18,4 +18,8 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
+
+  def user_signed_in?
+    !!current_user
+  end
 end
