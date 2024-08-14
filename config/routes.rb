@@ -60,5 +60,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  match "*unmatched", to: "errors#render404", via: :all
+
+  match "*unmatched", to: "errors#render404", constraints: lambda { |req| !req.path.starts_with?("/rails/active_storage/") }, via: :all
 end

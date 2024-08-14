@@ -1,0 +1,11 @@
+<li class="list-group-item author-item d-flex align-items-center justify-content-between px-3">
+  <div class="d-flex align-items-center">
+    <div>
+      <%= image_tag author_image(author), size: Settings.avatar.md, class: "img-circle" %>
+    </div>
+    <div class="author-name ml-3">
+      <%= link_to author.name, admin_author_path(author) %>
+    </div>
+  </div>
+  <%= render "admin/shared/action_buttons", resource: author %>
+</li>

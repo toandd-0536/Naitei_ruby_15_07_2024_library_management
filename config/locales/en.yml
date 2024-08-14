@@ -16,6 +16,11 @@ en:
       - "December"
   activerecord:
     attributes:
+      author:
+        intro: "Introduction"
+        bio: "Biography"
+        dob: "Date of Birth"
+        dod: "Date of Death"
       borrow_book:
         status:
           pending: "Pending"
@@ -24,6 +29,9 @@ en:
           returned: "Returned"
           overdue: "Overdue"
           lost: "Lost"
+    errors:
+      messages:
+        after_date_of_birth: "must be after the Date of Birth"
   admin:
     books:
       index:
@@ -93,6 +101,20 @@ en:
       edit:
         title: "Edit Publisher"
         submit_button: "Save changes"
+    authors:
+      index:
+        title: "Authors"
+      new:
+        title: "New Author"
+        submit_button: "Create Author"
+      edit:
+        title: "Edit Author"
+        submit_button: "Update Author"
+      show:
+        intro: "Introduction"
+        bio: "Biography"
+        dob: "Date of Birth"
+        dod: "Date of Death"
     borrow_books:
       borrow:
         title: "Borrow"
@@ -185,11 +207,19 @@ en:
       delete_fail: "Failed to delete user."
       not_found: "User not found."
     publishers:
-      created: "Publisher created successfully."
+      new: "Publisher created successfully."
       updated: "Publisher updated successfully."
       deleted: "Publisher deleted successfully."
       delete_fail: "Failed to delete publisher."
       not_found: "Publisher not found."
+    authors:
+      created: "Author created successfully."
+      create_fail: "Failed to create author."
+      updated: "Author updated successfully."
+      update_fail: "Failed to update author."
+      deleted: "Publisher deleted successfully."
+      delete_fail: "Failed to delete author."
+      not_found: "Author not found."
     borrow_books:
       confirmed: "Request confirmed successfully."
       status_fail: "Failed to change request status."

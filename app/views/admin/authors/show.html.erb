@@ -1,0 +1,30 @@
+<% provide :title, @author.name %>
+<div class="header d-flex align-items-center justify-content-between">
+  <%= render "admin/shared/breadcrumb", class: "d-flex align-items-center" %>
+  <%= render "admin/shared/action_buttons", resource: @author %>
+</div>
+<div class="row page-container mt-3">
+  <aside class="col-md-4 d-flex align-items-center justify-content-center">
+    <section class="user_info">
+      <div class="user-avatar">
+      <%= image_tag author_image(@author), size: Settings.avatar.xl, class: "img-circle" %>
+      </div>
+      <h1 class="user_name text-center"><%= @author.name %></h1>
+    </section>
+  </aside>
+  <div class="col-md-8 mx-auto details">
+    <ul class="list-unstyled">
+      <li><strong><%= t ".intro" %></strong> <%= @author.intro %></li>
+      <li class="d-flex">
+        <div class="flex-shrink-0">
+          <strong><%= t ".bio" %></strong>
+        </div>
+        <div class="flex-grow-1 ms-2">
+          <%= @author.bio %>
+        </div>
+      </li>
+      <li><strong><%= t ".dob" %></strong> <%= @author.dob %></li>
+      <li><strong><%= t ".dod" %></strong> <%= @author.dod %></li>
+    </ul>
+  </div>
+</div>
