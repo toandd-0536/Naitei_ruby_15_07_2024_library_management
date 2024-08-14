@@ -1,0 +1,11 @@
+<li class="list-group-item user-item d-flex align-items-center justify-content-between px-3">
+  <div class="d-flex align-items-center">
+    <div>
+      <%= image_tag "user.png", size: Settings.avatar.sm, class: "img-fluid rounded-circle" %>
+    </div>
+    <div class="user-name ml-3">
+      <%= link_to user.name, admin_user_path(user) %>
+    </div>
+  </div>
+  <%= render "admin/shared/action_buttons", resource: user %>
+</li>

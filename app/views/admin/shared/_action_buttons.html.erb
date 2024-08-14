@@ -1,0 +1,12 @@
+<div class="action-buttons">
+    <%= link_to object_edit_path(resource), class: "btn btn-primary" do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
+    <% if can_delete? resource %>
+      <%= link_to object_path(resource),
+                    data: { "turbo-method": :delete, turbo_confirm: t("message.you_sure?") },
+                    class: "btn btn-danger" do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
+    <% end %>
+</div>

@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  USER_PARAMS = [:name, :email, :dob, :phone, :lost_time,
+                :blacklisted, :activated].freeze
+  VALID_EMAIL_REGEX = Regexp.new(Settings.models.user.email.regex_valid)
+
   has_many :carts, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :episodes, through: :favorites, source: :favoritable,
@@ -13,11 +17,23 @@ class User < ApplicationRecord
 
   enum role: {admin: 0, user: 1}
 
-  has_secure_password
-
+  validates :name, presence: true,
+            length: {maximum: Settings.models.user.name.max_length}
+  validates :password, presence: true,
+            length: {minimum: Settings.models.user.password.min_length},
+            allow_nil: true
   validates :email, presence: true,
             length: {maximum: Settings.models.user.email.max_length},
-            format: {with: Settings.models.user.email.valid_email_regex}
-  validates :password, presence: true,
-            length: {maximum: Settings.models.user.password.max_length}
+            format: {with: VALID_EMAIL_REGEX},
+            uniqueness: {case_sensitive: false}
+
+  has_secure_password
+
+  before_save :downcase_email
+
+  private
+
+  def downcase_email
+    email.downcase!
+  end
 end

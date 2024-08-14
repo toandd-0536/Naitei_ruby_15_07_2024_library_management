@@ -1,0 +1,47 @@
+<%= form_for [:admin, @user] do |f| %>
+  <%= render "admin/shared/error_messages", object: @user %>
+
+  <div class="form-group">
+    <%= f.label :name, t(".name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, t(".email") %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :dob, t(".dob") %>
+    <div class="d-flex">
+      <%= f.date_select :dob,
+            start_year: 1900,
+            end_year: Date.today.year,
+            order: [:day, :month, :year],
+            class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone, t(".phone") %>
+    <%= f.telephone_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :lost_time, t(".lost_time") %>
+    <%= f.number_field :lost_time, class: "form-control" %>
+  </div>
+
+  <div class="form-group d-flex justify-content-between">
+    <span class="form-check d-flex">
+      <%= f.check_box :blacklisted, class: "form-check-input"  %>
+      <%= f.label :blacklisted, t(".blacklisted"), class: "form-check-label"  %>
+    </span>
+    <span class="form-check d-flex">
+      <%= f.check_box :activated, class: "form-check-input"  %>
+      <%= f.label :activated, t(".activated"), class: "form-check-label"  %>
+    </span>
+  </div>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

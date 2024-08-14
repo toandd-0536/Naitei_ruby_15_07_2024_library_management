@@ -4,6 +4,8 @@ class AdminController < ApplicationController
 
   layout "admin"
 
+  helper Admin::ApplicationHelper
+
   def logged_in_user
     return if logged_in?
 
