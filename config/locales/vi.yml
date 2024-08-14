@@ -41,7 +41,20 @@ vi:
         lost_time: "Số lần làm mất"
         blacklisted: "Cấm"
         activated: "Kích hoạt"
+    publishers:
+      index:
+        title: "Nhà xuất bản"
+      show:
+        title: "Chi tiết nhà xuất bản"
+      new:
+        title: "Nhà xuất bản mới"
+        submit_button: "Tạo"
+      edit:
+        title: "Chỉnh sửa nhà xuất bản"
+        submit_button: "Lưu thay đổi"
     shared:
+      add_new_button:
+        add_new: "Thêm Mới"
       error_messages:
         error: "lỗi"
         the_form_contains: "Form có"
@@ -66,10 +79,15 @@ vi:
   message:
     users:
       updated: "Cập nhật người dùng thành công."
-      update_fail: "Cập nhật người dùng thất bại."
       deleted: "Xóa người dùng thành công."
       delete_fail: "Xóa người dùng thất bại."
       not_found: "Không tìm thấy người dùng."
+    publishers:
+      created: "Tạo nhà xuất bản thành công."
+      updated: "Cập nhật nhà xuất bản thành công."
+      deleted: "Xóa nnhà xuất bản thành công."
+      delete_fail: "Xóa nhà xuất bản thất bại."
+      not_found: "Không tìm thấy nhà xuất bản."
     you_sure?: "Bạn có chắc chắn không?"
   views:
     shared:

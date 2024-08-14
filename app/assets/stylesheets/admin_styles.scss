@@ -44,6 +44,29 @@ a {
   font-weight: 900;
 }
 
+.details {
+  ul {
+    padding: 0;
+    list-style: none;
+    font-size: 1.1em;
+  }
+
+  li {
+    padding: 8px 0;
+    border-bottom: 1px solid $gray;
+
+    strong {
+      color: $black;
+      width: 150px;
+      display: inline-block;
+    }
+  }
+
+  li:last-child {
+    border-bottom: none;
+  }
+}
+
 /* user */
 aside {
   section.user_info {
@@ -83,29 +106,6 @@ aside {
       margin-bottom: 3px;
       margin-top: 0px;
     }
-  }
-}
-
-.user-details {
-  ul {
-    padding: 0;
-    list-style: none;
-    font-size: 1.1em;
-  }
-
-  li {
-    padding: 8px 0;
-    border-bottom: 1px solid $gray;
-
-    strong {
-      color: $black;
-      width: 150px;
-      display: inline-block;
-    }
-  }
-
-  li:last-child {
-    border-bottom: none;
   }
 }
 

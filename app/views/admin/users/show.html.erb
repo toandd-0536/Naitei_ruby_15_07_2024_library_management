@@ -12,7 +12,7 @@
       <h1 class="user-name text-center"><%= @user.name %></h1>
     </section>
   </aside>
-  <div class="col-md-8 user-details">
+  <div class="col-md-8 mx-auto details">
     <ul class="list-unstyled">
       <li><strong><%= t ".email" %></strong> <%= @user.email %></li>
       <li><strong><%= t ".date_of_birth" %></strong> <%= @user.dob %></li>
@@ -21,7 +21,7 @@
       <li><strong><%= t ".lost_time" %></strong> <%= @user.lost_time %></li>
       <li><strong><%= t ".blacklisted" %></strong> <%= @user.blacklisted ? t(".true") : t(".false") %> </li>
       <li><strong><%= t ".activated" %></strong> <%= @user.activated ? t(".true") : t(".false") %></li>
-      <li><strong><%= t ".joined" %></strong> <%= @user.created_at.strftime("%Y-%m-%d") %></li>
+      <li><strong><%= t ".joined" %></strong> <%= @user.created_at.strftime(Settings.date_format) %></li>
     </ul>
   </div>
 </div>

@@ -11,6 +11,14 @@ models:
     password:
       min_length: 8
       max_length: 32
+  publisher:
+    name:
+      max_length: 50
+  author:
+    name:
+      max_length: 50
+    intro:
+      max_length: 550
 page: 10
 avatar:
   lg: 120

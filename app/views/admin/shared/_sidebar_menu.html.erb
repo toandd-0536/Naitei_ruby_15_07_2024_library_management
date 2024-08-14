@@ -16,7 +16,7 @@
 <div class="sidebar-heading"><%= t(".management") %></div>
 
 <!-- Nav Items -->
-<li class="nav-item <%= "active" if request.path.include?(admin_users_path) %>">
+<li class="nav-item <%= "active" if active_nav_item?("users") %>">
   <%= link_to admin_users_path, class: "nav-link" do %>
     <i class="fas fa-fw fa-users"></i>
     <span><%= t ".users" %></span>
@@ -37,8 +37,8 @@
   <% end %>
 </li>
 
-<li class="nav-item <%= "active" if request.path.include?("#") %>">
-  <%= link_to "#", class: "nav-link" do %>
+<li class="nav-item <%= "active" if active_nav_item?("publishers") %>">
+  <%= link_to admin_publishers_path, class: "nav-link" do %>
     <i class="fas fa-fw fa-building"></i>
     <span><%= t ".publishers" %></span>
   <% end %>
