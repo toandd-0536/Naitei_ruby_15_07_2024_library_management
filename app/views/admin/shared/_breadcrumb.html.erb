@@ -1,0 +1,15 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-auto">
+    <li class="breadcrumb-item"><%= link_to t(".home"), root_path %></li>
+
+    <% if @breadcrumb_items.present? %>
+      <% @breadcrumb_items.each do |item| %>
+        <% if item[:url] %>
+          <li class="breadcrumb-item"><%= link_to item[:name], item[:url] %></li>
+        <% else %>
+          <li class="breadcrumb-item active" aria-current="page"><%= item[:name] %></li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ol>
+</nav>

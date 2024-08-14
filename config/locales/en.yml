@@ -70,6 +70,7 @@ en:
       deleted: "User deleted successfully."
       delete_fail: "Failed to delete user."
       not_found: "User not found."
+    you_sure?: "Are you sure?"
   views:
     shared:
       toast_error:
