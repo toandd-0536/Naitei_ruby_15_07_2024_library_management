@@ -43,5 +43,7 @@
     </span>
   </div>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <div class="form-group text-end">
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  </div>
 <% end %>

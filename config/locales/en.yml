@@ -41,7 +41,20 @@ en:
         lost_time: "Lost Time"
         blacklisted: "Blacklisted"
         activated: "Activated"
+    publishers:
+      index:
+        title: "Publishers"
+      show:
+        title: "Publisher Details"
+      new:
+        title: "New Publisher"
+        submit_button: "Create"
+      edit:
+        title: "Edit Publisher"
+        submit_button: "Save changes"
     shared:
+      add_new_button:
+        add_new: "Add New"
       error_messages:
         error: "error"
         the_form_contains: "The form contains"
@@ -66,10 +79,15 @@ en:
   message:
     users:
       updated: "User updated successfully."
-      update_fail: "Failed to update user."
       deleted: "User deleted successfully."
       delete_fail: "Failed to delete user."
       not_found: "User not found."
+    publishers:
+      created: "Publisher created successfully."
+      updated: "Publisher updated successfully."
+      deleted: "Publisher deleted successfully."
+      delete_fail: "Failed to delete publisher."
+      not_found: "Publisher not found."
     you_sure?: "Are you sure?"
   views:
     shared:

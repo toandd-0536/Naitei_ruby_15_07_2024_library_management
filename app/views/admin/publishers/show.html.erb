@@ -1,0 +1,13 @@
+<% provide :title, @publisher.name %>
+<div class="header d-flex align-items-center justify-content-between">
+  <%= render "admin/shared/breadcrumb", class: "d-flex align-items-center" %>
+  <%= render "admin/shared/action_buttons", resource: @publisher %>
+</div>
+<div class="row page-container mt-3">
+  <div class="col-md-8 mx-auto details">
+    <ul class="list-unstyled">
+      <li><strong><%= t ".name" %></strong> <%= @publisher.name %></li>
+      <li><strong><%= t ".created_at" %></strong> <%= @publisher.created_at.strftime(Settings.date_format) %></li>
+    </ul>
+  </div>
+</div>
