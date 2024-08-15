@@ -1,17 +1,25 @@
 <% provide :link_page do %>
   <%= @book.name %> > <%= @episode.name %>
 <% end %>
+
 <% if flash.any? %>
   <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1000">
-    <% flash.each do |key, message| %>
+    <% flash.each do |key, messages| %>
       <% if key == "success" %>
-        <%= render "shared/toast_success", msg: message %> 
+        <%= render "shared/toast_success", msg: messages %> 
       <% elsif key == "error" %>
-        <%= render "shared/toast_error", msg: message %>     
+        <% if messages.is_a?(Array) %>
+          <% messages.each do |message| %>
+            <%= render "shared/toast_error", msg: message %>
+          <% end %>
+        <% else %>
+          <%= render "shared/toast_error", msg: messages %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
 <% end %>
+
 <%= render "shared/client_page_heading" %>
 
 <div class="single-product section">
@@ -29,7 +37,7 @@
           <%= t "views.episodes.show.count_unit" %>
         </span>
         <p><%= @episode.intro %></p>
-        <%= form_with url: "#", 
+        <%= form_with url: add_to_cart_book_episode_path(@book, @episode), 
                       data: { turbo: false },
                       local: true, html: { id: "qty" } do |f| %>
           <%= f.text_field :qty, class:"form-control", value: "1", disabled: true %>

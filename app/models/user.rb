@@ -31,9 +31,56 @@ class User < ApplicationRecord
 
   before_save :downcase_email
 
+  def currently_borrowing_episodes_count
+    borrowing_episodes_count = BorrowBook.by_user(id).active.count
+    cart_episodes_count = carts.count
+    borrowing_episodes_count + cart_episodes_count
+  end
+
+  def can_borrow_episode? episode
+    errors.clear
+    validate_activation
+    validate_blacklist
+    validate_episode_in_cart episode
+    validate_episode_quantity episode
+    validate_borrowing_limit
+
+    errors.empty?
+  end
+
   private
 
   def downcase_email
     email.downcase!
+  end
+
+  def validate_activation
+    return if activated
+
+    errors.add :base, I18n.t("controllers.episodes.error_active")
+  end
+
+  def validate_blacklist
+    return unless blacklisted
+
+    errors.add :base, I18n.t("controllers.episodes.error_blacklist")
+  end
+
+  def validate_episode_in_cart episode
+    return unless carts.exists? episode: episode
+
+    errors.add :base, I18n.t("controllers.episodes.error_exists")
+  end
+
+  def validate_episode_quantity episode
+    return if episode.qty >= 1
+
+    errors.add :base, I18n.t("controllers.episodes.error_qty")
+  end
+
+  def validate_borrowing_limit
+    return if currently_borrowing_episodes_count < Settings.max_book
+
+    errors.add :base, I18n.t("controllers.episodes.error_max")
   end
 end
