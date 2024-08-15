@@ -90,16 +90,161 @@ vi:
       not_found: "Không tìm thấy nhà xuất bản."
     you_sure?: "Bạn có chắc chắn không?"
   views:
+    borrow_cards:
+      index:
+        title: "Hồ sơ cá nhân > Đơn sách"
+        order: "Đơn sách"
+    authors:
+      show:
+        title: "Tác giả"
+        birth: "Năm sinh"
+        die: "Năm mất"
+        number: "Số lượng tác phẩm"
+        work: "Tác phẩm"
+        feature: "Tác phẩm nổi bật" 
+    home:
+      search_place: "Nhập từ khóa..."
+      no_results: "Không tìm thấy cuốn sách tương ứng"
+      btn_view_all: "Xem tất cả"
+      welcome: "Chào mừng tới Bibliosphere Library"
+      best: "THƯ VIỆN TỐT NHẤT TỪ TRƯỚC ĐẾN NAY!"
+      header_title: "Thư viện Bibliosphere là thư viện số lớn nhất tại Việt Nam.
+                     Nơi bạn có thể đắm mình vào kiến thức với hơn 10.000 đầu sách các loại.
+                     Hãy để cuốn sách nói lên tâm hồn bạn."
+      btn_search: "Tìm Kiếm"
+      borrow_free: "Miễn Phí"
+      friendly: "Thân Thiện"
+      reply: "Sẵn Sàng"
+      layout: "Thuận Tiện"
+      trend: "Xu hướng"
+      trend_book: "Sách Thịnh Hành"
+      top: "SÁCH HÀNG ĐẦU"
+      most: "Đọc Nhiều Nhất"
+      cat: "Danh Mục"
+      top_cat: "Danh Mục Hàng Đầu"
+      thumb_11: "Thư viện chúng tôi"
+      thumb_121: "Mang lại"
+      thumb_122: "những cuốn sách tốt nhất"
+      thumb_123: "tới bạn!"
+      thumb_13: "Hãy tham quan kho tàng thư viện của chúng tôi 
+                 để tìm những cuốn sách thuộc về tâm hồn bạn."
+      btn_now: "Thuê Ngay"
+      thumb_21: "LETTER"
+      thumb_221: "Gửi góp ý và nhận ngay những"
+      thumb_222: "Phần quà"
+      btn_send: "Gửi Ngay"
+      place: "Email của bạn..."
+    not_found: 
+      title: "Ồ! Không tìm thấy trang"
+      content: "Rất tiếc nhưng trang bạn đang tìm kiếm không tồn tại, đã bị xóa,
+                tên đã thay đổi hoặc tạm thời không khả dụng."
+      btn_back: "Quay lại trang chủ"
+    welcome_mail:
+      pre_header: "Đây là văn bản tiêu đề. Một số khách hàng sẽ hiển thị văn bản này dưới dạng bản xem trước."
+      hi: "Chào"
+      notice: "Tài khoản của bạn đã được tạo thành công. Dưới đây là thông tin đăng nhập của bạn:"
+      pass: "Mật khẩu:"
+      login_link: "Bạn có thể đăng nhập bằng cách nhấp vào liên kết dưới đây:"
+      btn_login: "Đăng nhập"
+      thanks: "Cảm ơn bạn đã tham gia trải nghiệm thư viện của chúng tôi"
+      wish_you: "Chúc bạn một ngày tốt lành"
+      company: "Company Inc, 7-11 Commercial Ct, Belfast BT1 2NB"
+      powered: "Được cung cấp bởi"
+    users:
+      btn_update: "Cập nhật"
+      btn_logout: "Đăng xuất"
+      show:
+        title: "Hồ sơ cá nhân"
+        modal_title: "Yêu cầu xác nhận"
+        modal_logout_body: "Bạn có muốn đăng xuất khỏi hệ thống?"
+        btn_close: "Đóng"
+    carts:
+      index:
+        link_page: "Giỏ sách"
+        title: "Đặt mượn sách trong giỏ"
+        btn_borrow_all: "Đặt mượn tất cả"
+        btn_delete_all: "Xóa toàn bộ giỏ sách"
+        modal_title: "Yêu cầu xác nhận"
+        modal_delete_all_body: "Bạn có muốn xóa tất cả cuốn sách trong giỏ hàng?"
+        modal_delete_all_btn: "Xóa tất cả"
+        modal_delete_body: "Bạn có muốn xóa cuốn sách này không?"
+        modal_delete_btn: "Xóa"
+        btn_close: "Đóng"
+    layouts:
+      header:
+        home: "Trang chủ"
+        shop: "Thư viện"
+        contact: "Liên hệ"
+        cart: "Giỏ sách"
+        login: "Đăng nhập"
+        menu: "Menu"
+      footer:
+        content: "Copyright © 2048 Bibliosphere Library. All rights reserved. &nbsp;&nbsp; "
+    episodes:
+      all:
+        link_page: "Thư viện"
+        cat: "Danh mục"
+        publisher: "Nhà xuất bản"
+        author: "Tác giả"
+        book: "Tuyển tập"
+        btn_filter: "Lọc kết quả"
+      show:
+        count_unit: "cuốn"
+        btn_add: "THÊM VÀO GIỎ SÁCH"
+        author: "Tác giả"
+        episodes: "Số tập"
+        cat: "Danh mục"
+        description: "Mô tả"
+        reviews: "Đánh giá"
+        more: "Thêm"
+        related: "Những cuốn sách liên quan"
+        all: "Tất cả"
     shared:
-      toast_error:
+      profile_action:
+        profile: "Thông tin cá nhân"
+        favorite: "Yêu thích"
+        order: "Lịch sử đơn sách" 
+      client_page:
+        app_name: "Bibliosphere Library"
+        home: "Trang chủ"
+      toast:
         error: "Có lỗi xảy ra"
-    sessions:
+        success: "Thành công"
+    sessions: 
       new:
         title_login: "Đăng nhập"
         title_register: "Đăng ký"
         label_email: "Email"
+        label_phone: "Số điện thoại"
+        label_address: "Địa chỉ"
         label_password: "Mật khẩu"
+        label_name: "Họ và tên"
         btn_login: "Đăng nhập"
+        btn_register: "Đăng ký"
   controllers:
+    users:
+      check_not_signed_in: "Bạn cần đăng nhập để sử dụng chức năng này"
+      update_success: "Cập nhật thông tin thành công"
+      update_error: "Cập nhật thông tin thất bại"
+      success: "Đăng ký thành công! Mật khẩu đã được gửi đến email của bạn."
+      register_error: "Có lỗi xảy ra khi đăng ký tài khoản. Vui lòng thử lại"
+    carts:
+      empty_error: "Giỏ sách của bạn trống!"
+      checkout_success: "Đặt đơn sách thành công"
+      checkout_error: "Đặt đơn sách thất bại"
+      delete_success: "Xóa cuốn sách khỏi giỏ thành công"
+      delete_error: "Không thể xóa cuốn sách khỏi giỏ"
+      delete_all_success: "Xóa toàn bộ giỏ sách thành công"
+      delete_all_error: "Không thể xóa toàn bộ giỏ sách"
+    episodes:
+      success: "Sách đã được thêm vào giỏ"
+      error_blacklist: "Bạn đang trong danh sách đen của thư viện"
+      error_active: "Bạn hiện tại đã bị ban và không thế thực hiện thao tác này"
+      error_exists: "Cuốn sách đã có trong giỏ sách của bạn"
+      error_qty: "Số lượng sách hiện tại không đủ"
+      error_save: "Không thể thêm cuốn sách trên vào giỏ sách!"
+      error_login: "Bạn cần đăng nhập để sử dụng chức năng này"
+      error_max: "Bạn chỉ được mượn tối đa 10 cuốn sách"
     sessions:
+      logout_success: "Bạn đã đăng xuất thành công"
       error_login: "Email hoặc mật khẩu không chính xác"

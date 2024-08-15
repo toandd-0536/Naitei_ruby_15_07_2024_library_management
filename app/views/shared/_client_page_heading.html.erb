@@ -1,0 +1,15 @@
+<div class="page-heading header-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3><%= t "views.shared.client_page.app_name" %></h3>
+        <span class="breadcrumb">
+          <%= link_to root_path do %>
+            <%= t "views.shared.client_page.home" %>
+          <% end %>
+          > <%= yield(:link_page) %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,5 +8,11 @@ Rails.application.routes.draw do
       resources :users
       resources :publishers
     end
+
+    resources :books do
+      resources :episodes
+    end
   end
+
+  match "*unmatched", to: "errors#render404", via: :all
 end

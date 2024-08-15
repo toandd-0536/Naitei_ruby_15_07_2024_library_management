@@ -1,3 +1,5 @@
+max_book: 10
+default_email: "bibliosphere_library@gmail.com"
 controllers:
   sessions:
     layout: "login_layout"
