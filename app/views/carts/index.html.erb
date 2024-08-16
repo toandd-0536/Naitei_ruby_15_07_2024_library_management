@@ -1,0 +1,43 @@
+<% provide :link_page do %>
+  <%= t "views.carts.index.link_page" %>
+<% end %>
+
+<% if flash.any? %>
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1000">
+    <% flash.each do |key, message| %>
+      <% if key == "success" %>
+        <%= render "shared/toast_success", msg: message %> 
+      <% elsif key == "error" %>
+        <%= render "shared/toast_error", msg: message %>     
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render "modal_delete_all" %>
+<%= render "shared/client_page_heading" %>
+
+<div id="cart">
+  <div class="container">
+    <div id="cart-content" class="row">
+      <div class="col-md-8 trending">
+        <div class="row">
+          <%= render partial: "cart", collection: @carts %>
+        </div>
+      </div>
+      <div class="col-md-4" id="cart-pay">
+        <div class="row px-3">
+          <h3><%= t "views.carts.index.title" %></h3>
+          <%= link_to "#", 
+            class: "col-md-12 btn btn-primary py-3" do %>
+            <%= t "views.carts.index.btn_borrow_all" %>
+          <% end %>
+          <a href="#" class="col-md-12 btn btn-danger py-3"
+             data-bs-toggle="modal" data-bs-target="#modalDeleteAll">
+            <%= t "views.carts.index.btn_delete_all" %>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

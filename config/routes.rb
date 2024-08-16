@@ -14,6 +14,12 @@ Rails.application.routes.draw do
         post "add_to_cart", on: :member
       end
     end
+
+    resources :carts do
+      collection do
+        delete "delete_all"
+      end
+    end
   end
 
   match "*unmatched", to: "errors#render404", via: :all
