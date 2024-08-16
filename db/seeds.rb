@@ -147,3 +147,26 @@ end
     thumb: Faker::LoremFlickr.image(size: "300x300", search_terms: ["book"])
   )
 end
+
+users = User.limit(10)
+borrow_cards = users.map do |user|
+  BorrowCard.create!(
+    user: user,
+    start_time: Faker::Date.backward(days: 30)
+  )
+end
+
+# Seed BorrowBooks
+borrow_cards.each do |borrow_card|
+  rand(1..5).times do
+    episode = Episode.order("RAND()").first
+    status = BorrowBook.statuses.keys.sample
+
+    BorrowBook.create!(
+      borrow_card: borrow_card,
+      episode: episode,
+      status: status,
+      reason: status == "cancel" ? Faker::Lorem.sentence : nil
+    )
+  end
+end

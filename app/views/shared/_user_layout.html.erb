@@ -6,17 +6,17 @@
     <div class="form-right">
       <div class="tab">
         <div class="tab-inner">
-          <%= link_to t("views.sessions.new.title_login"), login_path, 
-            class: "tablinks btn-login 
-                    #{'active' if content_for?(:status) && content_for(:status) == "login"}" %>
+          <%= link_to t("views.sessions.new.title_login"), login_path,
+            class: "tablinks btn-login
+                    #{"active" if content_for?(:status) && content_for(:status) == "login"}" %>
         </div>
         <div class="tab-inner">
-          <%= link_to t("views.sessions.new.title_register"), "#", 
+          <%= link_to t("views.sessions.new.title_register"), "#",
             class: "tablinks btn-register
-                    #{'active' if content_for?(:status) && content_for(:status) == "register"}" %>
+                    #{"active" if content_for?(:status) && content_for(:status) == "register"}" %>
         </div>
       </div>
-      <%= yield %> 
+      <%= yield %>
     </div>
   </div>
 </div>
