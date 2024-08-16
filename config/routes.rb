@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     end
 
     resources :books do
-      resources :episodes
+      resources :episodes do
+        post "add_to_cart", on: :member
+      end
     end
   end
 

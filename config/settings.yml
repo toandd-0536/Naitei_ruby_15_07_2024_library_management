@@ -1,4 +1,5 @@
 max_book: 10
+add_book_not_status: 5
 default_email: "bibliosphere_library@gmail.com"
 controllers:
   sessions:

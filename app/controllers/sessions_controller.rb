@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to root_path
     else
-      @user.valid?
       @user.errors.add :base, t("controllers.sessions.error_login")
       render :new, status: :unprocessable_entity
     end
