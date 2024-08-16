@@ -14,6 +14,16 @@ vi:
       - "Tháng 10"
       - "Tháng 11"
       - "Tháng 12"
+  activerecord:
+    attributes:
+      borrow_book:
+        status:
+          pending: "Đang chờ"
+          cancel: "Hủy"
+          confirm: "Xác nhận"
+          returned: "Đã trả"
+          overdue: "Quá hạn"
+          lost: "Mất"
   admin:
     users:
       index:
@@ -57,6 +67,7 @@ vi:
         title: "Mượn sách"
       return:
         title: "Trả sách"
+        refresh: "Cập nhật"
       history:
         title: "Lịch sử"
       show:
@@ -68,6 +79,10 @@ vi:
         start_time: "Thời gian bắt đầu"
         due_date: "Hạn trả"
         created_at: "Ngày tạo"
+      reject_modal:
+        reject_reason: "Lý do từ chối"
+        cancel: "Huỷ"
+        submit_button: "Xác nhận"
     shared:
       add_new_button:
         add_new: "Thêm Mới"
@@ -96,6 +111,27 @@ vi:
         profile: "Hồ sơ"
         settings: "Cài đặt"
         logout: "Đăng xuất"
+  borrow_book_mailer:
+    status_change:
+      subject:
+        confirm: "Yêu cầu của bạn đã được xác nhận"
+        cancel: "Yêu cầu của bạn đã bị từ chối"
+        overdue: "Tài khoản của bạn đã bị vô hiệu hóa"
+        returned: "Sách đã được trả lại thư viện"
+        lost: "Tài khoản của bạn đã bị vô hiệu hóa"
+      greeting: "Xin chào %{user_name},"
+      book_update: "Trạng thái yêu cầu của bạn về cuốn sách \"%{book_name}\" đã được cập nhật."
+      status: "Trạng thái: "
+      episode: "Tập: "
+      reason: "Lý do từ chối: "
+      due_date: "Hạn trả: "
+      confirmed: "Yêu cầu của bạn đã được xác nhận."
+      cancelled: "Yêu cầu của bạn đã bị từ chối."
+      overdue_inactivated: "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng trả sách để kích hoạt lại tài khoản của bạn."
+      returned_books: "Sách đã được trả lại. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!"
+      overdue_returned_books: "Sách đã được trả lại và tài khoản của bạn đã được kích hoạt lại. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!"
+      lost_inactivated: "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng thanh toán phí bồi thường (%{compensation_fee}) để kích hoạt lại tài khoản của bạn."
+      thank_you: "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi."
   message:
     users:
       updated: "Cập nhật người dùng thành công."
@@ -108,6 +144,14 @@ vi:
       deleted: "Xóa nnhà xuất bản thành công."
       delete_fail: "Xóa nhà xuất bản thất bại."
       not_found: "Không tìm thấy nhà xuất bản."
+    borrow_books:
+      confirmed: "Xác nhận yêu cầu thành công."
+      status_fail: "Không thể thay đổi trạng thái yêu cầu."
+      not_found: "Không tìm thấy yêu cầu."
+      canceled: "Hủy yêu cầu."
+      returned: "Đã trả sách."
+      lost: "Đánh dấu sách bị mất."
+      refresh_success: "Cập nhật trạng thái yêu cầu thành công."
     you_sure?: "Bạn có chắc chắn không?"
   views:
     borrow_cards:
@@ -121,7 +165,7 @@ vi:
         die: "Năm mất"
         number: "Số lượng tác phẩm"
         work: "Tác phẩm"
-        feature: "Tác phẩm nổi bật" 
+        feature: "Tác phẩm nổi bật"
     home:
       search_place: "Nhập từ khóa..."
       no_results: "Không tìm thấy cuốn sách tương ứng"
@@ -146,7 +190,7 @@ vi:
       thumb_121: "Mang lại"
       thumb_122: "những cuốn sách tốt nhất"
       thumb_123: "tới bạn!"
-      thumb_13: "Hãy tham quan kho tàng thư viện của chúng tôi 
+      thumb_13: "Hãy tham quan kho tàng thư viện của chúng tôi
                  để tìm những cuốn sách thuộc về tâm hồn bạn."
       btn_now: "Thuê Ngay"
       thumb_21: "LETTER"
@@ -154,7 +198,7 @@ vi:
       thumb_222: "Phần quà"
       btn_send: "Gửi Ngay"
       place: "Email của bạn..."
-    not_found: 
+    not_found:
       title: "Ồ! Không tìm thấy trang"
       content: "Rất tiếc nhưng trang bạn đang tìm kiếm không tồn tại, đã bị xóa,
                 tên đã thay đổi hoặc tạm thời không khả dụng."
@@ -223,14 +267,14 @@ vi:
       profile_action:
         profile: "Thông tin cá nhân"
         favorite: "Yêu thích"
-        order: "Lịch sử đơn sách" 
+        order: "Lịch sử đơn sách"
       client_page:
         app_name: "Bibliosphere Library"
         home: "Trang chủ"
       toast:
         error: "Có lỗi xảy ra"
         success: "Thành công"
-    sessions: 
+    sessions:
       new:
         title_login: "Đăng nhập"
         title_register: "Đăng ký"

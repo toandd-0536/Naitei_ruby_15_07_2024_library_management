@@ -3,6 +3,10 @@
 <div class="admin-return-requests-page">
   <div class="header d-flex align-items-center justify-content-between">
     <h1 class="page-title"><%= t ".title" %></h1>
+    <%= link_to refresh_admin_borrow_books_path, data: { turbo_method: :post }, class: "btn btn-primary" do %>
+      <i class="fas fa-arrows-rotate me-2"></i>
+      <%= t ".refresh" %>
+    <% end %>
   </div>
 
   <div class="card">

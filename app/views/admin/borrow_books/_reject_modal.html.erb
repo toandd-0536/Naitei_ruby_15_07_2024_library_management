@@ -1,0 +1,21 @@
+<div class="modal fade" id="rejectModal-<%= borrow_book.id %>" tabindex="-1" aria-labelledby="rejectModalLabel-<%= borrow_book.id %>" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rejectModalLabel-<%= borrow_book.id %>"><%= t ".reject_reason" %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(model: [:admin, borrow_book], url: cancel_admin_borrow_book_path(borrow_book), data: { turbo_method: :patch }, local: true) do |f| %>
+          <div class="mb-3">
+            <%= f.text_area :reason, class: "form-control" %>
+          </div>
+          <div class="modal-footer d-flex align-items-center justify-content-end">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= t ".cancel" %></button>
+            <%= f.submit t(".submit_button"), class: "btn btn-danger" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

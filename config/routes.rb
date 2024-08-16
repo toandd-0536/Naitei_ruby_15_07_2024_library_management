@@ -13,6 +13,13 @@ Rails.application.routes.draw do
           get "borrow"
           get "return"
           get "history"
+          post "refresh"
+        end
+        member do
+          patch "confirm"
+          patch "cancel"
+          patch "returned"
+          patch "lost"
         end
       end
     end
