@@ -268,3 +268,8 @@ vi:
     sessions:
       logout_success: "Bạn đã đăng xuất thành công"
       error_login: "Email hoặc mật khẩu không chính xác"
+  mailer:
+    order_mailer:
+      subject: "Cảm ơn vì đã đặt sách tại Bibliosphere Library"
+    user_mailer:
+      subject: "Chào mừng đến với Bibliosphere Library"

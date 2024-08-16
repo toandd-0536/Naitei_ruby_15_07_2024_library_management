@@ -267,3 +267,8 @@ en:
     sessions:
       logout_success: "You are now logged out"
       error_login: "Incorrect email or password"
+  mailer:
+    order_mailer:
+      subject: "Thank you for ordering books from Bibliosphere Library."
+    user_mailer:
+      subject: "Welcome to Bibliosphere Library"

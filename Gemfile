@@ -28,6 +28,7 @@ gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
 
 group :development, :test do
   gem "debug", platforms: %i(mri mingw x64_mingw)
+  gem "dotenv-rails"
   gem "rspec-rails", "~> 4.0.1"
   gem "rubocop", "~> 1.26", require: false
   gem "rubocop-checkstyle_formatter", require: false

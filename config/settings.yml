@@ -1,6 +1,10 @@
 max_book: 10
 add_book_not_status: 5
 default_email: "bibliosphere_library@gmail.com"
+email: "library@gmail.com"
+phone: "+(84) 911-577-985"
+default_status: 0
+cart_item_default_status: 1 
 controllers:
   sessions:
     layout: "login_layout"
