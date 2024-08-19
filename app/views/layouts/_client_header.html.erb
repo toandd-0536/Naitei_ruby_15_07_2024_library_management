@@ -29,7 +29,7 @@
             </li>
             <% if user_signed_in? %>
               <li>
-                <%= link_to current_user.name, "#" %>
+                <%= link_to current_user.name, borrow_cards_path %>
               </li>
             <% else %>
               <li>

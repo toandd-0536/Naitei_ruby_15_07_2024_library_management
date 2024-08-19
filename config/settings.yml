@@ -4,7 +4,8 @@ default_email: "bibliosphere_library@gmail.com"
 email: "library@gmail.com"
 phone: "+(84) 911-577-985"
 default_status: 0
-cart_item_default_status: 1 
+cart_item_default_status: 0 
+card_time_setting: "%H:%M:%S %d/%m/%Y"
 controllers:
   sessions:
     layout: "login_layout"

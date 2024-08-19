@@ -108,13 +108,27 @@ en:
       delete_fail: "Failed to delete publisher."
       not_found: "Publisher not found."
     you_sure?: "Are you sure?"
+  mailer:
+    order_mailer:
+      subject: "Thank you for ordering books from Bibliosphere Library."
+    user_mailer:
+      subject: "Welcome to Bibliosphere Library"
   views:
+    favorites:
+      index:
+        title: "Favorite"
+        episode: "Favorite Books"
+        author: "Favorite Authors"
     borrow_cards:
       index:
+        btn_delete: "Delete"
         title: "Profile > Book Order"
         order: "Book Order"
+        modal_delete_body: "Do you want to delete this book order?"
     authors:
       show:
+        btn_follow: "Follow"
+        btn_unfollow: "Unfollow"
         title: "Author"
         birth: "Year of birth"
         die: "Year of death"
@@ -241,6 +255,13 @@ en:
         btn_login: "Login"
         btn_register: "Register"
   controllers:
+    favorites:
+      follow_success: "Follow up success"
+      follow_error: "You are already following"
+      cancel_success: "Unfollow successful"
+    borrow_cards:
+      error: "This order cannot be deleted."
+      success: "Order deleted successfully"
     users:
       check_not_signed_in: "You need to login to use this function"
       update_success: "Information updated successfully"
@@ -267,8 +288,3 @@ en:
     sessions:
       logout_success: "You are now logged out"
       error_login: "Incorrect email or password"
-  mailer:
-    order_mailer:
-      subject: "Thank you for ordering books from Bibliosphere Library."
-    user_mailer:
-      subject: "Welcome to Bibliosphere Library"

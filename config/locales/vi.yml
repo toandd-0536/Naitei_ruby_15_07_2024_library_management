@@ -109,13 +109,27 @@ vi:
       delete_fail: "Xóa nhà xuất bản thất bại."
       not_found: "Không tìm thấy nhà xuất bản."
     you_sure?: "Bạn có chắc chắn không?"
+  mailer:
+    order_mailer:
+      subject: "Cảm ơn vì đã đặt sách tại Bibliosphere Library"
+    user_mailer:
+      subject: "Chào mừng đến với Bibliosphere Library"
   views:
+    favorites:
+      index:
+        title: "Yêu thích"
+        episode: "Các cuốn sách yêu thích"
+        author: "Các tác giả yêu thích"
     borrow_cards:
       index:
+        btn_delete: "Xóa"
         title: "Hồ sơ cá nhân > Đơn sách"
         order: "Đơn sách"
+        modal_delete_body: "Bạn có muốn xóa đơn sách này?"
     authors:
       show:
+        btn_follow: "Theo dõi"
+        btn_unfollow: "Bỏ theo dõi"
         title: "Tác giả"
         birth: "Năm sinh"
         die: "Năm mất"
@@ -242,6 +256,13 @@ vi:
         btn_login: "Đăng nhập"
         btn_register: "Đăng ký"
   controllers:
+    favorites:
+      follow_success: "Theo dõi thành công"
+      follow_error: "Bạn đã theo dõi rồi"
+      cancel_success: "Hủy theo dõi thành công"
+    borrow_cards:
+      error: "Không thể xóa đơn sách này"
+      success: "Xóa đơn sách thành công"
     users:
       check_not_signed_in: "Bạn cần đăng nhập để sử dụng chức năng này"
       update_success: "Cập nhật thông tin thành công"
@@ -268,8 +289,3 @@ vi:
     sessions:
       logout_success: "Bạn đã đăng xuất thành công"
       error_login: "Email hoặc mật khẩu không chính xác"
-  mailer:
-    order_mailer:
-      subject: "Cảm ơn vì đã đặt sách tại Bibliosphere Library"
-    user_mailer:
-      subject: "Chào mừng đến với Bibliosphere Library"
