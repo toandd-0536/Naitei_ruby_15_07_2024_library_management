@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "my_review" do %>
+  <%= render partial: "ratings/form", locals: { episode: @episode } %>
+<% end %>

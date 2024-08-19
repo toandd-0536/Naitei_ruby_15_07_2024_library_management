@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "ratings_form" do %>
+  <%= render partial: "ratings/my_review", locals: { rating: @episode.ratings.find_by(user: current_user) } %>
+<% end %>

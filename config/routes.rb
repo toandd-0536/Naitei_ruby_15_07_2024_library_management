@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
-    root "home#index"
-    get "/search_ajax", to: "home#search_ajax"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-
     namespace :admin do
       resources :users
       resources :publishers
@@ -25,10 +20,19 @@ Rails.application.routes.draw do
       end
     end
 
+    root "home#index"
+    get "/search_ajax", to: "home#search_ajax"
+    get "/login", to: "sessions#new"
+    post "/login", to: "sessions#create"
+
     resources :books do
       resources :episodes do
         post "add_to_cart", on: :member
       end
+    end
+
+    resources :episodes do
+      resources :ratings
     end
 
     resources :carts do
@@ -43,6 +47,5 @@ Rails.application.routes.draw do
     end
 
   end
-
   match "*unmatched", to: "errors#render404", via: :all
 end

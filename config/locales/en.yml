@@ -151,6 +151,14 @@ en:
       returned: "Book returned."
       lost: "Book marked as lost."
       refresh_success: "Request statuses refreshed successfully."
+    ratings:
+      created: "Rating created successfully."
+      create_fail: "Failed to create rating."
+      deleted: "Rating deleted successfully."
+      delete_fail: "Failed to delete rating."
+      not_found: "Rating not found."
+    episodes:
+      not_found: "Book not found."
     you_sure?: "Are you sure?"
   mailer:
     order_mailer:
@@ -273,9 +281,11 @@ en:
         cat: "Category"
         description: "Description"
         reviews: "Review"
+        my_review: "My Review"
         more: "More"
         related: "Related books"
         all: "View All"
+        submit_button: "Submit"
     shared:
       profile_action:
         profile: "Profile"

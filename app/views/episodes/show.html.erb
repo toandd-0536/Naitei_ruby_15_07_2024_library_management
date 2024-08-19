@@ -1,12 +1,13 @@
 <% provide :link_page do %>
   <%= @book.name %> > <%= @episode.name %>
 <% end %>
+<% provide :button_text, t("views.episodes.show.submit_button") %>
 
 <% if flash.any? %>
   <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1000">
     <% flash.each do |key, messages| %>
       <% if key == "success" %>
-        <%= render "shared/toast_success", msg: messages %> 
+        <%= render "shared/toast_success", msg: messages %>
       <% elsif key == "error" %>
         <% if messages.is_a?(Array) %>
           <% messages.each do |message| %>
@@ -33,28 +34,28 @@
       <div class="col-lg-6 align-self-center">
         <h4><%= @episode.name %></h4>
         <span class="price">
-          <%= @episode.qty %>  
+          <%= @episode.qty %>
           <%= t "views.episodes.show.count_unit" %>
         </span>
         <p><%= @episode.intro %></p>
-        <%= form_with url: add_to_cart_book_episode_path(@book, @episode), 
+        <%= form_with url: add_to_cart_book_episode_path(@book, @episode),
                       data: { turbo: false },
                       local: true, html: { id: "qty" } do |f| %>
           <%= f.text_field :qty, class:"form-control", value: "1", disabled: true %>
           <%= f.button do %>
-            <i class="fa-solid fa-bag-shopping"></i> 
+            <i class="fa-solid fa-bag-shopping"></i>
             <%= t "views.episodes.show.btn_add" %>
           <% end %>
         <% end %>
         <ul>
-          <li><span><%= t "views.episodes.show.author" %></span> 
+          <li><span><%= t "views.episodes.show.author" %></span>
             <% @book.authors.each do |author| %>
               <%= link_to author.name, "#" %>
               <strong>, </strong>
             <% end %>
           </li>
           <li>
-            <span><%= t "views.episodes.show.episodes" %></span> 
+            <span><%= t "views.episodes.show.episodes" %></span>
             <%= @book.episodes.count %>
           </li>
           <li><span><%= t "views.episodes.show.cat" %></span>
@@ -81,28 +82,42 @@
             <div class="nav-wrapper">
               <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="description-tab" 
-                          data-bs-toggle="tab" data-bs-target="#description" 
+                  <button class="nav-link active" id="description-tab"
+                          data-bs-toggle="tab" data-bs-target="#description"
                           type="button" role="tab" aria-controls="description" aria-selected="true">
                           <%= t "views.episodes.show.description" %>
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="reviews-tab" 
-                          data-bs-toggle="tab" data-bs-target="#reviews" 
+                  <button class="nav-link" id="reviews-tab"
+                          data-bs-toggle="tab" data-bs-target="#reviews"
                           type="button" role="tab" aria-controls="reviews" aria-selected="false">
                           <%= t "views.episodes.show.reviews" %>
                   </button>
                 </li>
               </ul>
-            </div>              
+            </div>
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="description" 
+              <div class="tab-pane fade show active" id="description"
                     role="tabpanel" aria-labelledby="description-tab">
                 <%= @episode.content %>
               </div>
               <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                <p></p>
+                <div id="ratings" class="mt-3" data-controller="rating_form">
+                  <%= turbo_frame_tag "ratings_form" do %>
+                    <% if @user_rating %>
+                        <%= render "ratings/my_review", rating: @user_rating %>
+                      </div>
+                    <% else %>
+                      <%= render "ratings/form", episode: @episode %>
+                    <% end %>
+                  <% end %>
+
+                  <div id="ratings_list" class="list-group">
+                    <h4 class="mb-3"><%= t "views.episodes.show.reviews" %></h4>
+                    <%= render @ratings %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

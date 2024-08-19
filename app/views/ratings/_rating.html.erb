@@ -1,0 +1,11 @@
+<div id="<%= dom_id(rating) %>" class="list-group-item list-group-item-action">
+  <div class="ms-2 me-auto d-flex flex-column align-items-start">
+    <div class="fw-bold"><%= rating.user.name %></div>
+    <div class="rating mb-1">
+      <% (1..5).each do |i| %>
+        <i class="fas fa-star <%= "text-warning" if i <= rating.rating %>"></i>
+      <% end %>
+    </div>
+    <div class="mb-0"><%= rating.body %></div>
+  </div>
+</div>

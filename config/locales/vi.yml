@@ -152,6 +152,14 @@ vi:
       returned: "Đã trả sách."
       lost: "Đánh dấu sách bị mất."
       refresh_success: "Cập nhật trạng thái yêu cầu thành công."
+    ratings:
+      created: "Đánh giá đã được tạo thành công."
+      create_fail: "Tạo đánh giá thất bại."
+      deleted: "Đánh giá đã được xóa thành công."
+      delete_fail: "Xóa đánh giá thất bại."
+      not_found: "Không tìm thấy đánh giá."
+    episodes:
+      not_found: "Không tìm thấy sách."
     you_sure?: "Bạn có chắc chắn không?"
   mailer:
     order_mailer:
@@ -274,9 +282,11 @@ vi:
         cat: "Danh mục"
         description: "Mô tả"
         reviews: "Đánh giá"
+        my_review: "Đánh giá của tôi"
         more: "Thêm"
         related: "Những cuốn sách liên quan"
         all: "Tất cả"
+        submit_button: "Gửi"
     shared:
       profile_action:
         profile: "Thông tin cá nhân"

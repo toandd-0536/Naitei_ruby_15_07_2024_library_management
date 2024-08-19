@@ -14,7 +14,7 @@ body {
 .toast-container .toast {
   margin-top: 0.5rem;
 }
-  
+
 .page-content {
   width: 100%;
   margin: 0 auto;
@@ -291,4 +291,44 @@ body {
     -moz-flex-direction: column;
     -webkit-flex-direction: column;
   }
+}
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating>input {
+  display: none;
+}
+
+.rating>label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: 'Font Awesome 6 Free';
+  display: inline-block;
+  content: '\f005';
+}
+
+.rating>label {
+  color: $gray;
+  float: right;
+  position: relative;
+}
+
+.rating>input:checked~label,
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
+  color: $gold;
+}
+
+.rating>input:checked+label:hover,
+.rating>input:checked~label:hover,
+.rating>label:hover~input:checked~label,
+.rating>input:checked~label:hover~label {
+  color: $gold-light;
+}
+
+.star-rating-input:checked+.full {
+  color: $gold;
 }
