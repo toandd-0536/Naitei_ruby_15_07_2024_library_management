@@ -6,6 +6,10 @@ class Episode < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :users, through: :carts
 
+  scope(:search_by_name, lambda do |keyword|
+    where("name LIKE ?", "%#{keyword}%") if keyword.present?
+  end)
+
   scope(:trend_episodes, lambda do |limit = Settings.models.episode.trend_count|
     joins(:favorites)
       .where(favorites: {favoritable_type: "Episode"})

@@ -1,0 +1,9 @@
+<div class="row p-1 rounded bg-white mt-3">
+  <% if @episodes.any? %>
+    <%= render partial: "episode", collection: @episodes, as: :ep %>
+  <% else %>
+    <span class="text-danger fw-bolder">
+      <%= t "views.home.no_results" %>
+    </span>
+  <% end %>
+</div>

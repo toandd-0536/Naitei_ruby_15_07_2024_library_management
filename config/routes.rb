@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root "home#index"
+    get "/search_ajax", to: "home#search_ajax"
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
 
