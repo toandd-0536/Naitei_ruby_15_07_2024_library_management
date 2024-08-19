@@ -15,7 +15,7 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           <%= t "views.carts.index.btn_close" %>
         </button>
-        <%= link_to t("views.carts.index.modal_delete_btn"), "#", class: "btn btn-danger" ,
+        <%= link_to t("views.carts.index.modal_delete_btn"), borrow_card_borrow_book_path(card, item), class: "btn btn-danger" ,
                                             data: {turbo_method: :delete} %>
       </div>
     </div>

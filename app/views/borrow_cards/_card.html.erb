@@ -9,7 +9,7 @@
   <div id="<%= card.id %>" class="accordion-collapse collapse trending"
        aria-labelledby="panelsStayOpen-headingOne">
     <div class="accordion-body row">
-      <%= render partial: "borrow_book", collection: card.borrow_books, as: :item %>
+      <%= render partial: "borrow_book", collection: card.borrow_books, as: :item, locals: {card: card} %>
     </div>
   </div>
 </div>
