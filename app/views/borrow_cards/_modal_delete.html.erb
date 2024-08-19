@@ -1,0 +1,23 @@
+<div class="modal fade" id="modalDelete-<%= item.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <%= t "views.carts.index.modal_title" %>
+          <span class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i></span>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= t "views.borrow_cards.index.modal_delete_body" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <%= t "views.carts.index.btn_close" %>
+        </button>
+        <%= link_to t("views.carts.index.modal_delete_btn"), "#", class: "btn btn-danger" ,
+                                            data: {turbo_method: :delete} %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#<%= card.id %>" aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseOne">
+      <%= t "views.borrow_cards.index.order" %> #<%= card.id %> (<%= card.created_at.strftime(Settings.card_time_setting) %>) 
+    </button>
+  </h2>
+  <div id="<%= card.id %>" class="accordion-collapse collapse trending"
+       aria-labelledby="panelsStayOpen-headingOne">
+    <div class="accordion-body row">
+      <%= render partial: "borrow_book", collection: card.borrow_books, as: :item %>
+    </div>
+  </div>
+</div>

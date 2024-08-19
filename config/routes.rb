@@ -29,6 +29,11 @@ Rails.application.routes.draw do
         get "checkout"
       end
     end
+
+    resources :borrow_cards do
+      resources :borrow_books
+    end
+
   end
 
   match "*unmatched", to: "errors#render404", via: :all

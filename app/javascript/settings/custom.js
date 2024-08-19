@@ -2,6 +2,16 @@
 
   'use strict';
 
+  $(document).on('submit', 'form', function() {
+    $('.js-preloader').removeClass('loaded'); 
+  });
+
+  $(document).on('click', 'a', function() {
+    if ($(this).attr('href') && $(this).attr('href') !== '#') {
+      $('.js-preloader').removeClass('loaded');
+    }
+  });
+
   document.addEventListener('turbo:load', function() {
     $('#js-preloader').addClass('loaded');
   });
