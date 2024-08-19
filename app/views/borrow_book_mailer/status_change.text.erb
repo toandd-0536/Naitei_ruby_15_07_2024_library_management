@@ -1,0 +1,19 @@
+<%= t(".greeting", user_name: @user.name) %>
+
+<%= t(".book_update", book_name: @book.name) %>
+
+<%= t ".status" %>: <%= @status.humanize %>
+
+<% if @episode.name.present? %>
+  <%= t ".episode" %>: <%= @episode.name %>
+<% end %>
+
+<% if @new_status == "cancel" %>
+  <%= t ".reason" %>: <%= @borrow_book.reason %>
+<% else %>
+  <%= t ".due_date" %>: <%= @due_date.strftime(Settings.date_format) %>
+<% end %>
+
+<%= status_change_message(@new_status, @old_status, @episode) %>
+
+<%= t ".thank_you" %>

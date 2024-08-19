@@ -7,6 +7,8 @@ module Admin::ApplicationHelper
       new_admin_publisher_path
     when :author
       new_admin_author_path
+    when :borrow_book
+      new_admin_borrow_book_path
     else
       raise "Unknown model: #{resource}"
     end

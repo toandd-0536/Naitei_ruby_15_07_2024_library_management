@@ -14,6 +14,16 @@ en:
       - "October"
       - "November"
       - "December"
+  activerecord:
+    attributes:
+      borrow_book:
+        status:
+          pending: "Pending"
+          cancel: "Cancelled"
+          confirm: "Confirmed"
+          returned: "Returned"
+          overdue: "Overdue"
+          lost: "Lost"
   admin:
     users:
       index:
@@ -57,6 +67,7 @@ en:
         title: "Borrow"
       return:
         title: "Return"
+        refresh: "Refresh"
       history:
         title: "History"
       show:
@@ -67,6 +78,10 @@ en:
         status: "Status"
         start_time: "Start Time"
         due_date: "Due Date"
+      reject_modal:
+        reject_reason: "Reject reason"
+        cancel: "Cancel"
+        submit_button: "Submit"
     shared:
       add_new_button:
         add_new: "Add New"
@@ -95,6 +110,27 @@ en:
         profile: "Profile"
         settings: "Settings"
         logout: "Logout"
+  borrow_book_mailer:
+    status_change:
+      subject:
+        confirm: "Your request has been confirmed"
+        cancel: "Your request has been rejected"
+        overdue: "Your account has been inactivated"
+        returned: "The books have been returned to the library"
+        lost: "Your account has been inactivated"
+      greeting: "Hello %{user_name},"
+      book_update: "The status of your request for the book \"%{book_name}\" has been updated."
+      status: "Status: "
+      episode: "Episode: "
+      reason: "Reject reason: "
+      due_date: "Due Date: "
+      confirmed: "Your request has been confirmed."
+      cancelled: "Your request has been rejected."
+      overdue_inactivated: "Your account has been inactivated. Please return the book to reactivate your account."
+      returned_books: "The books have been returned. Thank you for using our service!"
+      overdue_returned_books: "The books have been returned and your account has been reactivated. Thank you for using our service!"
+      lost_inactivated: "Your account has been inactivated. Please pay the compensation fee (%{compensation_fee}) to reactivate your account."
+      thank_you: "Thank you for using our service."
   message:
     users:
       updated: "User updated successfully."
@@ -107,6 +143,14 @@ en:
       deleted: "Publisher deleted successfully."
       delete_fail: "Failed to delete publisher."
       not_found: "Publisher not found."
+    borrow_books:
+      confirmed: "Request confirmed successfully."
+      status_fail: "Failed to change request status."
+      not_found: "Request not found."
+      canceled: "Request rejected."
+      returned: "Book returned."
+      lost: "Book marked as lost."
+      refresh_success: "Request statuses refreshed successfully."
     you_sure?: "Are you sure?"
   mailer:
     order_mailer:
@@ -141,7 +185,7 @@ en:
       btn_view_all: "View All"
       welcome: "Welcome to Bibliosphere Library"
       best: "BEST LIBRARY SITE EVER!"
-      header_title: "Bibliosphere Library is the largest digital library in Vietnam. 
+      header_title: "Bibliosphere Library is the largest digital library in Vietnam.
                      Where you can immerse yourself in knowledge with more than 10,000 books of all kinds.
                      Let the book speak to your soul."
       btn_search: "Search Now"
@@ -159,7 +203,7 @@ en:
       thumb_121: "Bringing the"
       thumb_122: "best book"
       thumb_123: "to You!"
-      thumb_13: "Visit our library treasure trove to find books 
+      thumb_13: "Visit our library treasure trove to find books
                  that are right for your soul."
       btn_now: "Shop Now"
       thumb_21: "LETTER"
@@ -167,7 +211,7 @@ en:
       thumb_222: "Gifts"
       btn_send: "Send Now"
       place: "Your email..."
-    not_found: 
+    not_found:
       title: "Oops! Page Not Be Found"
       content: "Sorry but the page you are looking for does not exist, has been removed,
                 name changed, or is temporarily unavailable."
@@ -239,11 +283,11 @@ en:
         order: "Book order history"
       client_page:
         app_name: "Bibliosphere Library"
-        home: "Home" 
+        home: "Home"
       toast:
         error: "An error occurred"
         success: "Success"
-    sessions: 
+    sessions:
       new:
         title_login: "Login"
         title_register: "Register"

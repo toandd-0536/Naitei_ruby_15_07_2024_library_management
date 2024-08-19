@@ -1,7 +1,6 @@
-<% provide :title, t ".title") %>
+<% provide :title, t(".title") %>
 <div class="header d-flex align-items-center justify-content-between">
   <%= render "admin/shared/breadcrumb", class: "d-flex align-items-center" %>
-  <%# <%= render "admin/shared/action_buttons", resource: @borrow_book %>
 </div>
 <div class="row page-container mt-3">
   <div class="col-md-8 mx-auto details">
@@ -9,10 +8,10 @@
       <li class="list-group-item"><strong><%= t ".user" %>:</strong> <%= @borrow_book.borrow_card.user.name %></li>
       <li class="list-group-item"><strong><%= t ".book" %>:</strong> <%= @borrow_book.episode.book.name %></li>
       <li class="list-group-item"><strong><%= t ".episode" %>:</strong> <%= @borrow_book.episode.name %></li>
-      <li class="list-group-item"><strong><%= t ".status" %>:</strong> <%= @borrow_book.status %></li>
+      <li class="list-group-item"><strong><%= t ".status" %>:</strong> <%= @borrow_book.localized_status %></li>
       <% unless @borrow_book.status == "pending" %>
         <li class="list-group-item"><strong><%= t ".start_time" %>:</strong> <%= @borrow_book.borrow_card.start_time.strftime(Settings.date_format) %></li>
-        <li class="list-group-item"><strong><%= t ".due_date" %>:</strong> <%= (@borrow_book.borrow_card.start_time + Settings.models.book_borrow.max_borrow_duration).strftime(Settings.date_format) %></li>
+        <li class="list-group-item"><strong><%= t ".due_date" %>:</strong> <%= @borrow_book.due_date.strftime(Settings.date_format) %></li>
       <% end %>
       <% if @borrow_book.status == "pending" %>
         <li class="list-group-item"><strong><%= t ".created_at" %>:</strong> <%= @borrow_book.created_at.strftime(Settings.date_format) %></li>
