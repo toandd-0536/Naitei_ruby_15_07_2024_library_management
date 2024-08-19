@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :carts do
       collection do
         delete "delete_all"
+        get "checkout"
       end
     end
   end
