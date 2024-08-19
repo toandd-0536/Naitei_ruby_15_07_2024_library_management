@@ -1,0 +1,60 @@
+<%= render "main_banner" %>
+<%= render "features" %>
+
+<div class="section trending">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="section-heading">
+          <h6><%= t "views.home.trend" %></h6>
+          <h2><%= t "views.home.trend_book" %></h2>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="main-button">
+          <%= link_to "#" do %>
+            <%= t "views.home.btn_view_all" %>
+          <% end %>
+        </div>
+      </div>
+      <%= render partial: "trend_book", collection: @trend_books, as: :ep %>
+    </div>
+  </div>
+</div>
+
+<div class="section most-played">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="section-heading">
+          <h6><%= t "views.home.top" %></h6>
+          <h2><%= t "views.home.most" %></h2>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="main-button">
+          <%= link_to "#" do %>
+            <%= t "views.home.btn_view_all" %>
+          <% end %>
+        </div>
+      </div>
+      <%= render partial: "most_read", collection: @most_reads, as: :ep %>
+    </div>
+  </div>
+</div>
+
+<div class="section categories">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="section-heading">
+          <h6><%= t "views.home.cat" %></h6>
+          <h2><%= t "views.home.top_cat" %></h2>
+        </div>
+      </div>
+      <%= render partial: "top_cat", collection: @top_cats, as: :cat %>
+    </div>
+  </div>
+</div>
+
+<%= render "cta" %>
