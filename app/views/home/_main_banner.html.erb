@@ -1,0 +1,30 @@
+<div class="main-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 align-self-center">
+        <div class="caption header-text">
+          <h6><%= t "views.home.welcome" %></h6>
+          <h2><%= t "views.home.best" %></h2>
+          <p>
+            <%= t "views.home.header_title" %>
+          </p>
+          <div class="search-input">
+            <div id="search" class="position-relative">
+              <input type="text" placeholder="Type Something" id="searchEpisode" name="search" onkeypress="handle" />
+              <button role="button"><%= t "views.home.btn_search" %></button>
+              <div id="list-result" class="position-absolute top-100 start-0 end-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-2">
+        <div class="right-image">
+          <%= image_tag "sherlock_home.jpg" %>
+          <span class="price"><%= Settings.views.home.banner_count %></span>
+          <span class="offer"><%= Settings.views.home.banner_star %><i class="fa-solid fa-star"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,10 +7,19 @@ default_status: 0
 cart_item_default_status: 0 
 card_time_setting: "%H:%M:%S %d/%m/%Y"
 card_item_min_delete: 1
+views:
+  home:
+    banner_count: 100
+    banner_star: 5
 controllers:
   sessions:
     layout: "login_layout"
 models:
+  category:
+    top_count: 5
+  episode:
+    trend_count: 4
+    most_count: 6
   user:
     name:
       max_length: 50
