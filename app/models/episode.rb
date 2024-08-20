@@ -1,4 +1,6 @@
 class Episode < ApplicationRecord
+  SEARCH_PARAMS = %i(book_id publisher_id author_id category_id).freeze
+
   belongs_to :book
   has_many :carts, dependent: :destroy
   has_many :borrow_books, dependent: :destroy
@@ -31,6 +33,40 @@ class Episode < ApplicationRecord
       .where(book_categories: {category_id:})
       .order(:id)
   end)
+
+  scope(:by_book, lambda do |book_id|
+    return if book_id.blank?
+
+    where(book_id:)
+  end)
+
+  scope(:by_publisher, lambda do |publisher_id|
+    return if publisher_id.blank?
+
+    joins(book: :publisher)
+      .where(books: {publisher_id:})
+  end)
+
+  scope(:by_author, lambda do |author_id|
+    return if author_id.blank?
+
+    joins(book: :authors)
+      .where(authors: {id: author_id})
+  end)
+
+  scope(:by_category, lambda do |category_id|
+    return if category_id.blank?
+
+    joins(book: :categories)
+      .where(categories: {id: category_id})
+  end)
+
+  def self.search params
+    Episode.by_book(params[:book_id])
+           .by_publisher(params[:publisher_id])
+           .by_author(params[:author_id])
+           .by_category(params[:category_id])
+  end
 
   def average_rating
     total_ratings = ratings.sum(:rating)

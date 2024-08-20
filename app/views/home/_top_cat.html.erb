@@ -2,7 +2,7 @@
   <div class="item">
     <h4 class="truncate-text"><%= cat.name %></h4>
     <div class="thumb">
-      <%= link_to "#" do %>
+      <%= link_to all_episodes_path(category_id: cat.id) do %>
         <%= image_tag cat.cat_thumb %>
       <% end %>
     </div>

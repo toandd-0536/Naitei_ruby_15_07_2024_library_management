@@ -1,0 +1,55 @@
+<% provide :link_page do %>
+  <%= t "views.episodes.all.link_page" %> 
+<% end %>
+
+<%= render "shared/client_page_heading" %>
+
+<div class="section trending">
+  <div class="container">
+    <div class="row mb-5 mx-4" id="filter">
+      <%= form_with url: all_episodes_path, method: :get, local: true, html: { class: "col-md-12 row" } do |f| %>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="form-group mb-3 col-md-6">
+              <%= f.select :category_id, 
+                           options_from_collection_for_select(Category.all, :id, :name, selected: params[:category_id]), 
+                           {prompt: t("views.episodes.all.cat")}, 
+                           {data: {controller: "slim"}} %>
+            </div>
+            <div class="form-group mb-3 col-md-6">
+              <%= f.select :publisher_id, 
+                           options_from_collection_for_select(Publisher.all, :id, :name, selected: params[:publisher_id]), 
+                           {prompt: t("views.episodes.all.publisher")}, 
+                           {data: {controller: "slim"}} %>
+            </div>
+            <div class="form-group col-md-6">
+              <%= f.select :author_id, 
+                           options_from_collection_for_select(Author.all, :id, :name, selected: params[:author_id]), 
+                           {prompt: t("views.episodes.all.author")}, 
+                           {data: {controller: "slim"}} %>
+            </div>
+            <div class="form-group col-md-6">
+              <%= f.select :book_id, 
+                           options_from_collection_for_select(Book.all, :id, :name, selected: params[:book_id]), 
+                           {prompt: t("views.episodes.all.book")}, 
+                           {data: {controller: "slim"}} %>
+            </div>
+          </div>     
+        </div>
+        <div class="col-md-4 d-flex justify-content-left align-items-start group-btn">
+          <%= f.submit t("views.episodes.all.btn_filter"), class: "btn btn-primary px-5" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row trending-box">
+      <%= render partial: "episode", collection: @episodes, as: :ep %>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <%== pagy_bootstrap_nav @pagy %>
+      </div>
+    </div>
+  </div>
+</div>

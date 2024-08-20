@@ -1,0 +1,17 @@
+<div class="col-lg-3 col-md-6 align-self-center mb-30 trending-items col-md-6 adv str">
+  <div class="item">
+    <div class="thumb">
+      <%= link_to book_episode_path(ep.book, ep) do %>
+        <%= image_tag ep.thumb %>
+      <% end %>
+      <span class="price"><%= ep.qty %></span>
+    </div>
+    <div class="down-content">
+      <span class="category"><%= ep.book.name %></span>
+      <h4><%= ep.name %></h4>
+      <%= link_to book_episode_path(ep.book, ep) do %>
+        <i class="fa-solid fa-bag-shopping"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,12 @@ class EpisodesController < ApplicationController
                 :redirect_unless_signed_in, only: :add_to_cart
   def show; end
 
+  def all
+    @episodes_search = Episode.search search_params
+    @pagy, @episodes = pagy @episodes_search,
+                            limit: Settings.controllers.episodes.all.per_page
+  end
+
   def add_to_cart
     @episode = Episode.find params[:id]
     cart_item = current_user.carts.create episode: @episode
@@ -31,5 +37,9 @@ class EpisodesController < ApplicationController
 
     flash[:error] = current_user.errors.full_messages
     redirect_back(fallback_location: root_path)
+  end
+
+  def search_params
+    params.permit Episode::SEARCH_PARAMS
   end
 end
