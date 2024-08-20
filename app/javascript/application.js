@@ -9,6 +9,10 @@ import 'bootstrap'
 import 'custom/admin'
 import './index/search'
 
+//= require quill.min
+//= require quill.global
+
+
 document.addEventListener("turbo:load", function () {
   var tooltipTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="tooltip"]')

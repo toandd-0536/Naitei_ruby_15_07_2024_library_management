@@ -156,7 +156,6 @@ borrow_cards = users.map do |user|
   )
 end
 
-# Seed BorrowBooks
 borrow_cards.each do |borrow_card|
   rand(1..5).times do
     episode = Episode.order("RAND()").first
@@ -169,4 +168,18 @@ borrow_cards.each do |borrow_card|
       reason: status == "cancel" ? Faker::Lorem.sentence : nil
     )
   end
+end
+
+users = User.all
+episodes = Episode.all
+
+100.times do
+  Rating.create!(
+    episode: episodes.sample,
+    user: users.sample,
+    body: Faker::Lorem.sentence(word_count: 10),
+    rating: rand(1..5),
+    created_at: Faker::Date.backward(days: 365),
+    updated_at: Faker::Date.backward(days: 365)
+  )
 end

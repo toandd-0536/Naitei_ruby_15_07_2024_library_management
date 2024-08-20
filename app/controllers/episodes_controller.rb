@@ -22,6 +22,8 @@ class EpisodesController < ApplicationController
 
   def set_episode
     @episode = @book.episodes.find params[:id]
+    @ratings = @episode.ratings.recent.where.not(user: current_user)
+    @user_rating = @episode.ratings.find_by(user: current_user)
   end
 
   def validate_conditions

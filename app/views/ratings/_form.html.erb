@@ -1,0 +1,22 @@
+<%= turbo_frame_tag "ratings_form" do %>
+  <%= form_with(model: [@episode, Rating.new], data: { controller: "rating-form", turbo_frame: "ratings", rating_form_target: "form" }, class: "d-flex flex-column mb-3") do |form| %>
+    <div class="mb-3">
+      <fieldset class="rating">
+        <% (1..5).reverse_each do |i| %>
+          <%= radio_button_tag "rating[rating]", i, false, id: "star_#{i}", class: "star-rating-input", data: { rating_form_target: "starRatingInput" } %>
+          <label class="fa-solid" for="star_<%= i %>" title="<%= i %> star<%= "s" if i > 1 %>"></label>
+        <% end %>
+      </fieldset>
+
+      <%= form.hidden_field :rating, id: "hidden_rating", data: { rating_form_target: "hiddenRating" } %>
+    </div>
+
+    <div class="mb-3">
+      <div class="quill-editor">
+        <%= form.text_area :body, class: "form-control rounded-0 quill_container", rows: 10, data: { rating_form_target: "quillTextarea" } %>
+      </div>
+    </div>
+
+    <%= form.submit yield(:button_text), class: "btn btn-primary" %>
+  <% end %>
+<% end %>

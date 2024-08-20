@@ -1,0 +1,19 @@
+<div class="list-group mb-3">
+  <h4 class="mb-3"><% t ".my_review" %></h4>
+  <div id="my_review" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto d-flex flex-column align-items-start">
+      <div class="fw-bold mb-1"><%= rating.user.name %></div>
+      <div class="rating mb-2">
+        <% (1..5).each do |i| %>
+          <i class="fas fa-star <%= "text-warning" if i <= rating.rating %>"></i>
+        <% end %>
+      </div>
+      <p class="mb-0"><%= rating.body %></p>
+    </div>
+    <%= link_to episode_rating_path(rating.episode, rating),
+        data: { "turbo-method": :delete, turbo_confirm: t("message.you_sure?"), turbo_frame: "ratings" },
+        class: "btn btn-danger btn-sm d-flex align-items-center" do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </div>
+</div>
