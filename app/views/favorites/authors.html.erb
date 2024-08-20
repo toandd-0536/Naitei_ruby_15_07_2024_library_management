@@ -1,0 +1,16 @@
+<% provide :link_page do %>
+  <%= t "views.favorites.authors.title" %>
+<% end %>
+
+<%= render "shared/client_page_heading" %>
+
+<div id="profile">
+  <div>
+    <div class="container">
+      <%= render "shared/profile_action" %>
+    </div>
+    <div class="row" id="favorites-content">
+      <%= render "favorites/favorites_section", section_type: "authors", items: @favorite_authors, show_view_all: false %>
+    </div>
+  </div>
+</div>

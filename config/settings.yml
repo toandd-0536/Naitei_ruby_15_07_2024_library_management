@@ -4,7 +4,7 @@ default_email: "bibliosphere_library@gmail.com"
 email: "library@gmail.com"
 phone: "+(84) 911-577-985"
 default_status: 0
-cart_item_default_status: 0 
+cart_item_default_status: 0
 card_time_setting: "%H:%M:%S %d/%m/%Y"
 card_item_min_delete: 1
 views:
@@ -20,6 +20,7 @@ models:
   episode:
     trend_count: 4
     most_count: 6
+    limit: 6
   user:
     name:
       max_length: 50
@@ -37,6 +38,7 @@ models:
       max_length: 50
     intro:
       max_length: 550
+    limit: 6
   book_borrow:
     max_borrow_duration: 5
 date_format: "%Y-%m-%d"

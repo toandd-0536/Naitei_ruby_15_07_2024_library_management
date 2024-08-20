@@ -157,6 +157,11 @@ en:
       deleted: "Rating deleted successfully."
       delete_fail: "Failed to delete rating."
       not_found: "Rating not found."
+    favorites:
+      created: "Favorite successfully."
+      create_fail: "Failed to favorite."
+      deleted: "Unfavorite successfully."
+      delete_fail: "Failed to unfavorite."
     episodes:
       not_found: "Book not found."
     you_sure?: "Are you sure?"
@@ -169,8 +174,20 @@ en:
     favorites:
       index:
         title: "Favorite"
-        episode: "Favorite Books"
-        author: "Favorite Authors"
+      books:
+        title: "Favorite Books"
+      authors:
+        title: "Favorite Authors"
+      favorite_books: "Favorite Books"
+      favorite_authors: "Favorite Authors"
+      books: "Books"
+      authors: "Authors"
+      view_all: "View All"
+      not_found: "No Favorites Found"
+      not_found_message: "You haven't added any favorites yet."
+      favorite: "Favorite"
+      unfavorite: "Unfavorite"
+      explore: "Explore"
     borrow_cards:
       index:
         btn_delete: "Delete"

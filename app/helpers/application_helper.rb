@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def nav_link_to path, class_active = "active", options = {}, &block
-    active_class = current_page?(path) ? class_active : ""
+    active_class = request.path.start_with?(path) ? class_active : ""
     options[:class] = [options[:class], active_class].compact.join(" ")
 
     link_to path, options, &block
