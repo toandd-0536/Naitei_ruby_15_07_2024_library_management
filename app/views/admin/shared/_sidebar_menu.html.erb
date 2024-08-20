@@ -23,8 +23,8 @@
   <% end %>
 </li>
 
-<li class="nav-item <%= "active" if request.path.include?("#") %>">
-  <%= link_to "#", class: "nav-link" do %>
+<li class="nav-item <%= "active" if request.path.include?("categories") %>">
+  <%= link_to admin_categories_path, class: "nav-link" do %>
     <i class="fas fa-fw fa-tag"></i>
     <span><%= t ".genres" %></span>
   <% end %>

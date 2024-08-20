@@ -1,0 +1,28 @@
+<% provide :title, @cat.name %>
+<div class="header d-flex align-items-center justify-content-between">
+  <%= render "admin/shared/breadcrumb", class: "d-flex align-items-center" %>
+  <%= render "admin/shared/action_buttons", resource: @cat %>
+</div>
+<div class="row page-container mt-3">
+  <div class="col-md-8 mx-auto details">
+    <ul class="list-unstyled">
+      <li><strong><%= t ".name" %></strong> <%= @cat.name %></li>
+      <li><strong><%= t ".created_at" %></strong> <%= @cat.created_at.strftime(Settings.date_format) %></li>
+      <li>
+        <strong><%= t "admin.categories.show.parent" %></strong>
+        <% if @cat.parent.present? %> 
+          <%= link_to @cat.parent.name, admin_category_path(@cat.parent) %>
+        <% end %>
+      </li>
+      <li>
+        <strong><%= t "admin.categories.show.child" %></strong> 
+        <% if @cat.children.present? %> 
+          <% @cat.children.each do |child| %>
+            <%= link_to child.name, admin_category_path(child) %>
+            <span class="dot">, </span>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

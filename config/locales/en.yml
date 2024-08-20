@@ -25,6 +25,21 @@ en:
           overdue: "Overdue"
           lost: "Lost"
   admin:
+    categories:
+      form:
+        parent: "Parent Category"
+      index:
+        title: "Categories"
+      show:
+        parent: "Parent Category"
+        child: "Childen Category"
+        title: "Category Details"
+      new:
+        title: "New Category"
+        submit_button: "Create"
+      edit:
+        title: "Edit Category"
+        submit_button: "Save changes"
     users:
       index:
         title: "Users"
@@ -132,6 +147,14 @@ en:
       lost_inactivated: "Your account has been inactivated. Please pay the compensation fee (%{compensation_fee}) to reactivate your account."
       thank_you: "Thank you for using our service."
   message:
+    categories:
+      child_error: "Cannot select parent category as its child category"
+      duplicate: "Cannot select parent category as the category being updated"
+      created: "Category created successfully."
+      updated: "Category updated successfully."
+      deleted: "Category deleted successfully."
+      delete_fail: "Failed to delete Category."
+      not_found: "Category not found."
     users:
       updated: "User updated successfully."
       deleted: "User deleted successfully."

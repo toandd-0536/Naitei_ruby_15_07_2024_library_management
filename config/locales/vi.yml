@@ -25,6 +25,21 @@ vi:
           overdue: "Quá hạn"
           lost: "Mất"
   admin:
+    categories:
+      form:
+        parent: "Danh mục cha"
+      index:
+        title: "Danh mục"
+      show:
+        title: "Chi tiết danh mục"
+        parent: "Danh mục cha"
+        child: "Danh mục con"
+      new:
+        title: "Danh mục bản mới"
+        submit_button: "Tạo"
+      edit:
+        title: "Chỉnh sửa danh mục"
+        submit_button: "Lưu thay đổi"
     users:
       index:
         title: "Người dùng"
@@ -133,6 +148,14 @@ vi:
       lost_inactivated: "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng thanh toán phí bồi thường (%{compensation_fee}) để kích hoạt lại tài khoản của bạn."
       thank_you: "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi."
   message:
+    categories:
+      duplicate: "Không thể chọn danh mục cha là danh mục đang được cập nhật"
+      child_error: "Không thể chọn danh mục cha là danh mục con"
+      created: "Tạo danh mục thành công."
+      updated: "Cập nhật danh mục thành công."
+      deleted: "Xóa danh mục thành công."
+      delete_fail: "Xóa danh mục thất bại."
+      not_found: "Không tìm thấy danh mục."
     users:
       updated: "Cập nhật người dùng thành công."
       deleted: "Xóa người dùng thành công."
@@ -141,7 +164,7 @@ vi:
     publishers:
       created: "Tạo nhà xuất bản thành công."
       updated: "Cập nhật nhà xuất bản thành công."
-      deleted: "Xóa nnhà xuất bản thành công."
+      deleted: "Xóa nhà xuất bản thành công."
       delete_fail: "Xóa nhà xuất bản thất bại."
       not_found: "Không tìm thấy nhà xuất bản."
     borrow_books:
