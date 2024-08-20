@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
 
+    resources :authors, only: :show
+
     resources :books do
       resources :episodes do
         post "add_to_cart", on: :member

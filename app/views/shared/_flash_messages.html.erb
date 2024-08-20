@@ -1,10 +1,10 @@
 <% if flash.any? %>
   <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1000">
-    <% flash.each do |key, message| %>
+    <% flash.each do |key, messages| %>
       <% if key == "success" %>
-        <%= render "shared/toast_success", msg: message %> 
+        <%= render "shared/toast_success", msg: messages %>
       <% elsif key == "error" %>
-        <%= render "shared/toast_error", msg: message %>     
+        <%= render partial: "shared/toast_error", collection: Array(messages), as: :msg %>
       <% end %>
     <% end %>
   </div>

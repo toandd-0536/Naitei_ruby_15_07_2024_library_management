@@ -1,7 +1,7 @@
 class EpisodesController < ApplicationController
   before_action :set_book, :set_episode, only: %i(show add_to_cart)
-  before_action :validate_conditions,
-                :redirect_unless_signed_in, only: :add_to_cart
+  before_action :redirect_unless_signed_in,
+                :validate_conditions, only: :add_to_cart
   def show; end
 
   def all
