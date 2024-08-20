@@ -7,6 +7,7 @@ import './settings/counter'
 import './settings/custom'
 import 'bootstrap'
 import 'custom/admin'
+import './index/search'
 
 document.addEventListener("turbo:load", function () {
   var tooltipTriggerList = [].slice.call(
