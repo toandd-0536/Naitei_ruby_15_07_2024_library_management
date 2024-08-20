@@ -12,6 +12,9 @@ views:
     banner_count: 100
     banner_star: 5
 controllers:
+  episodes:
+    all:
+      per_page: 12
   sessions:
     layout: "login_layout"
 models:
