@@ -1,7 +1,6 @@
 <% provide :link_page do %>
   <%= @book.name %> > <%= @episode.name %>
 <% end %>
-<% provide :button_text, t("views.episodes.show.submit_button") %>
 
 <% if flash.any? %>
   <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1000">
@@ -110,12 +109,10 @@
                   <%= turbo_frame_tag "ratings_form" do %>
                     <% if @user_rating %>
                         <%= render "ratings/my_review", rating: @user_rating %>
-                      </div>
                     <% else %>
                       <%= render "ratings/form", episode: @episode %>
                     <% end %>
                   <% end %>
-
                   <div id="ratings_list" class="list-group">
                     <h4 class="mb-3"><%= t "views.episodes.show.reviews" %></h4>
                     <%= render @ratings %>

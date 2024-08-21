@@ -42,7 +42,7 @@ class RatingsController < ApplicationController
   private
 
   def load_episode
-    @episode = Episode.find_by params[:episode_id]
+    @episode = Episode.find_by id: params[:episode_id]
     return if @episode
 
     flash[:danger] = t "message.episodes.not_found"
