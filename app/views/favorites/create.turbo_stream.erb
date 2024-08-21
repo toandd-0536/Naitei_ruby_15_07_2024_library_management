@@ -1,0 +1,3 @@
+<%= turbo_stream.update dom_id(@favoritable, :favorite) do %>
+  <%= render partial: "favorites/favorite_button", locals: { favoritable: @favoritable } %>
+<% end %>

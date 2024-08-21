@@ -1,0 +1,43 @@
+<div class="section most-played <%= "mb-5" if section_type == "books" %>">
+  <div class="container">
+    <div class="row">
+      <% if show_view_all %>
+        <div class="col-lg-6">
+          <div class="section-heading">
+            <h6><%= t "views.favorites.#{section_type}" %></h6>
+            <h2><%= t "views.favorites.favorite_#{section_type}" %></h2>
+          </div>
+        </div>
+      <% else %>
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h6><%= t "views.favorites.#{section_type}" %></h6>
+            <h2><%= t "views.favorites.favorite_#{section_type}" %></h2>
+          </div>
+        </div>
+      <% end %>
+      <% if section_type == "books" && show_view_all %>
+        <div class="col-lg-6">
+          <div class="main-button">
+            <%= link_to books_favorites_path do %>
+              <%= t "views.favorites.view_all" %>
+            <% end %>
+          </div>
+        </div>
+      <% elsif section_type == "authors" && show_view_all %>
+        <div class="col-lg-6">
+          <div class="main-button">
+            <%= link_to authors_favorites_path do %>
+              <%= t "views.favorites.view_all" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if items.empty? %>
+        <%= render "not_found" %>
+      <% else %>
+        <%= render partial: "item", collection: items, as: :item %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -47,6 +47,9 @@
             <%= t "views.episodes.show.btn_add" %>
           <% end %>
         <% end %>
+        <%= turbo_frame_tag dom_id(@episode, :favorite), class: "ml-2" do %>
+          <%= render partial: "favorites/favorite_button", locals: { favoritable: @episode } %>
+        <% end %>
         <ul>
           <li><span><%= t "views.episodes.show.author" %></span>
             <% @book.authors.each do |author| %>

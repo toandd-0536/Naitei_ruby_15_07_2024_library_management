@@ -1,0 +1,16 @@
+<% if current_user.favorites.exists?(favoritable: favoritable) %>
+  <%= button_to favorite_path(id: current_user.favorites.find_by(favoritable: favoritable),
+      favoritable_type: favoritable.class.name, favoritable_id: favoritable.id),
+      method: :delete, remote: true,
+      form: { data: { turbo_frame: dom_id(favoritable, :favorite) } } do %>
+    <i class="fa-solid fa-heart-crack"></i>
+    <%= t "views.favorites.unfavorite" %>
+  <% end %>
+<% else %>
+  <%= button_to favorites_path(favoritable_type: favoritable.class.name,
+      favoritable_id: favoritable.id), data: { turbo_method: :post },
+      remote: true, form: { data: { turbo_frame: dom_id(favoritable, :favorite) } } do %>
+    <i class="fa-solid fa-heart"></i>
+    <%= t "views.favorites.favorite" %>
+  <% end %>
+<% end %>

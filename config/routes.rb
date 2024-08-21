@@ -49,6 +49,12 @@ Rails.application.routes.draw do
       resources :borrow_books
     end
 
+    resources :favorites, only: [:index, :create, :destroy] do
+      collection do
+        get "books"
+        get "authors"
+      end
+    end
   end
   match "*unmatched", to: "errors#render404", via: :all
 end

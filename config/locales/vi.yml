@@ -158,6 +158,11 @@ vi:
       deleted: "Đánh giá đã được xóa thành công."
       delete_fail: "Xóa đánh giá thất bại."
       not_found: "Không tìm thấy đánh giá."
+    favorites:
+      created: "Đã thêm vào mục yêu thích thành công."
+      create_fail: "Thêm vào mục yêu thích không thành công."
+      deleted: "Đã xóa khỏi mục yêu thích thành công."
+      delete_fail: "Xóa khỏi mục yêu thích không thành công."
     episodes:
       not_found: "Không tìm thấy sách."
     you_sure?: "Bạn có chắc chắn không?"
@@ -170,8 +175,20 @@ vi:
     favorites:
       index:
         title: "Yêu thích"
-        episode: "Các cuốn sách yêu thích"
-        author: "Các tác giả yêu thích"
+      books:
+        title: "Sách yêu thích"
+      authors:
+        title: "Tác giả yêu thích"
+      favorite_books: "Sách yêu thích"
+      favorite_authors: "Tác giả yêu thích"
+      books: "Sách"
+      authors: "Tác Giả"
+      view_all: "Xem tất cả"
+      not_found: "Không tìm thấy mục yêu thích"
+      not_found_message: "Bạn chưa thêm mục nào vào yêu thích."
+      favorite: "Yêu Thích"
+      unfavorite: "Bỏ Yêu Thích"
+      explore: "Chi Tiết"
     borrow_cards:
       index:
         btn_delete: "Xóa"

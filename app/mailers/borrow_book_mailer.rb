@@ -1,4 +1,6 @@
 class BorrowBookMailer < ApplicationMailer
+  helper Admin::BorrowBookMailerHelper
+
   def status_change borrow_book, old_status, new_status
     @borrow_book = borrow_book
     @user = borrow_book.borrow_card.user
