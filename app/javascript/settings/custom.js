@@ -3,11 +3,13 @@
   'use strict';
 
   $(document).on('submit', 'form', function() {
-    $('.js-preloader').removeClass('loaded'); 
+    if (!$(this).attr('data-turbo-frame')) {
+      $('.js-preloader').removeClass('loaded');
+    }
   });
 
   $(document).on('click', 'a', function() {
-    if ($(this).attr('href') && $(this).attr('href') !== '#') {
+    if ($(this).attr('href') && $(this).attr('href') !== '#' && !$(this).attr('data-turbo-frame')) {
       $('.js-preloader').removeClass('loaded');
     }
   });
