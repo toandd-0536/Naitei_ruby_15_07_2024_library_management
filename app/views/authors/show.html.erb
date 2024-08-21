@@ -15,17 +15,22 @@
       <div class="col-lg-6 align-self-center">
         <h4>
           <%= @author.name %>
-        </h4> 
+        </h4>
         <p><%= @author.intro %></p>
+        <% if current_user %>
+          <%= turbo_frame_tag dom_id(@author, :favorite), class: "ml-2" do %>
+            <%= render partial: "favorites/favorite_button", locals: { favoritable: @author } %>
+          <% end %>
+        <% end %>
         <ul>
-          <li><span><%= t "views.authors.show.birth" %></span> 
+          <li><span><%= t "views.authors.show.birth" %></span>
             <%= @author.dob %>
           </li>
-          <li><span><%= t "views.authors.show.die" %></span> 
+          <li><span><%= t "views.authors.show.die" %></span>
             <%= @author.dod %>
           </li>
           <li>
-            <span><%= t "views.authors.show.number" %></span> 
+            <span><%= t "views.authors.show.number" %></span>
             <%= @author.books.count %>
           </li>
         </ul>
@@ -46,16 +51,16 @@
             <div class="nav-wrapper">
               <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="description-tab" 
-                          data-bs-toggle="tab" data-bs-target="#description" 
+                  <button class="nav-link active" id="description-tab"
+                          data-bs-toggle="tab" data-bs-target="#description"
                           type="button" role="tab" aria-controls="description" aria-selected="true">
                           <%= t "views.episodes.show.description" %>
                   </button>
                 </li>
               </ul>
-            </div>              
+            </div>
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="description" 
+              <div class="tab-pane fade show active" id="description"
                     role="tabpanel" aria-labelledby="description-tab">
                 <%= @author.bio %>
               </div>
