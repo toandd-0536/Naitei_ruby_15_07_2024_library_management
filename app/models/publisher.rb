@@ -6,4 +6,7 @@ class Publisher < ApplicationRecord
 
   validates :name, presence: true,
             length: {maximum: Settings.models.publisher.name.max_length}
+
+  scope :sorted_by_name, ->{order(name: :asc)}
+  scope :sorted_by_created, ->{order(created_at: :desc)}
 end

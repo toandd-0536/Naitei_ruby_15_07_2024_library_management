@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     namespace :admin do
       resources :categories
+      resources :books
       resources :users
       resources :publishers
       resources :authors

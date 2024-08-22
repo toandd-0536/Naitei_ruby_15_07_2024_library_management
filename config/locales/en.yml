@@ -25,6 +25,22 @@ en:
           overdue: "Overdue"
           lost: "Lost"
   admin:
+    books:
+      index:
+        title: "Books"
+      show:
+        title: "Book Details"
+        cat: "Categories"
+        author: "Author"
+      new:
+        publiser: "Publiser"
+        cat: "Category"
+        author: "Author"
+        title: "New Book"
+        submit_button: "Create"
+      edit:
+        title: "Edit Book"
+        submit_button: "Save changes"
     categories:
       form:
         parent: "Parent Category"
@@ -147,6 +163,14 @@ en:
       lost_inactivated: "Your account has been inactivated. Please pay the compensation fee (%{compensation_fee}) to reactivate your account."
       thank_you: "Thank you for using our service."
   message:
+    books:
+      created: "Book created successfully."
+      updated: "Book updated successfully."
+      deleted: "Book deleted successfully."
+      delete_fail: "Failed to delete book."
+      not_found: "Book not found."
+      cat_found: "Category not found."
+      author_found: "Author not found."
     categories:
       child_error: "Cannot select parent category as its child category"
       duplicate: "Cannot select parent category as the category being updated"

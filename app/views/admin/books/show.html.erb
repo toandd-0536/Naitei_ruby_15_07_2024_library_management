@@ -1,0 +1,27 @@
+<% provide :title, @book.name %>
+<div class="header d-flex align-items-center justify-content-between">
+  <%= render "admin/shared/breadcrumb", class: "d-flex align-items-center" %>
+  <%= render "admin/shared/action_buttons", resource: @book %>
+</div>
+<div class="row page-container mt-3">
+  <div class="col-md-8 mx-auto details">
+    <ul class="list-unstyled">
+      <li><strong><%= t ".name" %></strong> <%= @book.name %></li>
+      <li><strong><%= t ".created_at" %></strong> <%= @book.created_at.strftime(Settings.date_format) %></li>
+      <li>
+        <strong><%= t "admin.books.show.cat" %></strong> 
+        <% @book.categories.each do |cat| %>
+          <%= link_to cat.name, admin_category_path(cat) %>
+          <span class="dot">, </span>
+        <% end %>
+      </li>
+      <li>
+        <strong><%= t "admin.books.show.author" %></strong> 
+        <% @book.authors.each do |author| %>
+          <%= link_to author.name, admin_author_path(author) %>
+          <span class="dot">, </span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
