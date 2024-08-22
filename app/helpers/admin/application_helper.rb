@@ -13,6 +13,8 @@ module Admin::ApplicationHelper
       new_admin_category_path
     when :book
       new_admin_book_path
+    when :episode
+      new_admin_episode_path
     else
       raise "Unknown model: #{resource}"
     end
@@ -30,6 +32,8 @@ module Admin::ApplicationHelper
       edit_admin_category_path resource
     when Book
       edit_admin_book_path resource
+    when Episode
+      edit_admin_episode_path resource
     else
       raise "Unknown model: #{resource.class.name}"
     end
@@ -47,6 +51,8 @@ module Admin::ApplicationHelper
       admin_category_path resource
     when Book
       admin_book_path resource
+    when Episode
+      admin_episode_path resource
     else
       raise "Unknown model: #{resource.class.name}"
     end
@@ -60,7 +66,7 @@ module Admin::ApplicationHelper
     case resource
     when User
       can_delete_user? resource
-    when Publisher, Author, Category, Book
+    when Publisher, Author, Category, Book, Episode
       true
     else
       false

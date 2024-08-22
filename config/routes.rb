@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :books
       resources :users
+      resources :episodes
       resources :publishers
       resources :authors
       resources :borrow_books, except: [:index] do

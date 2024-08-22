@@ -25,6 +25,24 @@ en:
           overdue: "Overdue"
           lost: "Lost"
   admin:
+    episodes:
+      index:
+        title: "Episodes"
+      show:
+        submit_button: "Update"
+        title: "Episode Details"
+      new:
+        qty: "Count"
+        intro: "Intro"
+        content: "Content"
+        thumb: "Thumb"
+        fee: "Fee"
+        book: "Book"
+        title: "New Episode"
+        submit_button: "Create"
+      edit:
+        title: "Edit Episode"
+        submit_button: "Save changes"
     books:
       index:
         title: "Books"
@@ -163,6 +181,14 @@ en:
       lost_inactivated: "Your account has been inactivated. Please pay the compensation fee (%{compensation_fee}) to reactivate your account."
       thank_you: "Thank you for using our service."
   message:
+    episodes:
+      created: "Episode created successfully."
+      updated: "Episode updated successfully."
+      update_fail: "Episode updated fail"
+      create_fail: "Episode created fail"
+      deleted: "Episode deleted successfully."
+      delete_fail: "Failed to delete episode."
+      not_found: "Episode not found."
     books:
       created: "Book created successfully."
       updated: "Book updated successfully."

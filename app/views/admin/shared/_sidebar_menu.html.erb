@@ -51,8 +51,8 @@
   <% end %>
 </li>
 
-<li class="nav-item <%= "active" if request.path.include?("#") %>">
-  <%= link_to "#", class: "nav-link" do %>
+<li class="nav-item <%= "active" if request.path.include?("episodes") %>">
+  <%= link_to admin_episodes_path, class: "nav-link" do %>
     <i class="fas fa-fw fa-book-open"></i>
     <span><%= t ".episodes" %></span>
   <% end %>
