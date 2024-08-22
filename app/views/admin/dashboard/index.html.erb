@@ -1,0 +1,51 @@
+<% provide :title, t(".title") %>
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800"><%= t ".title" %></h1>
+  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+    <i class="fas fa-download fa-sm text-white-50"></i> <%= t ".generate_report" %>
+  </a>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+  <div class="row pe-0">
+    <%= render "admin/dashboard/card", color: "primary", title: t(".borrowing_books"), value: @borrowing_books_count, icon: "book" %>
+    <%= render "admin/dashboard/card", color: "warning", title: t(".overdue_books"), value: @overdue_books_count, icon: "exclamation-triangle" %>
+    <%= render "admin/dashboard/card", color: "danger", title: t(".lost_books"), value: @lost_books_count, icon: "circle-xmark" %>
+    <%= render "admin/dashboard/card", color: "info", title: t(".pending_requests"), value: @pending_requests_count, icon: "hourglass-half" %>
+  </div>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+  <!-- Line Chart -->
+  <div class="col-xl-8 col-lg-7">
+    <div class="card shadow mb-4">
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary"><%= t ".borrowed_books_by_categories" %></h6>
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+          <%= tag.canvas(id: "myAreaChart", data: { category_data: json_escape(@borrow_books_by_category.to_json) }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie Chart -->
+  <div class="col-xl-4 col-lg-5">
+    <div class="card shadow mb-4">
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary"><%= t ".books_by_categories" %></h6>
+      </div>
+      <div class="card-body">
+        <div class="chart-pie pt-4 pb-2">
+          <%= tag.canvas(id: "myPieChart", data: { category_data: json_escape(@category_data.to_json) }) %>
+        </div>
+        <div class="mt-4 text-center small" id="chart-legend">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

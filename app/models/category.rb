@@ -21,6 +21,7 @@ class Category < ApplicationRecord
       .order("books_count DESC")
       .limit(limit)
   end)
+  scope :top_level, ->{where(parent_id: nil)}
 
   def cat_thumb
     episode = Episode.for_category(id).first

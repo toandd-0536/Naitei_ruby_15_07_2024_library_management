@@ -37,6 +37,16 @@ vi:
         too_short: "quá ngắn (tối thiểu %{count} ký tự)."
         after_date_of_birth: "phải sau ngày sinh"
   admin:
+    dashboard:
+      index:
+        title: "Dashboard"
+        generate_report: "Tạo báo cáo"
+        borrowing_books: "Sách Đang Mượn"
+        overdue_books: "Sách Quá Hạn"
+        lost_books: "Sách Bị Mất"
+        pending_requests: "Yêu Cầu Đang Chờ"
+        borrowed_books_by_categories: "Sách Mượn Theo Danh Mục"
+        books_by_categories: "Sách Theo Danh Mục"
     episodes:
       index:
         title: "Tập"

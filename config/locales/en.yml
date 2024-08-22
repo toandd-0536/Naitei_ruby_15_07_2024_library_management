@@ -33,6 +33,16 @@ en:
       messages:
         after_date_of_birth: "must be after the Date of Birth"
   admin:
+    dashboard:
+      index:
+        title: "Dashboard"
+        generate_report: "Generate Report"
+        borrowing_books: "Borrowing Books"
+        overdue_books: "Overdue Books"
+        lost_books: "Lost Books"
+        pending_requests: "Pending Requests"
+        borrowed_books_by_categories: "Borrowed Books by Categories"
+        books_by_categories: "Books by Categories"
     episodes:
       index:
         title: "Episodes"

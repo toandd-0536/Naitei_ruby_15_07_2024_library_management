@@ -2,8 +2,8 @@
 <hr class="sidebar-divider my-0">
 
 <!-- Nav Item - Dashboard -->
-<li class="nav-item">
-  <%= link_to root_path, class: "nav-link" do %>
+<li class="nav-item <%= "active" if current_page?(admin_root_path) %>">
+  <%= link_to admin_root_path, class: "nav-link" do %>
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span><%= t ".dashboard" %></span>
   <% end %>
@@ -23,14 +23,14 @@
   <% end %>
 </li>
 
-<li class="nav-item <%= "active" if request.path.include?("categories") %>">
+<li class="nav-item <%= "active" if active_nav_item?("categories") %>">
   <%= link_to admin_categories_path, class: "nav-link" do %>
     <i class="fas fa-fw fa-tag"></i>
     <span><%= t ".genres" %></span>
   <% end %>
 </li>
 
-<li class="nav-item <%= "active" if request.path.include?("authors") %>">
+<li class="nav-item <%= "active" if active_nav_item?("authors") %>">
   <%= link_to admin_authors_path, class: "nav-link" do %>
     <i class="fas fa-fw fa-user-edit"></i>
     <span><%= t ".authors" %></span>
@@ -44,33 +44,31 @@
   <% end %>
 </li>
 
-<li class="nav-item <%= "active" if request.path.include?("books") %>">
+<li class="nav-item <%= "active" if active_nav_item?("books") %>">
   <%= link_to admin_books_path, class: "nav-link" do %>
     <i class="fas fa-fw fa-book"></i>
     <span><%= t ".books" %></span>
   <% end %>
 </li>
 
-<li class="nav-item <%= "active" if request.path.include?("episodes") %>">
+<li class="nav-item <%= "active" if active_nav_item?("episodes") %>">
   <%= link_to admin_episodes_path, class: "nav-link" do %>
     <i class="fas fa-fw fa-book-open"></i>
     <span><%= t ".episodes" %></span>
   <% end %>
 </li>
 
-<li class="nav-item<%= " active" if request.path.include?("borrow_books") %>">
-  <%= link_to borrow_admin_borrow_books_path, class: "nav-link#{" collapsed" if !request.path.include?("borrow_books")}", data: { bs_toggle: "collapse", bs_target: "#collapseBorrowBooks", controls: "collapseBorrowBooks" } do %>
+<li class="nav-item<%= " active" if active_nav_item?("borrow_books") %>">
+  <%= link_to borrow_admin_borrow_books_path, class: "nav-link#{" collapsed" if !active_nav_item?("borrow_books")}", data: { bs_toggle: "collapse", bs_target: "#collapseBorrowBooks", controls: "collapseBorrowBooks" } do %>
     <i class="fas fa-fw fa-calendar-check"></i>
     <span><%= t ".requests" %></span>
   <% end %>
-  <div id="collapseBorrowBooks" class="collapse<%= " show" if request.path.include?("borrow_books") %>" aria-labelledby="headingBorrowBooks" data-parent="#accordionSidebar">
+  <div id="collapseBorrowBooks" class="collapse<%= " show" if active_nav_item?("borrow_books") %>" aria-labelledby="headingBorrowBooks" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
 
-      <%= link_to t(".borrow_books.borrow"), borrow_admin_borrow_books_path, class: "collapse-item#{" active" if request.path.include?("borrow_books/borrow")}" %>
-      <%= link_to t(".borrow_books.return"), return_admin_borrow_books_path, class: "collapse-item#{" active" if request.path.include?("return")}" %>
-      <%= link_to t(".borrow_books.history"), history_admin_borrow_books_path, class: "collapse-item#{" active" if request.path.include?("history")}" %>
+      <%= link_to t(".borrow_books.borrow"), borrow_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("borrow_books/borrow")}" %>
+      <%= link_to t(".borrow_books.return"), return_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("return")}" %>
+      <%= link_to t(".borrow_books.history"), history_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("history")}" %>
     </div>
   </div>
-</li>
-
 </li>
