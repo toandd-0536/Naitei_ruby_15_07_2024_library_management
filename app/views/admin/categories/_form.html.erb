@@ -1,0 +1,20 @@
+<%= form_for [:admin, @cat] do |f| %>
+  <%= render "admin/shared/error_messages", object: @cat %>
+
+  <div class="form-group">
+    <%= f.label :name, t(".name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name, t("admin.categories.form.parent") %>
+    <%= f.select :parent_id, 
+                 options_from_collection_for_select(@cats, :id, :name, selected: @cat.parent_id), 
+                 {prompt: t("views.episodes.all.cat")}, 
+                 {data: {controller: "slim"}} %>
+  </div>
+
+  <div class="form-group text-end">
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  </div>
+<% end %>

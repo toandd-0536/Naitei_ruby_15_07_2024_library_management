@@ -62,6 +62,10 @@ a {
     }
   }
 
+  li span.dot:last-child{
+    display: none;
+  }
+
   li:last-child {
     border-bottom: none;
   }
