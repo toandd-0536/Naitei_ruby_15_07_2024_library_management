@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
     resources :authors, only: :show
 
+    resources :users
+
     resources :books do
       resources :episodes do
         post "add_to_cart", on: :member
