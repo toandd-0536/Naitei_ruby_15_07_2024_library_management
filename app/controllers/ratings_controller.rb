@@ -5,18 +5,33 @@ class RatingsController < ApplicationController
   def create
     @rating = @episode.ratings.new(rating_params.merge(user: current_user))
     if @rating.save
-      flash[:success] = t "message.ratings.created"
-      respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream:
-            turbo_stream.replace("ratings_form",
-                                 partial: "ratings/my_review",
-                                 locals: {rating: @rating})
-        end
-      end
+      handle_successful_save
     else
-      flash[:error] = t "message.ratings.create_fail"
-      render "episodes/show", status: :unprocessable_entity
+      handle_failed_save
+    end
+  end
+
+  def handle_successful_save
+    flash[:success] = t "message.ratings.created"
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace("ratings_form",
+                                                  partial: "ratings/my_review",
+                                                  locals: {rating: @rating})
+      end
+    end
+  end
+
+  def handle_failed_save
+    flash.now[:error] = t "message.ratings.create_fail"
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace("ratings_form",
+                                                  partial: "ratings/form",
+                                                  locals: {episode: @episode,
+                                                           rating: @rating}),
+               status: :unprocessable_entity
+      end
     end
   end
 

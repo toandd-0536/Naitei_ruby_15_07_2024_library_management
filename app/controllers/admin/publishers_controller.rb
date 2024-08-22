@@ -64,7 +64,7 @@ class Admin::PublishersController < AdminController
   end
 
   def load_publisher
-    @publisher = Publisher.find(params[:id])
+    @publisher = Publisher.find_by id: params[:id]
     return if @publisher
 
     flash[:danger] = t "message.publishers.not_found"
