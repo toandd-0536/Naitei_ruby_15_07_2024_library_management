@@ -1,0 +1,36 @@
+<%= form_for [:admin, @book] do |f| %>
+  <%= render "admin/shared/error_messages", object: @book %>
+
+  <div class="form-group">
+    <%= f.label :name, t(".name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :publisher_id, t("admin.books.new.publisher") %>
+    <%= f.select :publisher_id, 
+                 options_from_collection_for_select(@publishers, :id, :name, selected: @book.publisher_id), 
+                 {prompt: t("views.episodes.all.publisher")}, 
+                 {data: {controller: "slim"}} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :category_ids, t("admin.books.new.cat") %>
+    <%= f.select :category_ids, 
+                 options_from_collection_for_select(@cats, :id, :name, selected: @book.category_ids), 
+                 {prompt: t("views.episodes.all.category")}, 
+                 {multiple: true, data: {controller: "slim"}} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :author_ids, t("admin.books.new.author") %>
+    <%= f.select :author_ids, 
+                 options_from_collection_for_select(@authors, :id, :name, selected: @book.author_ids), 
+                 {prompt: t("views.episodes.all.author")}, 
+                 {multiple: true, data: {controller: "slim"}} %>
+  </div>
+
+  <div class="form-group text-end">
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  </div>
+<% end %>

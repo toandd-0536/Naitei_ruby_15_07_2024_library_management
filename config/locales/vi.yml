@@ -25,6 +25,22 @@ vi:
           overdue: "Quá hạn"
           lost: "Mất"
   admin:
+    books:
+      index:
+        title: "Sách"
+      show:
+        title: "Chi tiết sách"
+        cat: "Danh mục"
+        author: "Tác giả"
+      new:
+        publiser: "Nhà xuất bản"
+        cat: "Danh mục"
+        author: "Tác giả"
+        title: "Sách mới"
+        submit_button: "Tạo"
+      edit:
+        title: "Chỉnh sửa sách"
+        submit_button: "Lưu thay đổi"
     categories:
       form:
         parent: "Danh mục cha"
@@ -35,7 +51,7 @@ vi:
         parent: "Danh mục cha"
         child: "Danh mục con"
       new:
-        title: "Danh mục bản mới"
+        title: "Danh mục mới"
         submit_button: "Tạo"
       edit:
         title: "Chỉnh sửa danh mục"
@@ -148,6 +164,14 @@ vi:
       lost_inactivated: "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng thanh toán phí bồi thường (%{compensation_fee}) để kích hoạt lại tài khoản của bạn."
       thank_you: "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi."
   message:
+    books:
+      created: "Tạo sách thành công."
+      updated: "Cập nhật sách thành công."
+      deleted: "Xóa sách thành công."
+      delete_fail: "Xóa sách thất bại."
+      not_found: "Không tìm thấy sách."
+      cat_found: "Không để trống danh mục"
+      author_found: "Không để trống tác giả"
     categories:
       duplicate: "Không thể chọn danh mục cha là danh mục đang được cập nhật"
       child_error: "Không thể chọn danh mục cha là danh mục con"

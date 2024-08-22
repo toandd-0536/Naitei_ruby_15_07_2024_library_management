@@ -1,0 +1,8 @@
+<li class="list-group-item publisher-item d-flex align-items-center justify-content-between px-3">
+  <div class="d-flex align-items-center">
+    <div class="publisher-name ml-3">
+      <%= link_to book.name, admin_book_path(book) %>
+    </div>
+  </div>
+  <%= render "admin/shared/action_buttons", resource: book %>
+</li>
