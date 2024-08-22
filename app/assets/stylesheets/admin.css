@@ -4735,6 +4735,15 @@ input[type="button"].btn-block {
   margin-bottom: 0.75rem;
 }
 
+.img-view{
+  height: 150px;
+  margin: 10px 0px;
+}
+
+.img-view img{
+  height: 100%;
+}
+
 @media (min-width: 576px) {
   .card-deck {
     display: flex;

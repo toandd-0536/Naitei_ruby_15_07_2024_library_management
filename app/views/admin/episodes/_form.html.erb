@@ -1,0 +1,54 @@
+<%= form_for [:admin, @episode], data: { turbo: false } do |f| %>
+  <%= render "admin/shared/error_messages", object: @episode %>
+
+  <div class="form-group">
+    <%= f.label :name, t(".name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :book_id, t("admin.episodes.new.book") %>
+    <%= f.select :book_id, 
+                 options_from_collection_for_select(@books, :id, :name, selected: @episode.book_id), 
+                 {prompt: t("views.episodes.all.book")}, 
+                 {data: {controller: "slim"}} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :intro, t("admin.episodes.new.intro") %>
+    <%= f.text_area :intro, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content, t("admin.episodes.new.content") %>
+    <%= f.hidden_field :content, id: "hidden-body-field" %>
+    <div id="editor-container">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :qty, t("admin.episodes.new.qty") %>
+    <%= f.number_field :qty, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :compensation_fee, t("admin.episodes.new.fee") %>
+    <%= f.number_field :compensation_fee, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :thumb, t("admin.episodes.new.thumb"), class: "form-label" %>
+    <%= f.file_field :thumb, class: "form-control" %>
+    <div class="img-view">
+      <% if @episode.thumb.present? %>
+        <%= image_tag @episode.thumb %>
+      <% else %>
+        <%= image_tag "placeholder.png" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group text-end">
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  </div>
+<% end %>

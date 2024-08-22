@@ -7,6 +7,8 @@ default_status: 0
 cart_item_default_status: 0
 card_time_setting: "%H:%M:%S %d/%m/%Y"
 card_item_min_delete: 1
+file_storage: "app/assets/images"
+file_permissions: "wb"
 views:
   home:
     banner_count: 100

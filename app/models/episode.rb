@@ -1,5 +1,13 @@
 class Episode < ApplicationRecord
   SEARCH_PARAMS = %i(book_id publisher_id author_id category_id).freeze
+  EPISODE_PARAMS = %i(
+    name
+    book_id
+    qty
+    intro
+    content
+    compensation_fee
+  ).freeze
 
   belongs_to :book
   has_many :carts, dependent: :destroy
@@ -7,6 +15,9 @@ class Episode < ApplicationRecord
   has_many :favorites, as: :favoritable, dependent: :destroy
   has_many :ratings, dependent: :destroy
   has_many :users, through: :carts
+
+  scope :sorted_by_name, ->{order(name: :asc)}
+  scope :sorted_by_created, ->{order(created_at: :desc)}
 
   scope(:search_by_name, lambda do |keyword|
     where("name LIKE ?", "%#{keyword}%") if keyword.present?

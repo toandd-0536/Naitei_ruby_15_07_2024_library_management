@@ -25,6 +25,24 @@ vi:
           overdue: "Quá hạn"
           lost: "Mất"
   admin:
+    episodes:
+      index:
+        title: "Tập"
+      show:
+        submit_button: "Cập nhật"
+        title: "Chi tiết tập"
+      new:
+        intro: "Giới thiệu"
+        content: "Nội dung"
+        qty: "Số lượng"
+        thumb: "Hình ảnh"
+        fee: "Giá đền bù"
+        book: "Sách"
+        title: "Tập mới"
+        submit_button: "Tạo"
+      edit:
+        title: "Chỉnh sửa tập"
+        submit_button: "Lưu thay đổi"
     books:
       index:
         title: "Sách"
@@ -164,6 +182,14 @@ vi:
       lost_inactivated: "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng thanh toán phí bồi thường (%{compensation_fee}) để kích hoạt lại tài khoản của bạn."
       thank_you: "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi."
   message:
+    episodes:
+      created: "Tạo tập thành công."
+      updated: "Cập nhật tập thành công."
+      update_fail: "Cập nhật thất bại"
+      create_fail: "Tạo thất bại"
+      deleted: "Xóa tập thành công."
+      delete_fail: "Xóa tập thất bại."
+      not_found: "Không tìm thấy tập."
     books:
       created: "Tạo sách thành công."
       updated: "Cập nhật sách thành công."
