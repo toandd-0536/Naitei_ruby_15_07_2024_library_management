@@ -34,6 +34,6 @@ class Book < ApplicationRecord
   def must_have_authors
     return unless authors.empty?
 
-    errors.add(:authors, I18n.t("message.books.book_found"))
+    errors.add(:authors, I18n.t("message.books.author_found"))
   end
 end

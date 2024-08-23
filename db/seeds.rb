@@ -73,18 +73,25 @@ end
 create_categories(categories_data)
 
 books_data.each do |book_data|
-  book = Book.create!(
+  book = Book.new(
     name: book_data["name"],
     publisher_id: book_data["publisher_id"]
   )
 
-  book_data["author_ids"].each do |author_id|
-    BookAuthor.create!(book_id: book.id, author_id: author_id)
+  category_ids = book_data["category_ids"].select { |id| Category.exists?(id) }
+  author_ids = book_data["author_ids"].select { |id| Author.exists?(id) }
+
+  category_ids.each do |category_id|
+    category = Category.find(category_id)
+    book.categories << category
   end
 
-  book_data["category_ids"].each do |category_id|
-    BookCategory.create!(book_id: book.id, category_id: category_id)
+  author_ids.each do |author_id|
+    author = Author.find(author_id)
+    book.authors << author
   end
+
+  book.save
 end
 
 episodes_data.each do |episode_data|
@@ -117,7 +124,7 @@ end
 
 fake_book_ids = []
 100.times do
-  book = Book.create!(
+  book = Book.new(
     name: Faker::Book.title,
     publisher_id: Publisher.pluck(:id).sample
   )
@@ -125,14 +132,17 @@ fake_book_ids = []
   author_ids = Author.pluck(:id).sample(rand(1..3))
   category_ids = Category.pluck(:id).sample(rand(1..5))
 
-  author_ids.each do |author_id|
-    BookAuthor.create!(book_id: book.id, author_id: author_id)
-  end
-
   category_ids.each do |category_id|
-    BookCategory.create!(book_id: book.id, category_id: category_id)
+    category = Category.find(category_id)
+    book.categories << category
   end
 
+  author_ids.each do |author_id|
+    author = Author.find(author_id)
+    book.authors << author
+  end
+
+  book.save
   fake_book_ids << book.id
 end
 
@@ -148,27 +158,28 @@ end
   )
 end
 
-users = User.limit(10)
+users = User.limit(20)
 borrow_cards = users.map do |user|
   BorrowCard.create!(
     user: user,
-    start_time: Faker::Date.backward(days: 30)
+    start_time: Faker::Date.backward(days: 365)
   )
 end
 
 borrow_cards.each do |borrow_card|
   rand(1..5).times do
-    episode = Episode.order("RAND()").first
+    episode = Episode.all.sample
     status = BorrowBook.statuses.keys.sample
 
     BorrowBook.create!(
       borrow_card: borrow_card,
       episode: episode,
       status: status,
-      reason: status == "cancel" ? Faker::Lorem.sentence : nil
+      reason: status == "cancel" ? Faker::Lorem.sentence : nil,
     )
   end
 end
+
 
 users = User.all
 episodes = Episode.all
