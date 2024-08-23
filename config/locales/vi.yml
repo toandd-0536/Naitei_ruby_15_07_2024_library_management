@@ -271,8 +271,6 @@ vi:
       create_fail: "Thêm vào mục yêu thích không thành công."
       deleted: "Đã xóa khỏi mục yêu thích thành công."
       delete_fail: "Xóa khỏi mục yêu thích không thành công."
-    episodes:
-      not_found: "Không tìm thấy sách."
     you_sure?: "Bạn có chắc chắn không?"
   mailer:
     order_mailer:

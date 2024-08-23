@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get "/search_ajax", to: "home#search_ajax"
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
 
     resources :authors, only: :show
 

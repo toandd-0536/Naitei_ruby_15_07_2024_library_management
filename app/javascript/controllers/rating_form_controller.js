@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus';
-import 'quill';
+import '../settings/quill';
 
 export default class extends Controller {
   static targets = ['form', 'quillTextarea', 'starRatingInput', 'hiddenRating'];

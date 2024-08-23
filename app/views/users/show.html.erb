@@ -1,1 +1,50 @@
-<%= t "hello" %>
+<% provide :link_page do %>
+   <%= t "views.users.show.title" %> > <%= @user.name %>
+<% end %>
+
+<%= render "shared/client_page_heading" %>
+<%= render "modal_logout", user: @user %>
+
+<div id="profile">
+  <div class="container">
+    <%= render "shared/profile_action" %>
+    <div class="row" id="profile-content">
+      <div class="col-md-12" id="profile-info">
+        <%= form_with model: @user, html: { class: "row" }, 
+                      data: { turbo: false }, local: true do |f| %>
+          <div class="group-input col-md-6 mb-3">
+            <%= f.label :name, class: "form-label" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="group-input col-md-6 mb-3">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, class: "form-control", disabled: true %>
+          </div>
+          <div class="group-input col-md-6 mb-3">
+            <%= f.label :phone, class: "form-label" %>
+            <%= f.text_field :phone, class: "form-control" %>
+          </div>
+          <div class="group-input col-md-6 mb-3">
+            <%= f.label :address, class: "form-label" %>
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+          <div class="group-input col-md-6 mb-3">
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+          <div class="group-input col-md-6 mb-3">
+            <%= f.label :password_confirmation, class: "form-label" %>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+          <div class="col-md-12">
+            <%= f.submit t("views.users.btn_update"), class: "btn btn-primary" %>
+            <a href="#" class="btn btn-danger text-white ms-2" 
+               data-bs-toggle="modal" data-bs-target="#modalLogout">
+              <%= t "views.users.btn_logout" %>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
