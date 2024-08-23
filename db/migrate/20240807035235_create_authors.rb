@@ -7,6 +7,7 @@ class CreateAuthors < ActiveRecord::Migration[7.0]
       t.date :dob
       t.date :dod
       t.string :thumb
+      t.string :thumb_img
 
       t.timestamps
     end

@@ -49,6 +49,7 @@ models:
 date_format: "%Y-%m-%d"
 page: 10
 avatar:
+  xl: 200
   lg: 120
   md: 80
   sm: 50

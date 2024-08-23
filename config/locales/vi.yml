@@ -16,6 +16,12 @@ vi:
       - "Tháng 12"
   activerecord:
     attributes:
+      author:
+        name: "Tên"
+        intro: "Giới thiệu"
+        bio: "Tiểu sử"
+        dob: "Ngày sinh"
+        dod: "Ngày mất"
       borrow_book:
         status:
           pending: "Đang chờ"
@@ -24,6 +30,12 @@ vi:
           returned: "Đã trả"
           overdue: "Quá hạn"
           lost: "Mất"
+    errors:
+      messages:
+        blank: "không được để trống"
+        invalid: "không hợp lệ"
+        too_short: "quá ngắn (tối thiểu %{count} ký tự)."
+        after_date_of_birth: "phải sau ngày sinh"
   admin:
     episodes:
       index:
@@ -111,6 +123,21 @@ vi:
       edit:
         title: "Chỉnh sửa nhà xuất bản"
         submit_button: "Lưu thay đổi"
+    authors:
+      index:
+        title: "Tác giả"
+      new:
+        title: "Tác giả mới"
+        submit_button: "Tạo"
+      edit:
+        title: "Chỉnh sửa tác giả"
+        submit_button: "Lưu thay đổi"
+      show:
+        title: "Chi tiết nhà tác giả"
+        intro: "Giới thiệu"
+        bio: "Tiểu sử"
+        dob: "Ngày sinh"
+        dod: "Ngày mất"
     borrow_books:
       borrow:
         title: "Mượn sách"
@@ -212,11 +239,19 @@ vi:
       delete_fail: "Xóa người dùng thất bại."
       not_found: "Không tìm thấy người dùng."
     publishers:
-      created: "Tạo nhà xuất bản thành công."
+      new: "Tạo nhà xuất bản thành công."
       updated: "Cập nhật nhà xuất bản thành công."
       deleted: "Xóa nhà xuất bản thành công."
       delete_fail: "Xóa nhà xuất bản thất bại."
       not_found: "Không tìm thấy nhà xuất bản."
+    authors:
+      created: "Tạo tác giả thành công."
+      create_fail: "TạoTạo tác giả thất bại."
+      updated: "Cập nhật tác giả thành công."
+      update_fail: "Cập nhật tác giả thất bại."
+      deleted: "Xóa tác giả thành công."
+      delete_fail: "Xóa tác giả thất bại."
+      not_found: "Không tìm thấy tác giả."
     borrow_books:
       confirmed: "Xác nhận yêu cầu thành công."
       status_fail: "Không thể thay đổi trạng thái yêu cầu."

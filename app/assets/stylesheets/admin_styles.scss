@@ -71,6 +71,11 @@ a {
   }
 }
 
+.img-circle {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 /* user */
 aside {
   section.user_info {
@@ -79,12 +84,6 @@ aside {
 
     .user-avatar {
       margin-bottom: 15px;
-    }
-
-    .user-name {
-      font-size: 1.8em;
-      color: $black;
-      margin-bottom: 20px;
     }
   }
 
@@ -122,13 +121,6 @@ aside {
     overflow: auto;
     padding: 10px 0;
     border-bottom: 1px solid $gray;
-  }
-
-  .user-name{
-    a {
-      color: black;
-      font-size: large;
-    }
   }
 }
 
