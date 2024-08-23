@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   USER_PARAMS = [:name, :email, :dob, :phone, :lost_time,
                 :blacklisted, :activated].freeze
+  CREATE_PARAMS = %i(name email password phone address).freeze
   VALID_EMAIL_REGEX = Regexp.new(Settings.models.user.email.regex_valid)
 
   has_many :carts, dependent: :destroy
@@ -26,11 +27,17 @@ class User < ApplicationRecord
             length: {maximum: Settings.models.user.email.max_length},
             format: {with: VALID_EMAIL_REGEX},
             uniqueness: {case_sensitive: false}
+  validates :phone, presence: true
+  validates :address, presence: true
 
   has_secure_password
 
   before_save :downcase_email
   before_update :blacklist
+
+  def self.generate_random_password
+    SecureRandom.alphanumeric Settings.random_password_count
+  end
 
   def currently_borrowing_episodes_count
     borrowing_episodes_count = BorrowBook.by_user(id).active.count
