@@ -117,7 +117,7 @@ class Admin::BorrowBooksController < AdminController
   private
 
   def load_borrow_book
-    @borrow_book = BorrowBook.find_by params[:id]
+    @borrow_book = BorrowBook.find_by id: params[:id]
     return if @borrow_book
 
     flash[:danger] = t "message.borrow_books.not_found"

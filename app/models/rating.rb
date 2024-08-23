@@ -4,5 +4,8 @@ class Rating < ApplicationRecord
   belongs_to :episode
   belongs_to :user
 
+  validates :body, presence: true
+  validates :rating, presence: true
+
   scope :recent, ->{order(created_at: :desc)}
 end
