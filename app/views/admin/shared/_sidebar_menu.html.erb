@@ -30,8 +30,8 @@
   <% end %>
 </li>
 
-<li class="nav-item <%= "active" if request.path.include?("#") %>">
-  <%= link_to "#", class: "nav-link" do %>
+<li class="nav-item <%= "active" if request.path.include?("authors") %>">
+  <%= link_to admin_authors_path, class: "nav-link" do %>
     <i class="fas fa-fw fa-user-edit"></i>
     <span><%= t ".authors" %></span>
   <% end %>

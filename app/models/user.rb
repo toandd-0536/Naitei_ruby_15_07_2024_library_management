@@ -2,8 +2,8 @@ class User < ApplicationRecord
   USER_PARAMS = [:name, :email, :dob, :phone, :lost_time,
                 :blacklisted, :activated].freeze
   CREATE_PARAMS = %i(name email password phone address).freeze
+  UPDATE_PARAMS = %i(name password_confirmation password phone address).freeze
   VALID_EMAIL_REGEX = Regexp.new(Settings.models.user.email.regex_valid)
-
   has_many :carts, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :episodes, through: :favorites, source: :favoritable,
@@ -52,6 +52,14 @@ class User < ApplicationRecord
     validate_episode_in_cart episode
     validate_episode_quantity episode
     validate_borrowing_limit
+
+    errors.empty?
+  end
+
+  def can_checkout_cart?
+    errors.clear
+    validate_activation
+    validate_blacklist
 
     errors.empty?
   end

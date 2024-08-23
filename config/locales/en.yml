@@ -265,8 +265,6 @@ en:
       create_fail: "Failed to favorite."
       deleted: "Unfavorite successfully."
       delete_fail: "Failed to unfavorite."
-    episodes:
-      not_found: "Book not found."
     you_sure?: "Are you sure?"
   mailer:
     order_mailer:

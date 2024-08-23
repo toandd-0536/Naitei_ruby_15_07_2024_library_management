@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :redirect_unless_signed_in
+  before_action :validate_conditions, only: :checkout
   def index
     @carts = current_user.carts
   end
@@ -83,5 +84,12 @@ class CartsController < ApplicationController
 
   def clear_cart cart_items
     cart_items.destroy_all
+  end
+
+  def validate_conditions
+    return if current_user.can_checkout_cart?
+
+    flash[:error] = current_user.errors.full_messages
+    redirect_back(fallback_location: root_path)
   end
 end

@@ -29,4 +29,10 @@ module SessionsHelper
     flash[:error] = t "controllers.episodes.error_login"
     redirect_back(fallback_location: root_path)
   end
+
+  def check_not_signed_in?
+    return unless user_signed_in?
+
+    redirect_back(fallback_location: root_path)
+  end
 end
