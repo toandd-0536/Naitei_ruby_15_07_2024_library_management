@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   USER_PARAMS = [:name, :email, :dob, :phone, :lost_time,
                 :blacklisted, :activated].freeze
   CREATE_PARAMS = %i(name email password phone address).freeze
@@ -29,8 +31,6 @@ class User < ApplicationRecord
             uniqueness: {case_sensitive: false}
   validates :phone, presence: true
   validates :address, presence: true
-
-  has_secure_password
 
   before_save :downcase_email
   before_update :blacklist
