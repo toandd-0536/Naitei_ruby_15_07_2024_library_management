@@ -1,29 +1,27 @@
 class Admin::BorrowBooksController < AdminController
-  load_and_authorize_resource
-
   before_action :load_borrow_book, except: %i(borrow return history refresh)
 
   def borrow
-    @pagy, @borrow_books = pagy BorrowBook.pending.includes(borrow_card: :user)
-                                          .by_updated_desc,
-                                items: Settings.page
+    @borrow_books = BorrowBook.pending.includes(borrow_card: :user)
+                              .by_updated_desc
+    @pagy, @borrow_books = pagy(@borrow_books, items: Settings.page)
     @breadcrumb_items = [{name: t(".borrow.title")}]
   end
 
   def return
-    @pagy, @borrow_books = pagy BorrowBook.confirm.or(BorrowBook.overdue)
-                                          .includes(borrow_card: :user)
-                                          .by_updated_desc,
-                                items: Settings.page
+    @borrow_books = BorrowBook.confirm.or(BorrowBook.overdue)
+                              .includes(borrow_card: :user)
+                              .by_updated_desc
+    @pagy, @borrow_books = pagy(@borrow_books, items: Settings.page)
     @breadcrumb_items = [{name: t(".return.title")}]
   end
 
   def history
-    @pagy, @borrow_books = pagy BorrowBook.cancel.or(BorrowBook.returned)
-                                          .or(BorrowBook.lost)
-                                          .includes(borrow_card: :user)
-                                          .by_updated_desc,
-                                items: Settings.page
+    @borrow_books = BorrowBook.cancel.or(BorrowBook.returned)
+                              .or(BorrowBook.lost)
+                              .includes(borrow_card: :user)
+                              .by_updated_desc
+    @pagy, @borrow_books = pagy(@borrow_books, items: Settings.page)
     @breadcrumb_items = [{name: t(".history.title")}]
   end
 

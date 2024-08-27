@@ -67,8 +67,8 @@
     <div class="bg-white py-2 collapse-inner rounded">
 
       <%= link_to t(".borrow_books.borrow"), borrow_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("borrow_books/borrow")}" %>
-      <%= link_to t(".borrow_books.return"), return_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("return")}" %>
-      <%= link_to t(".borrow_books.history"), history_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("history")}" %>
+      <%= link_to t(".borrow_books.return"), return_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("borrow_books/return")}" %>
+      <%= link_to t(".borrow_books.history"), history_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("borrow_books/history")}" %>
     </div>
   </div>
 </li>
