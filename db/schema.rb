@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_22_092700) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_27_013950) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_092700) do
     t.date "dob"
     t.date "dod"
     t.string "thumb"
+    t.string "thumb_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,7 +93,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_092700) do
     t.date "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status", default: 0, null: false
     t.index ["user_id"], name: "index_borrow_cards_on_user_id"
   end
 
@@ -110,7 +110,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_092700) do
     t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "thumb"
     t.index ["parent_id"], name: "index_categories_on_parent_id"
   end
 
@@ -118,7 +117,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_092700) do
     t.bigint "book_id", null: false
     t.string "name"
     t.integer "qty"
-    t.text "intro"
+    t.string "intro"
     t.text "content"
     t.integer "compensation_fee"
     t.string "thumb"
@@ -155,17 +154,26 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_22_092700) do
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
     t.string "email"
-    t.string "password_digest"
-    t.integer "role", default: 1
+    t.integer "role"
+    t.date "dob"
     t.string "phone"
-    t.integer "lost_time", default: 0
-    t.boolean "blacklisted", default: false
-    t.boolean "activated", default: true
+    t.string "address"
+    t.integer "lost_time"
+    t.boolean "blacklisted"
+    t.boolean "activated"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "address"
-    t.string "name"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

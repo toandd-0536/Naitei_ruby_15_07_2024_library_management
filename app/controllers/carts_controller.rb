@@ -65,8 +65,7 @@ class CartsController < ApplicationController
   def create_borrow_card user
     BorrowCard.create!(
       user:,
-      start_time: Time.zone.today,
-      status: Settings.default_status
+      start_time: Time.zone.today
     )
   end
 
