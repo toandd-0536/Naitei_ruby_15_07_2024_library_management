@@ -30,7 +30,6 @@ class User < ApplicationRecord
             format: {with: VALID_EMAIL_REGEX},
             uniqueness: {case_sensitive: false}
   validates :phone, presence: true
-  validates :address, presence: true
 
   before_save :downcase_email
   before_update :blacklist

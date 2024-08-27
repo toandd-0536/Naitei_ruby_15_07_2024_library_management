@@ -159,7 +159,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_27_013950) do
     t.integer "role"
     t.date "dob"
     t.string "phone"
-    t.string "address"
     t.integer "lost_time"
     t.boolean "blacklisted"
     t.boolean "activated"
@@ -175,6 +174,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_27_013950) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
