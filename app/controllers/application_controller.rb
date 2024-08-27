@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :render404
+  rescue_from CanCan::AccessDenied, with: :handle_access_denied
+
   include SessionsHelper
   include Pagy::Backend
 
@@ -17,5 +19,10 @@ class ApplicationController < ActionController::Base
 
   def render404
     render "errors/404", status: :not_found, layout: "404"
+  end
+
+  def handle_access_denied _exception
+    flash[:danger] = t "message.access_denied"
+    redirect_to root_path
   end
 end

@@ -10,8 +10,9 @@ class SessionsController < ApplicationController
     @user = User.new session_params
     user = User.find_by email: params.dig(:user, :email)&.downcase
     if user.try :authenticate, params.dig(:user, :password)
+      forwarding_url = session[:forwarding_url]
       log_in user
-      redirect_to root_path
+      redirect_to forwarding_url || root_path
     else
       @user.errors.add :base, t("controllers.sessions.error_login")
       render :new, status: :unprocessable_entity

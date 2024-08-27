@@ -61,15 +61,4 @@ module Admin::ApplicationHelper
   def active_nav_item? path_segment
     request.path.match?(Regexp.new("/admin/#{path_segment}"))
   end
-
-  def can_delete? resource
-    case resource
-    when User
-      can_delete_user? resource
-    when Publisher, Author, Category, Book, Episode
-      true
-    else
-      false
-    end
-  end
 end

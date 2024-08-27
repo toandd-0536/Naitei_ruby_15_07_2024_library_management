@@ -282,6 +282,7 @@ vi:
       deleted: "Đã xóa khỏi mục yêu thích thành công."
       delete_fail: "Xóa khỏi mục yêu thích không thành công."
     you_sure?: "Bạn có chắc chắn không?"
+    access_denied: "Không có quyền truy cập"
   mailer:
     order_mailer:
       subject: "Cảm ơn vì đã đặt sách tại Bibliosphere Library"

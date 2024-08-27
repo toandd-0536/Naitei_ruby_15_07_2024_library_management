@@ -276,6 +276,7 @@ en:
       deleted: "Unfavorite successfully."
       delete_fail: "Failed to unfavorite."
     you_sure?: "Are you sure?"
+    access_denied: "Access denied"
   mailer:
     order_mailer:
       subject: "Thank you for ordering books from Bibliosphere Library."
