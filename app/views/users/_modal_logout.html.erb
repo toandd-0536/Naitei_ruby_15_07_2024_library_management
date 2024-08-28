@@ -15,7 +15,7 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           <%= t "views.users.show.btn_close" %>
         </button>
-        <%= link_to t("views.users.btn_logout"), logout_path , 
+        <%= link_to t("views.users.btn_logout"), destroy_user_session_path , 
             class: "btn btn-danger" , data: {turbo_method: :delete} %>
       </div>
     </div>

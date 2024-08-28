@@ -1,0 +1,5 @@
+<% flash.each do |key, message| %>
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1000">
+    <%= render_flash_message(key, message) %>
+  </div>
+<% end %>

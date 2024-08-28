@@ -433,6 +433,7 @@ en:
         label_email: "Email"
         label_phone: "Phone"
         label_address: "Address"
+        label_password_confirmation: "Password confirmation"
         label_name: "Fullname"
         label_password: "Password"
         btn_login: "Login"

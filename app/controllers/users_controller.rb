@@ -1,33 +1,16 @@
 class UsersController < ApplicationController
-  layout "login_layout", only: %i(new create)
-  before_action :check_not_signed_in?, only: %i(new create)
-  before_action :redirect_unless_signed_in, only: %i(show update)
+  before_action :redirect_unless_signed_in
 
   def show
     @user = current_user
   end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    generated_pass = User.generate_random_password
-    @user.password = generated_pass
-    if @user.save
-      UserMailer.welcome_mail(@user, generated_pass).deliver_now
-      flash[:success] = t "controllers.users.success"
-      redirect_to login_path
-    else
-      flash.now[:error] = t "controllers.users.register_error"
-      render :new, status: :unprocessable_entity
-    end
-  end
-
   def update
     @user = current_user
+    clean_password_params_if_blank
+
     if @user.update user_update_params
+      bypass_sign_in @user
       flash[:success] = t "controllers.users.update_success"
       redirect_back(fallback_location: root_path)
     else
@@ -37,8 +20,11 @@ class UsersController < ApplicationController
   end
 
   private
-  def user_params
-    params.require(:user).permit User::CREATE_PARAMS
+  def clean_password_params_if_blank
+    return if params[:user][:password].present?
+
+    params[:user].delete :password
+    params[:user].delete :password_confirmation
   end
 
   def user_update_params

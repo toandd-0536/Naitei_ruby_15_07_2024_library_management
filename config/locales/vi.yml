@@ -441,6 +441,7 @@ vi:
         label_address: "Địa chỉ"
         label_password: "Mật khẩu"
         label_name: "Họ và tên"
+        label_password_confirmation: "Nhập lại mật khẩu"
         btn_login: "Đăng nhập"
         btn_register: "Đăng ký"
   controllers:

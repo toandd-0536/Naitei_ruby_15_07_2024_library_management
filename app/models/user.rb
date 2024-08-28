@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true,
             length: {maximum: Settings.models.user.name.max_length}
-  validates :password, presence: true,
+  validates :password,
             length: {minimum: Settings.models.user.password.min_length},
             allow_nil: true
   validates :email, presence: true,
