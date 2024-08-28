@@ -1,4 +1,6 @@
 class Admin::EpisodesController < AdminController
+  load_and_authorize_resource
+
   before_action :load_episode, only: %i(edit update destroy)
   before_action :load_books, except: %i(index)
 

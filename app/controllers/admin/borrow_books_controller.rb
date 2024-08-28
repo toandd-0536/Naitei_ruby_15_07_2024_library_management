@@ -1,4 +1,6 @@
 class Admin::BorrowBooksController < AdminController
+  load_and_authorize_resource
+
   before_action :load_borrow_book, except: %i(borrow return history refresh)
 
   def borrow

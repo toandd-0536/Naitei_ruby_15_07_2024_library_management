@@ -1,4 +1,6 @@
 class Admin::UsersController < AdminController
+  load_and_authorize_resource
+
   before_action :load_user, except: %i(index)
 
   def index
