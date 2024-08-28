@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   scope "(:locale)", locale: /en|vi/ do
     namespace :admin do
       root "dashboard#index"
@@ -27,13 +26,15 @@ Rails.application.routes.draw do
 
     root "home#index"
     get "/search_ajax", to: "home#search_ajax"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
+
+    resources :users, only: %i(show update)
+
+    devise_for :users, path: "auth", controllers: {
+      sessions: "users/sessions",
+      registrations: "users/registrations"
+    }, only: [:sessions, :registrations]
 
     resources :authors, only: :show
-
-    resources :users
 
     resources :books do
       resources :episodes do

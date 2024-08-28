@@ -6,12 +6,12 @@
     <div class="form-right">
       <div class="tab">
         <div class="tab-inner">
-          <%= link_to t("views.sessions.new.title_login"), login_path,
+          <%= link_to t("views.sessions.new.title_login"), new_user_session_path,
             class: "tablinks btn-login
                     #{"active" if content_for?(:status) && content_for(:status) == "login"}" %>
         </div>
         <div class="tab-inner">
-          <%= link_to t("views.sessions.new.title_register"), new_user_path,
+          <%= link_to t("views.sessions.new.title_register"), new_user_registration_path,
             class: "tablinks btn-register
                     #{"active" if content_for?(:status) && content_for(:status) == "register"}" %>
         </div>

@@ -15,4 +15,13 @@ module ApplicationHelper
 
     link_to paths.first, options, &block
   end
+
+  def render_flash_message key, message
+    case key
+    when "notice"
+      render "shared/toast_success", msg: message
+    when "alert"
+      render "shared/toast_error", msg: message
+    end
+  end
 end
