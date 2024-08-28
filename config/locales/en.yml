@@ -364,6 +364,7 @@ en:
       wish_you: "I wish you a good day"
       company: "Company Inc, 7-11 Commercial Ct, Belfast BT1 2NB"
       powered: "Powered by"
+      btn_reset: "Change my Password"
     users:
       btn_update: "Update"
       btn_logout: "Logout"
@@ -428,12 +429,17 @@ en:
         success: "Success"
     sessions:
       new:
+        reset_link: "Reset Password"
+        btn_update: "Update"
+        btn_reset: "Reset"
         title_login: "Login"
         title_register: "Register"
         label_email: "Email"
         label_phone: "Phone"
         label_address: "Address"
         label_password_confirmation: "Password confirmation"
+        label_new_password: "New password"
+        label_confirm_password: "Confirm password"
         label_name: "Fullname"
         label_password: "Password"
         btn_login: "Login"

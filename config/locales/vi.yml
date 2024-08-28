@@ -370,6 +370,7 @@ vi:
       wish_you: "Chúc bạn một ngày tốt lành"
       company: "Company Inc, 7-11 Commercial Ct, Belfast BT1 2NB"
       powered: "Được cung cấp bởi"
+      btn_reset: "Đổi mật khẩu của bạn"
     users:
       btn_update: "Cập nhật"
       btn_logout: "Đăng xuất"
@@ -434,11 +435,17 @@ vi:
         success: "Thành công"
     sessions:
       new:
+        reset_link: "Quên mật khẩu"
+        btn_update: "Cập nhật"
+        btn_reset: "Đặt lại"
         title_login: "Đăng nhập"
         title_register: "Đăng ký"
         label_email: "Email"
         label_phone: "Số điện thoại"
         label_address: "Địa chỉ"
+        label_password: "Mật khẩu"
+        label_new_password: "Mật khẩu mới"
+        label_confirm_password: "Nhập lại mật khẩu mới"
         label_password: "Mật khẩu"
         label_name: "Họ và tên"
         label_password_confirmation: "Nhập lại mật khẩu"
