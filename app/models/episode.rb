@@ -21,6 +21,18 @@ class Episode < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :users, through: :carts
 
+  validates :name, presence: true,
+                  length: {maximum: Settings.models.episode.name_max}
+  validates :qty, presence: true,
+                  numericality: {only_integer: true,
+                                 greater_than_or_equal_to:
+                                   Settings.models.episode.min}
+  validates :intro, length: {maximum: Settings.models.episode.name_max}
+  validates :content, presence: true
+  validates :compensation_fee, numericality: {only_integer: true,
+                                              greater_than_or_equal_to:
+                                                Settings.models.episode.min}
+
   scope :sorted_by_name, ->{order(name: :asc)}
   scope :sorted_by_created, ->{order(created_at: :desc)}
 

@@ -13,7 +13,7 @@ class AdminController < ApplicationController
 
     store_location
     flash[:danger] = t "message.auth.login"
-    redirect_to login_url
+    redirect_to new_user_session_url
   end
 
   def authorize_admin!
