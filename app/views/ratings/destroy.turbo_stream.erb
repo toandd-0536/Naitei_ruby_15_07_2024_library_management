@@ -1,3 +1,7 @@
-<%= turbo_stream.replace "my_review" do %>
+<%= turbo_stream.replace "ratings_form" do %>
   <%= render partial: "ratings/form", locals: { episode: @episode } %>
+<% end %>
+
+<%= turbo_stream.replace "ratings" do %>
+  <%= render partial: "ratings/ratings_div", user_rating: nil, episode: @episode %>
 <% end %>

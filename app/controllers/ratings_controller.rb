@@ -1,6 +1,7 @@
 class RatingsController < ApplicationController
   before_action :load_episode
-  before_action :load_rating, only: :destroy
+  before_action :load_rating, only: %i(destroy edit update)
+  before_action :authorize_rating, only: %i(destroy edit update)
 
   def create
     @rating = @episode.ratings.new(rating_params.merge(user: current_user))
@@ -15,9 +16,15 @@ class RatingsController < ApplicationController
     flash[:success] = t "message.ratings.created"
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace("ratings_form",
-                                                  partial: "ratings/my_review",
-                                                  locals: {rating: @rating})
+        render turbo_stream: [
+          turbo_stream.replace("ratings_form",
+                               partial: "ratings/my_review",
+                               locals: {rating: @rating}),
+          turbo_stream.replace("ratings",
+                               partial: "ratings/ratings_div",
+                               locals: {user_rating: @rating,
+                                        episode: @episode})
+        ]
       end
     end
   end
@@ -35,6 +42,45 @@ class RatingsController < ApplicationController
     end
   end
 
+  def edit
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace("ratings_form",
+                                                  partial: "form",
+                                                  locals: {episode: @episode,
+                                                           rating: @rating})
+      end
+      format.html do
+        render partial: "form", locals: {episode: @episode, rating: @rating}
+      end
+    end
+  end
+
+  def update
+    if @rating.update(rating_params)
+      flash[:success] = t "message.ratings.updated"
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream:
+          turbo_stream.replace("ratings_form",
+                               partial: "ratings/my_review",
+                               locals: {rating: @rating})
+        end
+      end
+    else
+      flash.now[:error] = t "message.ratings.update_fail"
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream:
+          turbo_stream.replace("ratings_form",
+                               partial: "ratings/form",
+                               locals: {episode: @episode, rating: @rating}),
+                 status: :unprocessable_entity
+        end
+      end
+    end
+  end
+
   def destroy
     if @rating.user == current_user
       @rating.destroy
@@ -42,9 +88,12 @@ class RatingsController < ApplicationController
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: [
-            turbo_stream.replace("my_review",
+            turbo_stream.replace("ratings_form",
                                  partial: "ratings/form",
-                                 locals: {episode: @episode})
+                                 locals: {episode: @episode}),
+            turbo_stream.replace("ratings",
+                                 partial: "ratings/ratings_div",
+                                 locals: {user_rating: nil, episode: @episode})
           ]
         end
         format.html{redirect_to @episode}
@@ -70,6 +119,10 @@ class RatingsController < ApplicationController
 
     flash[:danger] = t "message.ratings.not_found"
     redirect_to root_url
+  end
+
+  def authorize_rating
+    authorize! action_name.to_sym, @rating
   end
 
   def rating_params

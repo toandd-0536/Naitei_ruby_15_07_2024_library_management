@@ -332,3 +332,8 @@ body {
 .star-rating-input:checked+.full {
   color: $gold;
 }
+
+.quill-editor {
+  height: 400px;
+  overflow-y: auto;
+}
