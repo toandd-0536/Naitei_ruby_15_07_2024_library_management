@@ -5,7 +5,7 @@
       <%= link_to book_episode_path(item.episode.book, item.episode) do %>
         <%= image_tag item.episode.thumb %>
       <% end %>
-      <span class="price"><%= item.status %></span>
+      <span class="price <%= status_background_class item.status %>"><%= item.status %></span>
     </div>
     <div class="down-content">
       <span class="category"><%= item.episode.book.name %></span>
