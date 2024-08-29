@@ -21,6 +21,7 @@ class Admin::EpisodesController < AdminController
     @episode = Episode.new episode_params
     handle_thumb_upload
     if @episode.save
+      send_notification_to_favorited_users @episode
       flash[:success] = t "message.episodes.created"
       redirect_to admin_episodes_path, status: :see_other
     else
@@ -85,5 +86,23 @@ class Admin::EpisodesController < AdminController
     end
 
     @episode.thumb = filename
+  end
+
+  def send_notification_to_favorited_users episode
+    favorited_users = User.favorited_for_book episode.book
+
+    favorited_users.each do |user|
+      Pusher.trigger(
+        "user-#{user.id}",
+        "episode-created",
+        {
+          message: t(
+            "controllers.episodes.new_episode",
+            name: @episode.book.name
+          ),
+          episode: @episode
+        }
+      )
+    end
   end
 end

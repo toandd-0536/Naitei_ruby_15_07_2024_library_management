@@ -34,6 +34,16 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_update :blacklist
 
+  scope(:favorited_for_book, lambda do |book|
+    joins(:favorites)
+      .where(
+        favorites: {
+          favoritable_type: "Episode",
+          favoritable_id: book.episodes.ids
+        }
+      )
+  end)
+
   def self.generate_random_password
     SecureRandom.alphanumeric Settings.random_password_count
   end

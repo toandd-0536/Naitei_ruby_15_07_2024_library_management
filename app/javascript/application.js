@@ -6,6 +6,7 @@ import './settings/isotope.min'
 import './settings/owl-carousel'
 import './settings/counter'
 import './settings/custom'
+import './settings/pusher'
 import 'bootstrap'
 import 'custom/admin'
 import 'custom/Chart'
@@ -14,6 +15,7 @@ import 'custom/chart-pie-demo'
 import './index/search'
 import './index/quill'
 import './index/img_handle'
+import './index/notice'
 
 //= require quill.min
 //= require quill.global

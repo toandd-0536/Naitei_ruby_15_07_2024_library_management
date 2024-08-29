@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
 
   before_action :set_locale
+  before_action :set_gon_variables
 
   private
 
@@ -24,5 +25,11 @@ class ApplicationController < ActionController::Base
   def handle_access_denied _exception
     flash[:danger] = t "message.access_denied"
     redirect_to root_path
+  end
+
+  def set_gon_variables
+    gon.pusher_key = ENV["PUSHER_KEY"]
+    gon.pusher_cluster = ENV["PUSHER_CLUSTER"]
+    gon.user_id = current_user.id if user_signed_in?
   end
 end
