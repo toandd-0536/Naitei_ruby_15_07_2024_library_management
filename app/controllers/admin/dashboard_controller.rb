@@ -1,4 +1,7 @@
 class Admin::DashboardController < AdminController
+  skip_load_and_authorize_resource
+  authorize_resource class: false
+
   def index
     load_dashboard_counts
     load_category_data

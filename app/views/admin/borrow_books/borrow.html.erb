@@ -2,7 +2,7 @@
 <%= render "admin/shared/breadcrumb" %>
 <div class="admin-borrow-requests-page">
   <div class="header d-flex align-items-center justify-content-between">
-    <h1 class="page-title"><%= t ".title" %></h1>
+    <h1 class="page-title"><%= t ".title" %> (<%= @pagy.count %>)</h1>
   </div>
 
   <div class="card">
@@ -11,6 +11,7 @@
         <table class="table">
           <thead>
             <tr>
+              <th></th>
               <th><%= t "admin.borrow_books.show.user" %></th>
               <th><%= t "admin.borrow_books.show.book" %></th>
               <th><%= t "admin.borrow_books.show.episode" %></th>
@@ -19,7 +20,9 @@
             </tr>
           </thead>
           <tbody>
-            <%= render partial: "row", collection: @borrow_books, as: :borrow_book, locals: { action_type: "borrow" } %>
+            <% @borrow_books.each_with_index do |borrow_book, index| %>
+              <%= render partial: "row", locals: { borrow_book: borrow_book, action_type: "borrow", borrow_book_index: index + @pagy.offset } %>
+            <% end %>
           </tbody>
         </table>
         <div class="mt-3">

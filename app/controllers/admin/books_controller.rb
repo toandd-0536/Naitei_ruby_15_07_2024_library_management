@@ -1,6 +1,4 @@
 class Admin::BooksController < AdminController
-  load_and_authorize_resource
-
   before_action :load_book, only: %i(show edit update destroy)
   before_action :load_foreign_values, except: %i(index show)
 

@@ -1,6 +1,4 @@
 class Admin::CategoriesController < AdminController
-  load_and_authorize_resource
-
   before_action :load_cat, only: %i(show edit update destroy)
   before_action :load_cats, except: %i(index show)
 
