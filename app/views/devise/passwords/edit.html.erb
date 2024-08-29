@@ -1,0 +1,31 @@
+<%= render "shared/login_toast" %>
+
+<%= render "shared/user_layout" do %>
+  <%= form_with model: resource, url: user_password_path, 
+                method: :patch, html: { class: "form-detail" }, local: true do |f| %>
+    <div class="tabcontent" id="update-password">
+      <div class="form-row">
+        <label class="form-row-inner">
+          <%= f.password_field :password, class: "input-text", id: "password", required: true %>
+          <span class="label">
+            <%= t "views.sessions.new.label_new_password" %>
+          </span>
+          <span class="border"></span>
+        </label>
+      </div>
+      <div class="form-row">
+        <label class="form-row-inner">
+          <%= f.password_field :password_confirmation, class: "input-text", id: "password_confirmation", required: true %>
+          <span class="label">
+            <%= t "views.sessions.new.label_confirm_password" %>
+          </span>
+          <span class="border"></span>
+        </label>
+      </div>
+      <%= f.hidden_field :reset_password_token, value: params[:reset_password_token] %>
+      <div class="form-row-last">
+        <%= f.submit t("views.sessions.new.btn_update"), class: "register" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

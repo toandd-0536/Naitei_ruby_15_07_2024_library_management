@@ -31,8 +31,9 @@ Rails.application.routes.draw do
 
     devise_for :users, path: "auth", controllers: {
       sessions: "users/sessions",
-      registrations: "users/registrations"
-    }, only: [:sessions, :registrations]
+      registrations: "users/registrations",
+      passwords: "users/passwords"
+    }, only: [:sessions, :registrations, :passwords]
 
     resources :authors, only: :show
 

@@ -26,6 +26,7 @@
       </div>
       <div class="form-row-last">
         <%= f.submit t("views.sessions.new.btn_login"), class: "register" %>
+        <%= link_to t("views.sessions.new.reset_link"), new_user_password_path, class: "mx-2 text-warning font-weight-bold" %>
       </div>
     </div>
   <% end %>
