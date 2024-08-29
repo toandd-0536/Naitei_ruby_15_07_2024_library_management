@@ -475,6 +475,7 @@ vi:
       delete_all_success: "Xóa toàn bộ giỏ sách thành công"
       delete_all_error: "Không thể xóa toàn bộ giỏ sách"
     episodes:
+      no_user_error: "Không có lỗi nào"
       new_episode: "Cuốn sách %{name} mà bạn theo dõi đã có tập mới!"
       success: "Sách đã được thêm vào giỏ"
       error_blacklist: "Bạn đang trong danh sách đen của thư viện"

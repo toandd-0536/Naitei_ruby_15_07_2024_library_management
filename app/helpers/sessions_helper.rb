@@ -22,8 +22,8 @@ module SessionsHelper
   def redirect_unless_signed_in
     return if user_signed_in?
 
-    flash[:error] = t "controllers.episodes.error_login"
-    redirect_back(fallback_location: root_path)
+    flash[:alert] = t "controllers.episodes.error_login"
+    redirect_to new_user_session_path
   end
 
   def check_not_signed_in?

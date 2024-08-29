@@ -1,5 +1,5 @@
 max_book: 10
-add_book_not_status: 5
+add_book_not_status: 3
 default_email: "bibliosphere_library@gmail.com"
 email: "library@gmail.com"
 phone: "+(84) 911-577-985"
