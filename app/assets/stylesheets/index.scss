@@ -1001,6 +1001,10 @@ Trending Style
 }
 
 .trending .item .down-content span.category {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
   font-size: 14px;
   color: #7a7a7a;
   margin-bottom: 5px;
