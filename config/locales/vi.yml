@@ -159,6 +159,7 @@ vi:
       show:
         title: "Chi tiết yêu cầu"
         user: "Người dùng"
+        checkout_card: "Phiếu mượn sách"
         book: "Sách"
         episode: "Tập"
         status: "Trạng thái"

@@ -1,6 +1,6 @@
 <tr>
-  <td class="text-center"><%= borrow_book_index + 1 %></td>
-  <td><%= borrow_book.borrow_card.user.name %></td>
+  <td></td>
+  <td></td>
   <td><%= borrow_book.episode.book.name %></td>
   <td><%= borrow_book.episode.name %></td>
   <td class="text-center">
@@ -17,20 +17,17 @@
     </span>
   </td>
 
-  <% if action_type == "return" %>
-    <td><%= borrow_book.borrow_card.start_time.strftime(Settings.date_format) %></td>
-    <td><%= borrow_book.due_date.strftime(Settings.date_format) %></td>
-  <% end %>
+
 
   <td class="text-right pr-5">
-    <% if action_type == "return" %>
+    <% if action_type == :return %>
       <%= link_to returned_admin_borrow_book_path(borrow_book), data: { turbo_method: :patch }, class: "btn btn-success" do %>
         <i class="fas fa-check"></i>
       <% end %>
       <%= link_to lost_admin_borrow_book_path(borrow_book), data: { turbo_method: :patch }, class: "btn btn-danger" do %>
         <i class="fas fa-xmark"></i>
       <% end %>
-    <% elsif action_type == "borrow" %>
+    <% elsif action_type == :borrow %>
       <%= link_to confirm_admin_borrow_book_path(borrow_book), data: { turbo_method: :patch }, class: "btn btn-success" do %>
         <i class="fas fa-check"></i>
       <% end %>

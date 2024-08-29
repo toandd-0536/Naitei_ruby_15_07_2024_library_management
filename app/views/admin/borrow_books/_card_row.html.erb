@@ -1,0 +1,21 @@
+<tr class="card-row">
+  <td class="text-center"><%= card_index + 1 %></td>
+  <td><%= borrow_card.user.name %></td>
+  <% if action_type == :return %>
+    <td><%= borrow_card.id %></td>
+    <td><%= borrow_card.start_time.strftime(Settings.date_format) %></td>
+    <td class="text-center"><%= borrow_card.due_date.strftime(Settings.date_format) %></td>
+    <td></td>
+  <% else %>
+    <td colspan="4"><%= borrow_card.id %></td>
+  <% end %>
+</tr>
+
+<tr class="text-muted header-row">
+  <th></th>
+  <th></th>
+  <th><%= t "admin.borrow_books.show.book" %></th>
+  <th><%= t "admin.borrow_books.show.episode" %></th>
+  <th class="text-center"><%= t "admin.borrow_books.show.status" %></th>
+  <th></th>
+</tr>

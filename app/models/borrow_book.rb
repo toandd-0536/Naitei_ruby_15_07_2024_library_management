@@ -9,10 +9,6 @@ class BorrowBook < ApplicationRecord
                 overdue: 4,
                 lost: 5}
 
-  def due_date
-    borrow_card.start_time + Settings.models.book_borrow.max_borrow_duration
-  end
-
   def localized_status
     I18n.t("activerecord.attributes.borrow_book.status.#{status}")
   end
