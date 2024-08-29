@@ -128,6 +128,12 @@ GEM
     glob (0.4.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    gon (6.4.0)
+      actionpack (>= 3.0.20)
+      i18n (>= 0.7)
+      multi_json
+      request_store (>= 1.0)
+    httpclient (2.8.3)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     i18n-js (4.2.3)
@@ -163,6 +169,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.19.0)
     msgpack (1.7.2)
+    multi_json (1.15.0)
     mysql2 (0.5.5)
     net-imap (0.3.7)
       date
@@ -190,6 +197,11 @@ GEM
     public_suffix (5.0.3)
     puma (5.6.6)
       nio4r (~> 2.0)
+    pusher (2.0.3)
+      httpclient (~> 2.8)
+      multi_json (~> 1.15)
+      pusher-signature (~> 0.1.8)
+    pusher-signature (0.1.8)
     quilljs-rails (0.0.4)
     racc (1.7.1)
     rack (2.2.8)
@@ -232,6 +244,8 @@ GEM
     regexp_parser (2.8.1)
     reline (0.3.7)
       io-console (~> 0.5)
+    request_store (1.7.0)
+      rack (>= 1.4)
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
@@ -349,6 +363,7 @@ DEPENDENCIES
   faker (= 2.21.0)
   figaro
   font-awesome-sass
+  gon
   i18n
   i18n-js
   image_processing (= 1.12.2)
@@ -358,6 +373,7 @@ DEPENDENCIES
   open-uri
   pagy
   puma (~> 5.0)
+  pusher
   quilljs-rails
   rails (~> 7.0.5)
   ransack

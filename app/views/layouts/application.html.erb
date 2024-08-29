@@ -8,12 +8,14 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= Gon::Base.render_data %>
   </head>
 
   <body>
     <%= render "layouts/preload" %>
     <%= render "layouts/client_header" %>
     <%= render "shared/flash_messages" %>
+    <%= render "shared/toast_new_episode" %>
     
     <%= yield %>
 
