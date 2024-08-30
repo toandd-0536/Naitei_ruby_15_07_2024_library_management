@@ -20,7 +20,7 @@
         </span>
         <p><%= @episode.intro %></p>
         <%= form_with url: add_to_cart_book_episode_path(@book, @episode),
-                      local: true, html: { id: "qty" } do |f| %>
+                      local: true, html: { id: "qty" }, method: :get do |f| %>
           <%= f.text_field :qty, class:"form-control", value: "1", disabled: true %>
           <%= f.button do %>
             <i class="fa-solid fa-bag-shopping"></i>

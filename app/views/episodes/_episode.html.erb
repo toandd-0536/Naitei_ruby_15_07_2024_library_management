@@ -9,7 +9,7 @@
     <div class="down-content">
       <span class="category"><%= ep.book.name %></span>
       <h4><%= ep.name %></h4>
-      <%= link_to book_episode_path(ep.book, ep) do %>
+      <%= link_to add_to_cart_book_episode_path(ep.book, ep) do %>
         <i class="fa-solid fa-bag-shopping"></i>
       <% end %>
     </div>

@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
     resources :books do
       resources :episodes do
-        post "add_to_cart", on: :member
+        get "add_to_cart", on: :member
       end
     end
 

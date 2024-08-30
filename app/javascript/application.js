@@ -16,6 +16,7 @@ import './index/search'
 import './index/quill'
 import './index/img_handle'
 import './index/notice'
+import './index/toast'
 
 //= require quill.min
 //= require quill.global
