@@ -23,6 +23,10 @@ class Category < ApplicationRecord
   end)
   scope :top_level, ->{where(parent_id: nil)}
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(id name parent_id created_at updated_at)
+  end
+
   def cat_thumb
     episode = Episode.for_category(id).first
     episode&.thumb

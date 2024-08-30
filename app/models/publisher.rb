@@ -9,4 +9,8 @@ class Publisher < ApplicationRecord
 
   scope :sorted_by_name, ->{order(name: :asc)}
   scope :sorted_by_created, ->{order(created_at: :desc)}
+
+  def self.ransackable_attributes _auth_object = nil
+    %w(id name created_at updated_at)
+  end
 end
