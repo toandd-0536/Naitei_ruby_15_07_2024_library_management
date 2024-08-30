@@ -2,12 +2,16 @@ class EpisodesController < ApplicationController
   before_action :set_book, :set_episode, only: %i(show add_to_cart)
   before_action :redirect_unless_signed_in,
                 :validate_conditions, only: :add_to_cart
+  before_action :load_seach_values, only: :all
   def show; end
 
   def all
-    @episodes_search = Episode.search search_params
-    @pagy, @episodes = pagy @episodes_search,
-                            limit: Settings.controllers.episodes.all.per_page
+    @q = Episode.ransack params[:q]
+    @episodes_search = @q.result distinct: true
+    @pagy, @episodes = pagy(
+      @episodes_search,
+      limit: Settings.controllers.episodes.all.per_page
+    )
   end
 
   def add_to_cart
@@ -22,6 +26,13 @@ class EpisodesController < ApplicationController
   end
 
   private
+  def load_seach_values
+    @books = Book.sorted_by_name
+    @cats = Category.sorted_by_name
+    @publishers = Publisher.sorted_by_name
+    @authors = Author.sorted_by_name
+  end
+
   def set_book
     @book = Book.find params[:book_id]
   end

@@ -18,6 +18,10 @@ class Author < ApplicationRecord
   scope :sorted_by_name, ->{order(name: :asc)}
   scope :sorted_by_created, ->{order(created_at: :desc)}
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(bio created_at dob dod id intro name thumb thumb_img updated_at)
+  end
+
   private
 
   def date_of_death_not_before_date_of_birth

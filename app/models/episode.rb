@@ -10,6 +10,11 @@ class Episode < ApplicationRecord
   ).freeze
 
   belongs_to :book
+  has_one :publisher, through: :book
+  has_many :book_categories, through: :book
+  has_many :categories, through: :book_categories
+  has_many :book_authors, through: :book
+  has_many :authors, through: :book_authors
   has_many :carts, dependent: :destroy
   has_many :borrow_books, dependent: :destroy
   has_many :favorites, as: :favoritable, dependent: :destroy
@@ -71,6 +76,14 @@ class Episode < ApplicationRecord
     joins(book: :categories)
       .where(categories: {id: category_id})
   end)
+
+  def self.ransackable_attributes _auth_object = nil
+    %w(name book_id created_at updated_at)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(book publisher categories authors)
+  end
 
   def self.search params
     Episode.by_book(params[:book_id])
