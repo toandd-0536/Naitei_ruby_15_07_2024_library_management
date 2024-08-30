@@ -1,22 +1,20 @@
 <%= turbo_frame_tag "ratings_form" do %>
-  <%= form_with(model: [@episode, Rating.new], data: { controller: "rating-form", turbo_frame: "ratings", rating_form_target: "form" }, class: "d-flex flex-column mb-3") do |form| %>
+  <%= form_with(model: [@episode, @rating || Rating.new], data: { controller: "rating-form", turbo_frame: "ratings", rating_form_target: "form" }, class: "d-flex flex-column mb-3") do |form| %>
     <div class="mb-3">
       <fieldset class="rating">
         <% (1..5).reverse_each do |i| %>
-          <%= radio_button_tag "rating[rating]", i, false, id: "star_#{i}", class: "star-rating-input", data: { rating_form_target: "starRatingInput" } %>
+          <%= radio_button_tag "rating[rating]", i, i == @rating&.rating, id: "star_#{i}", class: "star-rating-input", data: { rating_form_target: "starRatingInput" } %>
           <label class="fa-solid" for="star_<%= i %>" title="<%= i %> star<%= "s" if i > 1 %>"></label>
         <% end %>
       </fieldset>
-
-      <%= form.hidden_field :rating, id: "hidden_rating", data: { rating_form_target: "hiddenRating" } %>
+      <%= form.hidden_field :rating, id: "hidden_rating", value: @rating&.rating, data: { rating_form_target: "hiddenRating" } %>
     </div>
 
     <div class="mb-3">
-      <div class="quill-editor">
-        <%= form.text_area :body, class: "form-control rounded-0 quill_container", rows: 10, data: { rating_form_target: "quillTextarea" } %>
-      </div>
+      <%= form.hidden_field :body, id: "hidden-body-field" %>
+      <div class="form-control rounded-0 quill_container" data-rating-form-target="quillTextarea" data-quill-content="<%= j form.object.body %>" contenteditable="true"></div>
     </div>
 
-    <%= form.submit t("views.episodes.show.submit_button") , class: "btn btn-primary" %>
+    <%= form.submit t("views.episodes.show.submit_button"), class: "btn btn-primary" %>
   <% end %>
 <% end %>

@@ -1,19 +1,28 @@
-<div class="list-group mb-3">
-  <h4 class="mb-3"><% t ".my_review" %></h4>
-  <div id="my_review" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto d-flex flex-column align-items-start">
-      <div class="fw-bold mb-1"><%= rating.user.name %></div>
-      <div class="rating mb-2">
-        <% (1..5).each do |i| %>
-          <i class="fas fa-star <%= "text-warning" if i <= rating.rating %>"></i>
+<%= turbo_frame_tag "ratings_form" do %>
+  <div class="list-group mb-3">
+    <h4 class="mb-3"><% t ".my_review" %></h4>
+    <div id="my_review" class="list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto d-flex flex-column align-items-start">
+        <div class="fw-bold mb-1"><%= rating.user.name %></div>
+        <div class="rating mb-2">
+          <% (1..5).each do |i| %>
+            <i class="fas fa-star <%= "text-warning" if i <= rating.rating %>"></i>
+          <% end %>
+        </div>
+        <%= raw rating.body %>
+      </div>
+      <div class="d-flex">
+        <%= link_to edit_episode_rating_path(rating.episode, rating),
+            class: "btn btn-primary btn-sm d-flex align-items-center",
+            data: { turbo_frame: "ratings_form" } do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to episode_rating_path(rating.episode, rating),
+            data: { turbo_method: :delete, turbo_confirm: t("message.you_sure?"), turbo_frame: "ratings" },
+            class: "btn btn-danger btn-sm d-flex align-items-center ml-1" do %>
+          <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <%= raw rating.body %>
     </div>
-    <%= link_to episode_rating_path(rating.episode, rating),
-        data: { "turbo-method": :delete, turbo_confirm: t("message.you_sure?"), turbo_frame: "ratings" },
-        class: "btn btn-danger btn-sm d-flex align-items-center" do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
   </div>
-</div>
+<% end %>
