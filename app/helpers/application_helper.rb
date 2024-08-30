@@ -24,4 +24,17 @@ module ApplicationHelper
       render "shared/toast_error", msg: message
     end
   end
+
+  def status_background_class status
+    status_classes = {
+      pending: "bg-primary",
+      cancel: "bg-secondary",
+      confirm: "bg-success",
+      returned: "bg-info",
+      overdue: "bg-warning",
+      lost: "bg-danger"
+    }
+
+    status_classes[status.to_sym] || "bg-light"
+  end
 end
