@@ -3,7 +3,8 @@ class Admin::CategoriesController < AdminController
   before_action :load_cats, except: %i(index show)
 
   def index
-    @pagy, @categories = pagy Category.sorted_by_created, items: Settings.page
+    @q = Category.ransack(params[:q])
+    @pagy, @categories = pagy(@q.result.sorted_by_created, items: Settings.page)
     @breadcrumb_items = [{name: t(".index.title")}]
   end
 

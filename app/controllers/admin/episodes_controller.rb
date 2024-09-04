@@ -3,7 +3,8 @@ class Admin::EpisodesController < AdminController
   before_action :load_books, except: %i(index)
 
   def index
-    @pagy, @episodes = pagy Episode.sorted_by_created, items: Settings.page
+    @q = Episode.ransack(params[:q])
+    @pagy, @episodes = pagy(@q.result.sorted_by_created, items: Settings.page)
     @breadcrumb_items = [{name: t(".index.title")}]
   end
 

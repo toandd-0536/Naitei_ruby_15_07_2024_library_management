@@ -58,17 +58,17 @@
   <% end %>
 </li>
 
-<li class="nav-item<%= " active" if active_nav_item?("borrow_books") %>">
-  <%= link_to borrow_admin_borrow_books_path, class: "nav-link#{" collapsed" if !active_nav_item?("borrow_books")}", data: { bs_toggle: "collapse", bs_target: "#collapseBorrowBooks", controls: "collapseBorrowBooks" } do %>
+<li class="nav-item<%= " active" if active_nav_item?("borrow_cards") %>">
+  <%= link_to borrow_admin_borrow_cards_path, class: "nav-link#{" collapsed" if !active_nav_item?("borrow_cards")}", data: { bs_toggle: "collapse", bs_target: "#collapseBorrowBooks", controls: "collapseBorrowBooks" } do %>
     <i class="fas fa-fw fa-calendar-check"></i>
     <span><%= t ".requests" %></span>
   <% end %>
-  <div id="collapseBorrowBooks" class="collapse<%= " show" if active_nav_item?("borrow_books") %>" aria-labelledby="headingBorrowBooks" data-parent="#accordionSidebar">
+  <div id="collapseBorrowBooks" class="collapse<%= " show" if active_nav_item?("borrow_cards") %>" aria-labelledby="headingBorrowBooks" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
 
-      <%= link_to t(".borrow_books.borrow"), borrow_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("borrow_books/borrow")}" %>
-      <%= link_to t(".borrow_books.return"), return_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("borrow_books/return")}" %>
-      <%= link_to t(".borrow_books.history"), history_admin_borrow_books_path, class: "collapse-item#{" active" if active_nav_item?("borrow_books/history")}" %>
+      <%= link_to t(".borrow_cards.borrow"), borrow_admin_borrow_cards_path, class: "collapse-item#{" active" if active_nav_item?("borrow")}" %>
+      <%= link_to t(".borrow_cards.return"), return_admin_borrow_cards_path, class: "collapse-item#{" active" if active_nav_item?("return")}" %>
+      <%= link_to t(".borrow_cards.history"), history_admin_borrow_cards_path, class: "collapse-item#{" active" if active_nav_item?("history")}" %>
     </div>
   </div>
 </li>

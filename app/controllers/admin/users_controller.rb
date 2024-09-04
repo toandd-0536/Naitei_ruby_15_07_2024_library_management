@@ -2,7 +2,8 @@ class Admin::UsersController < AdminController
   before_action :load_user, except: %i(index)
 
   def index
-    @pagy, @users = pagy User.all, items: Settings.page
+    @q = User.ransack(params[:q])
+    @pagy, @users = pagy(@q.result, items: Settings.page)
     @breadcrumb_items = [{name: t(".index.title")}]
   end
 

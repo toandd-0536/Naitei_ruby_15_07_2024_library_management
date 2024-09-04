@@ -2,7 +2,8 @@ class Admin::PublishersController < AdminController
   before_action :load_publisher, only: %i(show edit update destroy)
 
   def index
-    @pagy, @publishers = pagy Publisher.all, items: Settings.page
+    @q = Publisher.ransack(params[:q])
+    @pagy, @publishers = pagy(@q.result.sorted_by_created, items: Settings.page)
     @breadcrumb_items = [{name: t(".index.title")}]
   end
 

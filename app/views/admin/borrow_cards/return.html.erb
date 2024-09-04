@@ -1,0 +1,25 @@
+<% provide :title, t(".title") %>
+<%= render "admin/shared/breadcrumb" %>
+<div class="admin-borrow-card-details">
+  <h1><%= t "admin.borrow_cards.show.title" %> - ID: <%= @borrow_card.id %></h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th><%= t "admin.borrow_books.show.book" %></th>
+              <th><%= t "admin.borrow_books.show.episode" %></th>
+              <th class="text-center"><%= t "admin.borrow_books.show.status" %></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "book_row", collection: @borrow_books, as: :borrow_book, locals: { action_type: :return } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -143,14 +143,19 @@ en:
         bio: "Biography"
         dob: "Date of Birth"
         dod: "Date of Death"
-    borrow_books:
-      borrow:
+    borrow_cards:
+      borrow_index:
         title: "Borrow"
-      return:
+      return_index:
         title: "Return"
         refresh: "Refresh"
-      history:
+      history_index:
         title: "History"
+      show:
+        title: "Checkout card Details"
+      card_row:
+        show: "Show"
+    borrow_books:
       show:
         title: "Request Details"
         user: "User"
@@ -172,6 +177,9 @@ en:
         the_form_contains: "The form contains"
       breadcrumb:
         home: "Home"
+      not_found:
+        not_found: "No record found"
+        not_found_message: "You haven't added any record yet."
       footer:
         content: "Copyright © 2024 Bibliosphere Library. All rights reserved. &nbsp;&nbsp;"
       sidebar_menu:
@@ -183,7 +191,7 @@ en:
         books: "Books"
         episodes: "Episodes"
         requests: "Requests"
-        borrow_books:
+        borrow_cards:
           borrow: "Borrow"
           return: "Return"
           history: "History"
