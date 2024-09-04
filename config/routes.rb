@@ -1,3 +1,5 @@
+require "sidekiq/web"
+
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     namespace :admin do
@@ -76,6 +78,10 @@ Rails.application.routes.draw do
         get "books"
         get "authors"
       end
+    end
+
+    authenticate :user, lambda { |u| u.admin? } do
+      mount Sidekiq::Web => "/sidekiq"
     end
   end
 

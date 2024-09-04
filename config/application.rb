@@ -8,9 +8,11 @@ module RailsTutorial
   class Application < Rails::Application
     config.load_defaults 7.0
     config.exceptions_app = self.routes
-    
+
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}").to_s]
     config.i18n.default_locale = :en
     config.i18n.available_locales = [:en, :vi]
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
