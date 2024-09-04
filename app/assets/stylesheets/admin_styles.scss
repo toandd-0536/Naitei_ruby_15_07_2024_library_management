@@ -112,7 +112,7 @@ aside {
   }
 }
 
-/* users index */
+/* index */
 .users {
   list-style: none;
   margin: 0;
@@ -122,6 +122,14 @@ aside {
     padding: 10px 0;
     border-bottom: 1px solid $gray;
   }
+}
+
+.card-row {
+  background-color: $bg-card-row;
+}
+
+.header-row {
+  background-color: $bg-header-row;
 }
 
 /* forms */

@@ -11,15 +11,18 @@
             <tr>
               <th></th>
               <th><%= t "admin.borrow_books.show.user" %></th>
-              <th><%= t "admin.borrow_books.show.book" %></th>
-              <th><%= t "admin.borrow_books.show.episode" %></th>
-              <th class="text-center"><%= t "admin.borrow_books.show.status" %></th>
+              <th><%= t "admin.borrow_books.show.checkout_card" %></th>
+              <th></th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <% @borrow_books.each_with_index do |borrow_book, index| %>
-              <%= render partial: "row", locals: { borrow_book: borrow_book, action_type: "history", borrow_book_index: index + @pagy.offset } %>
+            <% @borrow_books.group_by(&:borrow_card).each_with_index do |(borrow_card, borrow_books), card_index| %>
+              <%= render partial: "card_row", locals: { borrow_card: borrow_card, action_type: :history, card_index: card_index + @pagy.offset } %>
+              <% borrow_books.each do |borrow_book| %>
+                <%= render partial: "book_row", locals: { borrow_book: borrow_book, action_type: :history } %>
+              <% end %>
             <% end %>
           </tbody>
         </table>

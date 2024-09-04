@@ -154,6 +154,7 @@ en:
       show:
         title: "Request Details"
         user: "User"
+        checkout_card: "Checkout Card"
         book: "Book"
         episode: "Episode"
         status: "Status"
