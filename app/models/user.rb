@@ -3,8 +3,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   USER_PARAMS = [:name, :email, :dob, :phone, :lost_time,
                 :blacklisted, :activated].freeze
-  CREATE_PARAMS = %i(name email password phone address).freeze
-  UPDATE_PARAMS = %i(name password_confirmation password phone address).freeze
+  CREATE_PARAMS = %i(name email password phone).freeze
+  UPDATE_PARAMS = %i(name password_confirmation password phone).freeze
   VALID_EMAIL_REGEX = Regexp.new(Settings.models.user.email.regex_valid)
   has_many :carts, dependent: :destroy
   has_many :favorites, dependent: :destroy
