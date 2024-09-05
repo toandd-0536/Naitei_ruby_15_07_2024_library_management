@@ -1,0 +1,10 @@
+<%= search_form_for @q, url: request.original_url, method: :get, class: "d-none d-sm-inline-block form-inline mr-auto my-3 mw-100 navbar-search" do |f| %>
+  <div class="input-group">
+    <%= f.search_field search_attribute, class: "form-control bg-white small", placeholder: "Search for...", aria: { label: "Search" } %>
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="submit">
+        <i class="fas fa-search fa-sm"></i>
+      </button>
+    </div>
+  </div>
+<% end %>

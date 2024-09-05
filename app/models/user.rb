@@ -44,6 +44,11 @@ class User < ApplicationRecord
       )
   end)
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(activated blacklisted created_at dob email
+        id lost_time name phone role updated_at)
+  end
+
   def self.generate_random_password
     SecureRandom.alphanumeric Settings.random_password_count
   end

@@ -2,7 +2,8 @@ class Admin::AuthorsController < AdminController
   before_action :load_author, only: %i(show edit update destroy)
 
   def index
-    @pagy, @authors = pagy Author.all, items: Settings.page
+    @q = Author.ransack(params[:q])
+    @pagy, @authors = pagy(@q.result, items: Settings.page)
     @breadcrumb_items = [{name: t(".index.title")}]
   end
 

@@ -24,6 +24,10 @@ class Book < ApplicationRecord
   scope :sorted_by_name, ->{order(name: :asc)}
   scope :sorted_by_created, ->{order(created_at: :desc)}
 
+  def self.ransackable_attributes _auth_object = nil
+    %w(created_at id name publisher_id updated_at)
+  end
+
   private
   def must_have_categories
     return unless categories.empty?

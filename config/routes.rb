@@ -8,11 +8,21 @@ Rails.application.routes.draw do
       resources :episodes
       resources :publishers
       resources :authors
-      resources :borrow_books, except: [:index] do
+      resources :borrow_cards, only: [] do
         collection do
+          get "/borrow", to: "borrow_cards#borrow_index"
+          get "/return", to: "borrow_cards#return_index"
+          get "/history", to: "borrow_cards#history_index"
+          post "refresh"
+        end
+        member do
           get "borrow"
           get "return"
           get "history"
+        end
+      end
+      resources :borrow_books, except: [:index] do
+        collection do
           post "refresh"
         end
         member do

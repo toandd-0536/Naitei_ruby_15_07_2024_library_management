@@ -1,44 +1,8 @@
 class Admin::BorrowBooksController < AdminController
-  before_action :load_borrow_book, except: %i(borrow return history refresh)
-
-  def borrow
-    @borrow_books = BorrowBook.pending.includes(borrow_card: :user)
-                              .by_updated_desc
-    @pagy, @borrow_books = pagy(@borrow_books, items: Settings.page)
-    @breadcrumb_items = [{name: t(".borrow.title")}]
-  end
-
-  def return
-    @borrow_books = BorrowBook.confirm.or(BorrowBook.overdue)
-                              .includes(borrow_card: :user)
-                              .by_updated_desc
-    @pagy, @borrow_books = pagy(@borrow_books, items: Settings.page)
-    @breadcrumb_items = [{name: t(".return.title")}]
-  end
-
-  def history
-    @borrow_books = BorrowBook.cancel.or(BorrowBook.returned)
-                              .or(BorrowBook.lost)
-                              .includes(borrow_card: :user)
-                              .by_updated_desc
-    @pagy, @borrow_books = pagy(@borrow_books, items: Settings.page)
-    @breadcrumb_items = [{name: t(".history.title")}]
-  end
+  before_action :load_borrow_book, except: %i(refresh)
 
   def show
-    case @borrow_book.status
-    when "pending"
-      breadcrumb_name = t ".borrow.title"
-      breadcrumb_url = borrow_admin_borrow_books_path
-    when "confirm", "overdue"
-      breadcrumb_name = t ".return.title"
-      breadcrumb_url = return_admin_borrow_books_path
-    else
-      breadcrumb_name = t ".history.title"
-      breadcrumb_url = history_admin_borrow_books_path
-    end
     @breadcrumb_items = [
-      {name: breadcrumb_name, url: breadcrumb_url},
       {name: @borrow_book.id}
     ]
   end

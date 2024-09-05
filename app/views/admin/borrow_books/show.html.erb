@@ -11,7 +11,7 @@
       <li class="list-group-item"><strong><%= t ".status" %>:</strong> <%= @borrow_book.localized_status %></li>
       <% unless @borrow_book.status == "pending" %>
         <li class="list-group-item"><strong><%= t ".start_time" %>:</strong> <%= @borrow_book.borrow_card.start_time.strftime(Settings.date_format) %></li>
-        <li class="list-group-item"><strong><%= t ".due_date" %>:</strong> <%= @borrow_book.due_date.strftime(Settings.date_format) %></li>
+        <li class="list-group-item"><strong><%= t ".due_date" %>:</strong> <%= @borrow_book.borrow_card.due_date.strftime(Settings.date_format) %></li>
       <% end %>
       <% if @borrow_book.status == "pending" %>
         <li class="list-group-item"><strong><%= t ".created_at" %>:</strong> <%= @borrow_book.created_at.strftime(Settings.date_format) %></li>

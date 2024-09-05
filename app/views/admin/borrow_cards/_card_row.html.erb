@@ -1,0 +1,17 @@
+<% index = borrow_card_counter + @pagy.offset + 1 %>
+<tr>
+  <td class="text-center"><%= index %></td>
+  <td><%= borrow_card.user.name %></td>
+  <% if action_type == :return %>
+    <td><%= borrow_card.id %></td>
+    <td><%= borrow_card.start_time.strftime(Settings.date_format) %></td>
+    <td class="text-center"><%= borrow_card.due_date.strftime(Settings.date_format) %></td>
+  <% else %>
+    <td colspan="3"><%= borrow_card.id %></td>
+  <% end %>
+  <td class="text-right">
+  <%= link_to path_for_action(action_type, borrow_card), class: "btn btn-primary mr-3" do %>
+    <i class="fas fa-magnifying-glass mr-1"></i> <%= t ".show" %>
+  <% end %>
+  </td>
+</tr>

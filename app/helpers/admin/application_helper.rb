@@ -59,6 +59,10 @@ module Admin::ApplicationHelper
   end
 
   def active_nav_item? path_segment
-    request.path.match?(Regexp.new("/admin/#{path_segment}"))
+    if path_segment == "borrow"
+      request.path =~ %r{/borrow_cards(?:/\d+)?/#{path_segment}}
+    else
+      request.path.include? path_segment
+    end
   end
 end

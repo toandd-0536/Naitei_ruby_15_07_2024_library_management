@@ -28,6 +28,8 @@ class BorrowBook < ApplicationRecord
     )
   end)
   scope :pending_requests, ->{where(status: "pending")}
+  scope :return_requests, ->{where(status: %w(confirm overdue))}
+  scope :history_requests, ->{where(status: %w(cancel lost returned))}
 
   scope(:borrowed_books_data_by_month, lambda do |year|
     joins(episode: {book: :categories})
@@ -38,4 +40,12 @@ class BorrowBook < ApplicationRecord
       .group("categories.name", "MONTH(borrow_cards.start_time)")
       .count
   end)
+
+  def self.ransackable_attributes _auth_object = nil
+    %w(id user_name created_at updated_at)
+  end
+
+  def self.ransackable_associations _auth_object = nil
+    %w(borrow_card)
+  end
 end

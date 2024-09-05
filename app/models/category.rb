@@ -24,7 +24,7 @@ class Category < ApplicationRecord
   scope :top_level, ->{where(parent_id: nil)}
 
   def self.ransackable_attributes _auth_object = nil
-    %w(id name parent_id created_at updated_at)
+    %w(created_at id name parent_id updated_at)
   end
 
   def cat_thumb

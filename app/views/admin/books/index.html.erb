@@ -5,13 +5,17 @@
     <h1 class="page-title"><%= t ".title" %> (<%= @pagy.count %>)</h1>
     <%= render "admin/shared/add_new_button", resource: :book %>
   </div>
-  <%== pagy_bootstrap_nav @pagy %>
 
-  <ul class="publishers list-group">
-    <%= render partial: "book", collection: @books %>
-  </ul>
+  <%= render "admin/shared/search_form", search_attribute: :name_cont %>
+  <% if @books.any? %>
+    <ul class="publishers list-group">
+      <%= render partial: "book", collection: @books %>
+    </ul>
 
-  <div class="mt-3">
-    <%== pagy_bootstrap_nav @pagy %>
-  </div>
+    <div class="mt-3">
+      <%== pagy_bootstrap_nav @pagy %>
+    </div>
+  <% else %>
+    <%= render "admin/shared/not_found" %>
+  <% end %>
 </div>
