@@ -9,9 +9,13 @@ class BorrowBookMailer < ApplicationMailer
     @status = borrow_book.localized_status
     @book = borrow_book.episode.book
     @episode = borrow_book.episode
-    @due_date = borrow_book.due_date
+    @due_date = borrow_book.borrow_card.due_date
 
     mail to: @user.email, subject: subject_for_status_change
+  end
+
+  def self.enqueue_status_change borrow_book, old_status, new_status
+    BorrowBookMailerJob.perform_later borrow_book, old_status, new_status
   end
 
   private

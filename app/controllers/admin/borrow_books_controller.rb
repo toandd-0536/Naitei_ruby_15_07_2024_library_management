@@ -95,10 +95,10 @@ class Admin::BorrowBooksController < AdminController
   end
 
   def send_status_change_email borrow_book, new_status
-    BorrowBookMailer.status_change(
+    BorrowBookMailer.enqueue_status_change(
       borrow_book,
       borrow_book.status_before_last_save,
       new_status
-    ).deliver!
+    )
   end
 end
