@@ -221,6 +221,11 @@ en:
       overdue_returned_books: "The books have been returned and your account has been reactivated. Thank you for using our service!"
       lost_inactivated: "Your account has been inactivated. Please pay the compensation fee (%{compensation_fee}) to reactivate your account."
       thank_you: "Thank you for using our service."
+    reminder_email:
+      subject: "Reminder: Your borrowed books are due soon"
+      greeting: "Hello %{name},"
+      due_soon: "This is a reminder that the following books are due tomorrow:"
+      thank_you: "Thank you for using our library."
   message:
     episodes:
       created: "Episode created successfully."

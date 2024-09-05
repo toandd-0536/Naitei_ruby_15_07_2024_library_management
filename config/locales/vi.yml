@@ -227,6 +227,11 @@ vi:
       overdue_returned_books: "Sách đã được trả lại và tài khoản của bạn đã được kích hoạt lại. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!"
       lost_inactivated: "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng thanh toán phí bồi thường (%{compensation_fee}) để kích hoạt lại tài khoản của bạn."
       thank_you: "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi."
+    reminder_email:
+      subject: "Nhắc nhở: Sách bạn mượn sắp đến hạn"
+      greeting: "Xin chào %{name},"
+      due_soon: "Đây là thông báo nhắc nhở rằng những cuốn sách sau sẽ đến hạn vào ngày mai:"
+      thank_you: "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi."
   message:
     episodes:
       created: "Tạo tập thành công."

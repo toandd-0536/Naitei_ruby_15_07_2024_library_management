@@ -1,0 +1,5 @@
+:scheduler:
+  :schedule:
+    reminder_email_job:
+      cron: "0 0 * * *"  # Runs daily at midnight
+      class: "ReminderEmailJob"
