@@ -15,7 +15,7 @@ class BorrowBook < ApplicationRecord
 
   scope(:by_user, lambda do |user_id|
     joins(:borrow_card)
-      .where(borrow_cards: user_id)
+      .where(borrow_cards: {user_id:})
   end)
   scope :active, ->{where.not(status: Settings.add_book_not_status)}
   scope :by_updated_desc, ->{order(updated_at: :desc)}

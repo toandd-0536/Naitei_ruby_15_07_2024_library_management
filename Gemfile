@@ -28,14 +28,20 @@ gem "quilljs-rails"
 gem "rails", "~> 7.0.5"
 gem "ransack"
 gem "sassc-rails"
+gem "simplecov"
+gem "simplecov-rcov"
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
 
 group :development, :test do
+  gem "database_cleaner-active_record"
   gem "debug", platforms: %i(mri mingw x64_mingw)
   gem "dotenv-rails"
+  gem "factory_bot_rails"
+  gem "pry"
+  gem "rails-controller-testing"
   gem "rspec-rails", "~> 4.0.1"
   gem "rubocop", "~> 1.26", require: false
   gem "rubocop-checkstyle_formatter", require: false
@@ -49,5 +55,6 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 4.0"
   gem "webdrivers"
 end

@@ -468,6 +468,7 @@ en:
       delete_all_success: "Successfully deleted the entire book cart"
       delete_all_error: "Cannot delete entire book cart"
     episodes:
+      no_user_error: "No errors"
       new_episode: "The book %{name} you're following has a new episode!"
       success: "Book has been added to cart"
       error_blacklist: "You are on the library blacklist"
