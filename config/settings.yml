@@ -27,6 +27,9 @@ models:
     trend_count: 4
     most_count: 6
     limit: 6
+    name_max: 255
+    intro_max: 500 
+    min: 0
   user:
     name:
       max_length: 50
