@@ -17,6 +17,7 @@ class User < ApplicationRecord
 
   has_many :borrow_cards, dependent: :destroy
   has_many :ratings, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   enum role: {admin: 0, user: 1}
 

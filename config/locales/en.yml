@@ -297,6 +297,8 @@ en:
     user_mailer:
       subject: "Welcome to Bibliosphere Library"
   views:
+    notifications:
+      title: "Notifications"
     favorites:
       index:
         title: "Favorite"
@@ -435,6 +437,7 @@ en:
         profile: "Profile"
         favorite: "Favorite"
         order: "Book order history"
+        notice: "Notification"
       client_page:
         app_name: "Bibliosphere Library"
         home: "Home"
@@ -459,6 +462,11 @@ en:
         btn_login: "Login"
         btn_register: "Register"
   controllers:
+    notifications:
+      destroy_success: "Delete notification successful"
+      destroy_error: "Delete failed message"
+      update_success: "Marked as read notification"
+      update_error: "Mark read notification failed"
     favorites:
       follow_success: "Follow up success"
       follow_error: "You are already following"

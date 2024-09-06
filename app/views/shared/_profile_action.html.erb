@@ -1,20 +1,26 @@
 <div class="row" id="profile-action">
-  <div class="col-md-4 profile-action-item">
+  <div class="col-md-3 profile-action-item">
     <%= nav_link_to user_path(current_user), "profile-action-item-active" do %>
       <i class="fa-regular fa-user"></i>
       <span><%= t "views.shared.profile_action.profile" %></span>
     <% end %>
   </div>
-  <div class="col-md-4 profile-action-item">
+  <div class="col-md-3 profile-action-item">
     <%= nav_link_to [favorites_path, books_favorites_path, authors_favorites_path], "profile-action-item-active" do %>
       <i class="fa-brands fa-gratipay"></i>
       <span><%= t "views.shared.profile_action.favorite" %></span>
     <% end %>
   </div>
-  <div class="col-md-4 profile-action-item">
+  <div class="col-md-3 profile-action-item">
     <%= nav_link_to borrow_cards_path, "profile-action-item-active" do %>
       <i class="fa-solid fa-clock-rotate-left"></i>
       <span><%= t "views.shared.profile_action.order" %></span>
+    <% end %>
+  </div>
+  <div class="col-md-3 profile-action-item">
+    <%= nav_link_to notifications_path, "profile-action-item-active" do %>
+      <i class="fa-regular fa-bell"></i>
+      <span><%= t "views.shared.profile_action.notice" %></span>
     <% end %>
   </div>
 </div>

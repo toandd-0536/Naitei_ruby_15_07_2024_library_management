@@ -1,0 +1,16 @@
+<% provide :link_page do %>
+   <%= t "views.notifications.title" %>
+<% end %>
+
+<%= render "shared/client_page_heading" %>
+
+<div id="profile">
+  <div class="container">
+    <%= render "shared/profile_action" %>
+    <% if @notifications.any? %>
+      <div class="row">
+        <%= render partial: "notification", collection: @notifications, as: :noti %>
+      </div>
+    <% end %>
+  </div>
+</div>

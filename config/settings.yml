@@ -9,6 +9,7 @@ card_time_setting: "%H:%M:%S %d/%m/%Y"
 card_item_min_delete: 1
 file_storage: "app/assets/images"
 file_permissions: "wb"
+readed_status: 1
 random_password_count: 10
 algorithm: "HS256"
 views:

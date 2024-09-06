@@ -49,6 +49,12 @@ Rails.application.routes.draw do
 
     resources :authors, only: :show
 
+    resources :notifications, only: %i(index destroy) do
+      member do
+        patch :update_status
+      end
+    end
+
     resources :books do
       resources :episodes do
         get "add_to_cart", on: :member

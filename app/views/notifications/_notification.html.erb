@@ -1,0 +1,30 @@
+<div class="col-md-12 rounded border p-3 mb-3">
+  <div class="row">
+    <div class="col-md-1">
+      <%= image_tag noti.notificationable.thumb, class: "img-fluid rounded" %>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col-md-8 mt-2">
+          <span class="d-block font-weight-bold d-block"><%= noti.content %></span>
+          <%= display_notification noti %>
+          <small class="d-block text-secondary text-small pt-4">
+            <%= noti.created_at.strftime(Settings.card_time_setting) %>
+          </small>
+        </div>
+        <div class="col-md-4">
+          <div class="group-btn d-flex justify-content-end">
+            <%= link_to notification_path(noti), data: {turbo_method: :delete}, class: "btn mx-1 border-danger text-danger" do %>
+              <i class="fa-solid fa-x"></i>
+            <% end %>
+            <% if noti.unread? %>
+              <%= link_to update_status_notification_path(noti), data: {turbo_method: :patch}, class: "btn mx-1 text-success border-success" do %>
+                <i class="fa-solid fa-check"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
