@@ -1,0 +1,16 @@
+<h1><%= t ".subject" %></h1>
+
+<p><%= t(".greeting", name: @user.name) %></p>
+
+<p><%= t ".due_soon" %></p>
+
+<ul>
+  <% @borrow_books.each do |borrow_book| %>
+    <li>
+      <%= borrow_book.episode.book.name %>
+      <%= borrow_book.episode.name.present? ? " - #{borrow_book.episode.name}" : "" %>
+    </li>
+  <% end %>
+</ul>
+
+<p><%= t ".thank_you" %></p>

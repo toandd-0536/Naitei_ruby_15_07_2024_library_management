@@ -14,6 +14,16 @@ class BorrowBookMailer < ApplicationMailer
     mail to: @user.email, subject: subject_for_status_change
   end
 
+  def reminder_email borrow_card
+    @borrow_card = borrow_card
+    @borrow_books = borrow_card.borrow_books
+    @user = borrow_card.user
+    @due_date = borrow_card.due_date
+
+    mail to: @user.email,
+         subject: I18n.t("borrow_book_mailer.reminder_email.subject")
+  end
+
   def self.enqueue_status_change borrow_book, old_status, new_status
     BorrowBookMailerJob.perform_later borrow_book, old_status, new_status
   end

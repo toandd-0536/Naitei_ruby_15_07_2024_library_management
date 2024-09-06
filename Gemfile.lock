@@ -131,6 +131,8 @@ GEM
       dotenv (= 3.1.2)
       railties (>= 6.1)
     erubi (1.12.0)
+    et-orbi (1.2.11)
+      tzinfo
     execjs (2.9.1)
     factory_bot (6.4.6)
       activesupport (>= 5.0.0)
@@ -144,6 +146,9 @@ GEM
       thor (>= 0.14.0, < 2)
     font-awesome-sass (6.5.2)
       sassc (~> 2.0)
+    fugit (1.11.1)
+      et-orbi (~> 1, >= 1.2.11)
+      raabro (~> 1.4)
     glob (0.4.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -228,6 +233,7 @@ GEM
       pusher-signature (~> 0.1.8)
     pusher-signature (0.1.8)
     quilljs-rails (0.0.4)
+    raabro (1.4.0)
     racc (1.7.1)
     rack (2.2.8)
     rack-test (2.1.0)
@@ -323,6 +329,8 @@ GEM
       ffi (~> 1.12)
       logger
     rubyzip (2.3.2)
+    rufus-scheduler (3.9.1)
+      fugit (~> 1.1, >= 1.1.6)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -343,6 +351,10 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
+    sidekiq-scheduler (5.0.6)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 6, < 8)
+      tilt (>= 1.4.0, < 3)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -438,6 +450,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers (~> 4.0)
   sidekiq
+  sidekiq-scheduler
   simplecov
   simplecov-rcov
   sprockets-rails
