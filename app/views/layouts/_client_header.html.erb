@@ -24,7 +24,8 @@
             </li>
             <% if user_signed_in? %>
               <li>
-                <%= link_to current_user.name, borrow_cards_path %>
+                <%= link_to current_user.name, notifications_path %>
+                <%= unread_notifications_count %>
               </li>
             <% else %>
               <li>

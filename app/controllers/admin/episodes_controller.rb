@@ -89,7 +89,6 @@ class Admin::EpisodesController < AdminController
 
   def send_notification_to_favorited_users episode
     favorited_users = User.favorited_for_book episode.book
-
     favorited_users.each do |user|
       Pusher.trigger(
         "user-#{user.id}",
@@ -99,9 +98,24 @@ class Admin::EpisodesController < AdminController
             "controllers.episodes.new_episode",
             name: @episode.book.name
           ),
-          episode: @episode
+          episode: @episode,
+          type: "Episode"
         }
       )
+
+      create_notification user, episode
     end
+  end
+
+  def create_notification user, episode
+    Notification.create!(
+      user_id: user.id,
+      content: t(
+        "controllers.episodes.new_episode",
+        name: episode.book.name
+      ),
+      status: :unread,
+      notificationable: episode
+    )
   end
 end

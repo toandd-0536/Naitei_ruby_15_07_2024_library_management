@@ -20,6 +20,7 @@ class Episode < ApplicationRecord
   has_many :favorites, as: :favoritable, dependent: :destroy
   has_many :ratings, dependent: :destroy
   has_many :users, through: :carts
+  has_many :notifications, as: :notificationable, dependent: :destroy
 
   validates :name, presence: true,
                   length: {maximum: Settings.models.episode.name_max}

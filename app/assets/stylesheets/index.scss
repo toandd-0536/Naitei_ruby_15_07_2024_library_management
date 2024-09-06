@@ -425,6 +425,13 @@ Header Style
 
 .header-area .main-nav .nav li:last-child {
   padding-right: 0px;
+  position: relative;
+}
+
+.header-area .main-nav .nav li:last-child span{
+  position: absolute;
+  right: -5px;
+  top: -5px;
 }
 
 .header-area .main-nav .nav li {
