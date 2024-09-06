@@ -139,10 +139,12 @@ en:
         title: "Edit Author"
         submit_button: "Update Author"
       show:
+        name: "Name"
         intro: "Introduction"
         bio: "Biography"
         dob: "Date of Birth"
         dod: "Date of Death"
+        thumb: "Thumbnail Image"
     borrow_cards:
       borrow_index:
         title: "Borrow"
@@ -200,6 +202,9 @@ en:
         profile: "Profile"
         settings: "Settings"
         logout: "Logout"
+    form:
+      reset: "Reset"
+      search: "Search"
   borrow_book_mailer:
     status_change:
       subject:

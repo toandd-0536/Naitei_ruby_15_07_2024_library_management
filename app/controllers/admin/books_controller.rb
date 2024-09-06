@@ -3,8 +3,11 @@ class Admin::BooksController < AdminController
   before_action :load_foreign_values, except: %i(index show)
 
   def index
-    @q = Book.ransack(params[:q])
-    @pagy, @books = pagy(@q.result.sorted_by_created, items: Settings.page)
+    @q = Book.joins(:categories, :authors).ransack(params[:q])
+    @pagy, @books = pagy(@q.result.distinct.sorted_by_created,
+                         items: Settings.page)
+    @categories = Category.all
+    @authors = Author.all
     @breadcrumb_items = [{name: t(".index.title")}]
   end
 

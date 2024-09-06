@@ -5,6 +5,7 @@ class Admin::EpisodesController < AdminController
   def index
     @q = Episode.ransack(params[:q])
     @pagy, @episodes = pagy(@q.result.sorted_by_created, items: Settings.page)
+    @books = Book.all
     @breadcrumb_items = [{name: t(".index.title")}]
   end
 

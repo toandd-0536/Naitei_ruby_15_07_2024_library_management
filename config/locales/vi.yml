@@ -144,10 +144,12 @@ vi:
         submit_button: "Lưu thay đổi"
       show:
         title: "Chi tiết nhà tác giả"
+        name: "Tên"
         intro: "Giới thiệu"
         bio: "Tiểu sử"
         dob: "Ngày sinh"
         dod: "Ngày mất"
+        thumb: "Ảnh"
     borrow_cards:
       borrow_index:
         title: "Mượn sách"
@@ -206,6 +208,9 @@ vi:
         profile: "Hồ sơ"
         settings: "Cài đặt"
         logout: "Đăng xuất"
+    form:
+      reset: "Đặt lại"
+      search: "Tìm kiếm"
   borrow_book_mailer:
     status_change:
       subject:

@@ -28,6 +28,10 @@ class Book < ApplicationRecord
     %w(created_at id name publisher_id updated_at)
   end
 
+  def self.ransackable_associations _auth_object = nil
+    %w(authors book_authors book_categories categories episodes publisher)
+  end
+
   private
   def must_have_categories
     return unless categories.empty?

@@ -5,6 +5,7 @@ class Admin::CategoriesController < AdminController
   def index
     @q = Category.ransack(params[:q])
     @pagy, @categories = pagy(@q.result.sorted_by_created, items: Settings.page)
+    @categories_select = Category.all
     @breadcrumb_items = [{name: t(".index.title")}]
   end
 

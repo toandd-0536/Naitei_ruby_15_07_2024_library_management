@@ -7,6 +7,10 @@
   </div>
 
   <%= render "admin/shared/search_form", search_attribute: :name_cont %>
+  <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#advancedSearchModal">
+    <i class="fa-solid fa-sliders"></i>
+  </button>
+
   <% if @episodes.any? %>
     <ul class="publishers list-group">
       <%= render partial: "episode", collection: @episodes %>
@@ -19,3 +23,5 @@
     <%= render "admin/shared/not_found" %>
   <% end %>
 </div>
+
+<%= render "admin/episodes/advanced_search_modal" %>

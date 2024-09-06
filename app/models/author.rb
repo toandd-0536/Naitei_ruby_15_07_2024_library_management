@@ -22,6 +22,10 @@ class Author < ApplicationRecord
     %w(bio created_at dob dod id intro name thumb thumb_img updated_at)
   end
 
+  def self.ransackable_associations _auth_object = nil
+    %w(book_authors books episodes favorites)
+  end
+
   private
 
   def date_of_death_not_before_date_of_birth
