@@ -27,7 +27,7 @@ RSpec.describe Episode, type: :model do
 
   describe "validations" do
     it { should validate_presence_of(:name) }
-    
+
     it do
       should validate_length_of(:name)
         .is_at_most(Settings.models.episode.name_max)

@@ -83,6 +83,14 @@ Rails.application.routes.draw do
     authenticate :user, lambda { |u| u.admin? } do
       mount Sidekiq::Web => "/sidekiq"
     end
+    
+    namespace :api do
+      namespace :v1 do
+        namespace :admin do
+          resources :episodes, only: %i(index create update destroy)
+        end
+      end
+    end
   end
 
   match "*unmatched", to: "errors#render404", constraints: lambda { |req| !req.path.starts_with?("/rails/active_storage/") }, via: :all

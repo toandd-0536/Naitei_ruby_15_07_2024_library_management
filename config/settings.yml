@@ -10,6 +10,7 @@ card_item_min_delete: 1
 file_storage: "app/assets/images"
 file_permissions: "wb"
 random_password_count: 10
+algorithm: "HS256"
 views:
   home:
     banner_count: 100
