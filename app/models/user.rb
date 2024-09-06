@@ -31,6 +31,7 @@ class User < ApplicationRecord
             format: {with: VALID_EMAIL_REGEX},
             uniqueness: {case_sensitive: false}
   validates :phone, presence: true
+  validate :dob_after_start_year
 
   before_save :downcase_email
   before_update :blacklist
@@ -120,5 +121,14 @@ class User < ApplicationRecord
     return if currently_borrowing_episodes_count < Settings.max_book
 
     errors.add :base, I18n.t("controllers.episodes.error_max")
+  end
+
+  def dob_after_start_year
+    return if dob.blank?
+
+    start_year = Settings.models.user.dob.start_year
+    return unless dob.year < start_year
+
+    errors.add(:dob, I18n.t("messages.users.dob_too_early", start_year:))
   end
 end

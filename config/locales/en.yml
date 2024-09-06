@@ -263,6 +263,7 @@ en:
       deleted: "User deleted successfully."
       delete_fail: "Failed to delete user."
       not_found: "User not found."
+      dob_too_early: "must be after the year %{start_year}."
     publishers:
       new: "Publisher created successfully."
       updated: "Publisher updated successfully."

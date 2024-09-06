@@ -38,7 +38,7 @@ models:
     most_count: 6
     limit: 6
     name_max: 255
-    intro_max: 500 
+    intro_max: 500
     min: 0
   user:
     name:
@@ -49,6 +49,8 @@ models:
     password:
       min_length: 8
       max_length: 32
+    dob:
+      start_year: 1900
   publisher:
     name:
       max_length: 50
