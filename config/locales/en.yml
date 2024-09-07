@@ -235,6 +235,8 @@ en:
       deleted: "Episode deleted successfully."
       delete_fail: "Failed to delete episode."
       not_found: "Episode not found."
+      img_type_error: "Invalid file type! Please upload an image (JPEG, PNG, GIF)."
+      img_upload_error: "Please upload an image before submitting."
     books:
       created: "Book created successfully."
       updated: "Book updated successfully."

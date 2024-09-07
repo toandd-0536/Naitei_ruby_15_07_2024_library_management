@@ -23,7 +23,15 @@ controllers:
   sessions:
     layout: "login_layout"
 models:
+  noti:
+    content:
+      max_length: 255
+  book:
+    name:
+      max_length: 255
   category:
+    name:
+      max_length: 255
     top_count: 5
   episode:
     trend_count: 4

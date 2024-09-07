@@ -51,5 +51,7 @@ class ApplicationController < ActionController::Base
     gon.pusher_key = ENV["PUSHER_KEY"]
     gon.pusher_cluster = ENV["PUSHER_CLUSTER"]
     gon.user_id = current_user.id if user_signed_in?
+    gon.img_type_error = I18n.t("message.episodes.img_type_error")
+    gon.img_upload_error = I18n.t("message.episodes.img_upload_error")
   end
 end
