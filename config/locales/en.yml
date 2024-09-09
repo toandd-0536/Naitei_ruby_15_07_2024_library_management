@@ -159,6 +159,7 @@ en:
         show: "Show"
     borrow_books:
       show:
+        lost_reason: "Lost Reason"
         title: "Request Details"
         user: "User"
         checkout_card: "Checkout Card"
@@ -304,6 +305,23 @@ en:
     user_mailer:
       subject: "Welcome to Bibliosphere Library"
   views:
+    borrow_books:
+      title: "Send request"
+      notice: "Report lost book"
+      content: "In case of loss of a borrowed book,
+                you must immediately notify the library via the form next to it
+                or via the contact information below.
+                At the same time, 
+                you must also compensate the library with the corresponding amount.
+                If you lose a book or return it too many times overdue, your account will be"
+      danger: "permanently banned"
+      address: "Address"
+      phone: "Phone"
+      email: "Email"
+      bank: "Transfer money"
+      select: "Select borrowed book"
+      place: "Your reason"
+      btn: "Send Now"
     notifications:
       title: "Notifications"
     favorites:
@@ -410,6 +428,7 @@ en:
         btn_close: "Close"
     layouts:
       header:
+        request: "Send request"
         home: "Home"
         shop: "Our Library"
         contact: "Contact Us"
@@ -469,6 +488,11 @@ en:
         btn_login: "Login"
         btn_register: "Register"
   controllers:
+    borrow_books:
+      lost_updated: "Lost book report sent successfully"
+      update_failed: "Failed to send lost book report"
+      lost_reason_blank: "Please enter reason for loss!"
+      id_blank: "Please select the book you lost."
     notifications:
       destroy_success: "Delete notification successful"
       destroy_error: "Delete failed message"

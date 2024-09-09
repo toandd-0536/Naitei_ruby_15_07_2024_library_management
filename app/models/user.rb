@@ -16,6 +16,7 @@ class User < ApplicationRecord
             source_type: "Publisher"
 
   has_many :borrow_cards, dependent: :destroy
+  has_many :borrow_books, through: :borrow_cards
   has_many :ratings, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
@@ -44,6 +45,10 @@ class User < ApplicationRecord
         }
       ).distinct
   end)
+
+  def borrow_books_by_status status
+    borrow_books.where status:
+  end
 
   def self.ransackable_attributes _auth_object = nil
     %w(activated blacklisted created_at dob email

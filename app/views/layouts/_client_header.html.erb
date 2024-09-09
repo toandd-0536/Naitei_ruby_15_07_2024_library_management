@@ -18,6 +18,11 @@
               <% end %>
             </li>
             <li>
+              <%= nav_link_to send_request_borrow_books_path do %>
+                <%= t "views.layouts.header.request" %>
+              <% end %>
+            </li>
+            <li>
               <%= nav_link_to carts_path do %>
                 <%= t "views.layouts.header.cart" %>
               <% end %>

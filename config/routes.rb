@@ -83,6 +83,9 @@ Rails.application.routes.draw do
       resources :borrow_books
     end
 
+    get "/send_request", to: "borrow_books#send_request", as: :send_request_borrow_books
+    patch "/update_lost_reason", to: "borrow_books#update_reason", as: :update_lost_reason_borrow_books
+
     resources :favorites, only: [:index, :create, :destroy] do
       collection do
         get "books"

@@ -43,6 +43,8 @@ User.create!(
 end
 
 authors_data.each do |author_data|
+  next if author_data["name"].blank?
+
   Author.create!(
     name: author_data["name"],
     intro: author_data["intro"],
@@ -54,11 +56,15 @@ authors_data.each do |author_data|
 end
 
 publishers_data.each do |publisher_data|
+  next if publisher_data["name"].blank?
+
   Publisher.create!(name: publisher_data["name"])
 end
 
 def create_categories(categories_data, parent_id = nil)
   categories_data.each do |category_data|
+    next if category_data["name"].blank?
+
     category = Category.create!(
       name: category_data["name"],
       parent_id: parent_id
@@ -73,6 +79,8 @@ end
 create_categories(categories_data)
 
 books_data.each do |book_data|
+  next if book_data["name"].blank?
+
   book = Book.new(
     name: book_data["name"],
     publisher_id: book_data["publisher_id"]
@@ -95,6 +103,8 @@ books_data.each do |book_data|
 end
 
 episodes_data.each do |episode_data|
+  next if episode_data["name"].blank?
+
   Episode.create!(
     book_id: episode_data["book_id"],
     name: episode_data["name"],
@@ -106,10 +116,12 @@ episodes_data.each do |episode_data|
   )
 end
 
-# Additional fake data
-20.times do
+100.times do
+  name = Faker::Book.author
+  next if name.blank?
+
   Author.create!(
-    name: Faker::Book.author,
+    name: name,
     intro: Faker::Lorem.sentence,
     bio: Faker::Lorem.paragraph,
     dob: Faker::Date.birthday(min_age: 25, max_age: 70),
@@ -118,14 +130,20 @@ end
   )
 end
 
-20.times do
-  Publisher.create!(name: Faker::Book.publisher)
+100.times do
+  name = Faker::Book.publisher
+  next if name.blank?
+
+  Publisher.create!(name: name)
 end
 
 fake_book_ids = []
 100.times do
+  name = Faker::Book.title
+  next if name.blank?
+
   book = Book.new(
-    name: Faker::Book.title,
+    name: name,
     publisher_id: Publisher.pluck(:id).sample
   )
 
@@ -146,10 +164,13 @@ fake_book_ids = []
   fake_book_ids << book.id
 end
 
-20.times do
+100.times do
+  name = Faker::Book.title
+  next if name.blank?
+
   Episode.create!(
     book_id: fake_book_ids.sample,
-    name: Faker::Book.title,
+    name: name,
     qty: rand(1..100),
     intro: Faker::Lorem.sentence,
     content: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
@@ -175,13 +196,13 @@ borrow_cards.each do |borrow_card|
       borrow_card: borrow_card,
       episode: episode,
       status: status,
-      reason: status == "cancel" ? Faker::Lorem.sentence : nil,
+      reason: status == "cancel" ? Faker::Lorem.sentence : nil
     )
   end
 end
 
-
 users = User.all
+authors = Author.all
 episodes = Episode.all
 
 100.times do
@@ -192,5 +213,31 @@ episodes = Episode.all
     rating: rand(1..5),
     created_at: Faker::Date.backward(days: 365),
     updated_at: Faker::Date.backward(days: 365)
+  )
+end
+
+50.times do
+  Favorite.create!(
+    user_id: users.sample.id,
+    favoritable_type: "Author",
+    favoritable_id: authors.sample.id
+  )
+end
+
+50.times do
+  Favorite.create!(
+    user_id: users.sample.id,
+    favoritable_type: "Episode",
+    favoritable_id: episodes.sample.id
+  )
+end
+
+100.times do
+  Notification.create!(
+    user_id: users.sample.id,
+    content: Faker::Lorem.sentence(word_count: 10),
+    status: [0, 1].sample, 
+    notificationable_type: "Episode",
+    notificationable_id: episodes.sample.id
   )
 end

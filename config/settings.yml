@@ -3,6 +3,7 @@ add_book_not_status: 3
 default_email: "bibliosphere_library@gmail.com"
 email: "library@gmail.com"
 phone: "+(84) 911-577-985"
+address: "383 Truong Dinh, Hai Ba Trung, Ha Noi"
 default_status: 0
 cart_item_default_status: 0
 card_time_setting: "%H:%M:%S %d/%m/%Y"
@@ -12,6 +13,7 @@ file_permissions: "wb"
 readed_status: 1
 random_password_count: 10
 algorithm: "HS256"
+money_unit: "VNĐ"
 views:
   home:
     banner_count: 100
@@ -23,6 +25,8 @@ controllers:
   sessions:
     layout: "login_layout"
 models:
+  borrow_book:
+    lost_length: 255
   noti:
     content:
       max_length: 255

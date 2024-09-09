@@ -164,6 +164,7 @@ vi:
         show: "Hiển thị"
     borrow_books:
       show:
+        lost_reason: "Lý do mất"
         title: "Chi tiết yêu cầu"
         user: "Người dùng"
         checkout_card: "Phiếu mượn sách"
@@ -310,6 +311,24 @@ vi:
     user_mailer:
       subject: "Chào mừng đến với Bibliosphere Library"
   views:
+    borrow_books:
+      title: "Gửi yêu cầu"
+      notice: "Thông báo làm mất sách"
+      content: "Trong trường hợp làm mất sách đang mượn, 
+                bạn cần phải thông báo ngay đến thư viện thông qua biểu mẫu bên cạnh
+                hoặc qua thông tin liên hệ bên dưới. 
+                Đồng thời bạn cũng phải đền bù khoản tiền tương ứng cho thư viện. 
+                Nếu làm mất sách hoặc quá hạn trả sách quá nhiều lần, tài khoản của bạn sẽ bị"
+      danger: "cấm vĩnh viễn"
+      address: "Địa chỉ"
+      phone: "Số điện thoại"
+      email: "Email"
+      bank: "Chuyển tiền"
+      select: "Chọn đơn sách"
+      place: "Lý do mất sách"
+      btn: "Gửi ngay"
+    borrow_books:
+      title: "Gửi thông báo mất sách"
     notifications:
       title: "Thông báo"
     favorites:
@@ -416,6 +435,7 @@ vi:
         btn_close: "Đóng"
     layouts:
       header:
+        request: "Làm mất sách"
         home: "Trang chủ"
         shop: "Thư viện"
         contact: "Liên hệ"
@@ -476,6 +496,11 @@ vi:
         btn_login: "Đăng nhập"
         btn_register: "Đăng ký"
   controllers:
+    borrow_books:
+      lost_updated: "Đã gửi thông báo mất sách thành công"
+      update_failed: "Gửi thông báo mất sách thất bại"
+      lost_reason_blank: "Hãy nhập lý do làm mất!"
+      id_blank: "Hãy chọn đơn sách mà bạn đã làm mất"
     notifications:
       destroy_success: "Xóa thông báo thành công"
       destroy_error: "Xóa thông báo thất bại"
