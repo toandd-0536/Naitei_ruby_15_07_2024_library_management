@@ -97,6 +97,7 @@ Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
         namespace :admin do
+          resources :authors, only: %i(index show create update destroy)
           resources :episodes, only: %i(index create update destroy)
           resources :books, only: %i(index show create update destroy)
         end
