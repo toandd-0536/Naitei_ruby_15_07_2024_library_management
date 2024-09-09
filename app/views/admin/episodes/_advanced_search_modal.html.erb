@@ -1,0 +1,52 @@
+<div class="modal fade" id="advancedSearchModal" tabindex="-1" aria-labelledby="advancedSearchModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="advancedSearchModalLabel">Advanced Search</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= search_form_for @q, url: admin_episodes_path, method: :get, html: { class: "advanced-search-form", id: "advancedSearchForm" } do |f| %>
+          <div class="mb-3">
+            <%= f.label :name_cont, t("admin.episodes.new.book") %>
+            <%= f.text_field :name_cont, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :book_id_eq, t("admin.episodes.new.book") %>
+            <%= f.collection_select :book_id_eq, @books, :id, :name, { include_blank: "Select a book" }, { class: "form-control" } %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :qty, t("admin.episodes.new.qty") %>
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.number_field :qty_gteq, class: "form-control", placeholder: "Min" %>
+              </div>
+              <div class="col-md-6">
+                <%= f.number_field :qty_lteq, class: "form-control", placeholder: "Max" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :compensation_fee, t("admin.episodes.new.fee") %>
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.number_field :compensation_fee_gteq, class: "form-control", placeholder: "Min" %>
+              </div>
+              <div class="col-md-6">
+                <%= f.number_field :compensation_fee_lteq, class: "form-control", placeholder: "Max" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <%= button_tag t("admin.form.reset"), type: :button, class: "btn btn-secondary", id: "resetButton" %>
+            <%= f.submit t("admin.form.search"), class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
