@@ -16,7 +16,8 @@ class Book < ApplicationRecord
   accepts_nested_attributes_for :authors, :episodes, :categories,
                                 allow_destroy: true
 
-  validates :name, presence: true
+  validates :name, presence: true,
+            length: {maximum: Settings.models.book.name.max_length}
   validates :publisher_id, presence: true
   validate :must_have_categories
   validate :must_have_authors

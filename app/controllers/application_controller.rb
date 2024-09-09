@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :set_gon_variables
+  before_action :store_user_location!, if: :storable_location?
 
   def encode_token payload
     JWT.encode(payload, ENV["JWT_SECRET_KEY"])
@@ -26,6 +27,10 @@ class ApplicationController < ActionController::Base
     rescue JWT::DecodeError
       nil
     end
+  end
+
+  def after_sign_in_path_for resource
+    stored_location_for resource || root_path
   end
 
   private
@@ -51,5 +56,16 @@ class ApplicationController < ActionController::Base
     gon.pusher_key = ENV["PUSHER_KEY"]
     gon.pusher_cluster = ENV["PUSHER_CLUSTER"]
     gon.user_id = current_user.id if user_signed_in?
+    gon.img_type_error = I18n.t("message.episodes.img_type_error")
+    gon.img_upload_error = I18n.t("message.episodes.img_upload_error")
+  end
+
+  def storable_location?
+    request.get? && is_navigational_format? &&
+      !devise_controller? && !request.xhr?
+  end
+
+  def store_user_location!
+    store_location_for :user, request.fullpath
   end
 end

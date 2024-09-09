@@ -8,7 +8,8 @@ class Category < ApplicationRecord
   has_many :book_categories, dependent: :destroy
   has_many :books, through: :book_categories
 
-  validates :name, presence: true
+  validates :name, presence: true,
+            length: {maximum: Settings.models.category.name.max_length}
   validate :parent_id_cannot_be_self
   validate :parent_id_cannot_be_child
 

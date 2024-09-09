@@ -2,7 +2,7 @@ function initializeJQuery() {
   const fileInput = $('#episode_thumb');
   const imgView = $('.img-view img');
   const currentImg = $('.img-view').attr('src');
-  
+  const defaultImg = '/assets/placeholder-25eb8ab291d725877dbf4159904b5050359fbb6a188f838df9e5d045af7af8d2.png'
   fileInput.on('change', function (event) {
     const file = event.target.files[0];
     if (file) {
@@ -18,10 +18,18 @@ function initializeJQuery() {
         reader.readAsDataURL(file);
       } else {
         fileInput.val(''); 
-        imgView.attr('src', '').hide();
+        imgView.attr('src', defaultImg).show();
+        alert(gon.img_type_error);
       }
     } else {
-      imgView.attr('src', '').hide();
+      imgView.attr('src', defaultImg).show();
+    }
+  });
+
+  $('#new_episode').on('submit', function(event) {
+    if (!fileInput.val()) {
+      event.preventDefault();
+      alert(gon.img_upload_error);
     }
   });
 }
