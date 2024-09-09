@@ -1,5 +1,5 @@
-<% if flash.any? || (user_signed_in? && current_user.errors.any?) %>
-  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1000">
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1000">
+  <% if flash.any? || (user_signed_in? && current_user.errors.any?) %>
     <% if flash.any? %>
       <% flash.each do |key, messages| %>
         <% if key == "success" %>
@@ -9,8 +9,11 @@
         <% end %>
       <% end %>
     <% end %>
+    
     <% if user_signed_in? && current_user.errors.any? %>
       <%= render partial: "shared/toast_error", collection: @user.errors.full_messages, as: :msg %>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+
+  <%= render "shared/toast_new_episode" %>
+</div>

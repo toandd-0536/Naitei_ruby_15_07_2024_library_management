@@ -42,7 +42,7 @@ class User < ApplicationRecord
           favoritable_type: "Episode",
           favoritable_id: book.episodes.ids
         }
-      )
+      ).distinct
   end)
 
   def self.ransackable_attributes _auth_object = nil

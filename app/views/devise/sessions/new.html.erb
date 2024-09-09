@@ -4,6 +4,7 @@
 
 <%= render "shared/user_layout" do %>
   <%= form_with model: resource, url: session_path(resource_name), 
+                data: { turbo: false },
                 html: { class: "form-detail" }, local: true do |f| %>
     <div class="tabcontent" id="sign-in">
       <div class="form-row">

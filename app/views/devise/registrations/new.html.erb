@@ -8,7 +8,7 @@
 
 <% without_field_error_proc do %>
   <%= render "shared/user_layout" do %>
-    <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-detail" }, local: true do |f| %>
+    <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }, html: { class: "form-detail" }, local: true do |f| %>
       <div class="tabcontent" id="sign-up">
         <div class="form-row">
           <label class="form-row-inner">

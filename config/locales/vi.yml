@@ -241,6 +241,8 @@ vi:
       deleted: "Xóa tập thành công."
       delete_fail: "Xóa tập thất bại."
       not_found: "Không tìm thấy tập."
+      img_type_error: "Loại tệp không hợp lệ! Vui lòng tải lên hình ảnh (JPEG, PNG, GIF)."
+      img_upload_error: "Vui lòng tải hình ảnh lên trước khi gửi."
     books:
       created: "Tạo sách thành công."
       updated: "Cập nhật sách thành công."
