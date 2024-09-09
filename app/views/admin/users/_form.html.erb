@@ -15,7 +15,7 @@
     <%= f.label :dob, t(".dob") %>
     <div class="d-flex">
       <%= f.date_select :dob,
-            start_year: 1900,
+            start_year: Settings.models.user.dob.start_year,
             end_year: Date.today.year,
             order: [:day, :month, :year],
             class: "form-control" %>
