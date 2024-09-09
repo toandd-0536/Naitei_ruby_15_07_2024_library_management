@@ -3,7 +3,7 @@ class Admin::AuthorsController < AdminController
 
   def index
     @q = Author.ransack(params[:q])
-    @pagy, @authors = pagy(@q.result, items: Settings.page)
+    @pagy, @authors = pagy(@q.result)
     @breadcrumb_items = [{name: t(".index.title")}]
   end
 
