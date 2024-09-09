@@ -303,6 +303,8 @@ vi:
     user_mailer:
       subject: "Chào mừng đến với Bibliosphere Library"
   views:
+    notifications:
+      title: "Thông báo"
     favorites:
       index:
         title: "Yêu thích"
@@ -441,6 +443,7 @@ vi:
         profile: "Thông tin cá nhân"
         favorite: "Yêu thích"
         order: "Lịch sử đơn sách"
+        notice: "Thông báo"
       client_page:
         app_name: "Bibliosphere Library"
         home: "Trang chủ"
@@ -466,6 +469,17 @@ vi:
         btn_login: "Đăng nhập"
         btn_register: "Đăng ký"
   controllers:
+    notifications:
+      destroy_success: "Xóa thông báo thành công"
+      destroy_error: "Xóa thông báo thất bại"
+      update_success: "Đã đánh dấu là đọc thông báo"
+      update_error: "Đánh dấu đọc thông báo thất bại"
+      delete_all_success: "Xóa tất cả thông báo thành công"
+      delete_all_error: "Xóa tất cả thông báo thất bại"
+      update_all_success: "Đánh dấu tất cả là đã đọc thành công"
+      update_all_error: "Đánh dấu tất cả là đã đọc thất bại"
+      btn_delete_all: "Xóa tất cả"
+      btn_update_all: "Đánh dấu tất cả là đã đọc"
     favorites:
       follow_success: "Theo dõi thành công"
       follow_error: "Bạn đã theo dõi rồi"

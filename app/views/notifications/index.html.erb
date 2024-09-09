@@ -1,0 +1,23 @@
+<% provide :link_page do %>
+   <%= t "views.notifications.title" %>
+<% end %>
+<%= render "shared/client_page_heading" %>
+
+<div id="profile">
+  <div class="container">
+    <%= render "shared/profile_action" %>
+    <% if @notifications.any? %>
+      <div class="row mb-3">
+        <div class="col-md-12 d-flex justify-content-end">
+           <div class="group-btn">
+             <%= link_to t("controllers.notifications.btn_update_all"), update_status_all_notifications_path, data: {turbo_method: :patch}, class: "btn btn-success me-1" %>
+             <%= link_to t("controllers.notifications.btn_delete_all"), delete_all_notifications_path, data: {turbo_method: :delete}, class: "btn btn-danger ms-1" %>
+           </div> 
+        </div>
+      </div>
+      <div class="row">
+        <%= render partial: "notification", collection: @notifications, as: :noti %>
+      </div>
+    <% end %>
+  </div>
+</div>

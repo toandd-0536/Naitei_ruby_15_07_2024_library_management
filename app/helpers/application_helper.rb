@@ -37,4 +37,26 @@ module ApplicationHelper
 
     status_classes[status.to_sym] || "bg-light"
   end
+
+  def display_notification notification
+    notificationable = notification.notificationable
+
+    case notification.notificationable_type
+    when "Episode"
+      link_to(
+        notificationable.name,
+        book_episode_path(notificationable.book, notificationable),
+        class: "font-weight-bold text-primary d-block"
+      )
+    else
+      notification.content
+    end
+  end
+
+  def unread_notifications_count
+    count = current_user.notifications.unread.count
+    return unless count.positive?
+
+    content_tag(:span, count, class: "badge badge-warning")
+  end
 end
