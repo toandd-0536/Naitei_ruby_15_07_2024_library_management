@@ -1,7 +1,10 @@
+import { Modal } from 'bootstrap';
+
 document.addEventListener('DOMContentLoaded', function() {
   var form = document.getElementById('advancedSearchForm');
   var generateReportButton = document.getElementById('generateReportButton');
-  var advancedSearchModal = new bootstrap.Modal(document.getElementById('advancedSearchModal'));
+  var advancedSearchModalElement = document.getElementById('advancedSearchModal');
+  var advancedSearchModal = new Modal(advancedSearchModalElement);
 
   function resetForm() {
     form.reset();

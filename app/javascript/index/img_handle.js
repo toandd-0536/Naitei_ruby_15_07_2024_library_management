@@ -7,7 +7,7 @@ function initializeJQuery() {
     const file = event.target.files[0];
     if (file) {
       const fileType = file.type;
-      const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+      const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
 
       if (validImageTypes.includes(fileType)) {
         const reader = new FileReader();
