@@ -290,6 +290,8 @@ en:
     ratings:
       created: "Rating created successfully."
       create_fail: "Failed to create rating."
+      updated: "Rating updated successfully."
+      update_fail: "Failed to update rating."
       deleted: "Rating deleted successfully."
       delete_fail: "Failed to delete rating."
       not_found: "Rating not found."
@@ -312,7 +314,7 @@ en:
       content: "In case of loss of a borrowed book,
                 you must immediately notify the library via the form next to it
                 or via the contact information below.
-                At the same time, 
+                At the same time,
                 you must also compensate the library with the corresponding amount.
                 If you lose a book or return it too many times overdue, your account will be"
       danger: "permanently banned"
