@@ -296,6 +296,8 @@ vi:
     ratings:
       created: "Đánh giá đã được tạo thành công."
       create_fail: "Tạo đánh giá thất bại."
+      updated: "Đánh giá đã được cập nhật thành công."
+      update_fail: "Cập nhật đánh giá thất bại."
       deleted: "Đánh giá đã được xóa thành công."
       delete_fail: "Xóa đánh giá thất bại."
       not_found: "Không tìm thấy đánh giá."
@@ -315,10 +317,10 @@ vi:
     borrow_books:
       title: "Gửi yêu cầu"
       notice: "Thông báo làm mất sách"
-      content: "Trong trường hợp làm mất sách đang mượn, 
+      content: "Trong trường hợp làm mất sách đang mượn,
                 bạn cần phải thông báo ngay đến thư viện thông qua biểu mẫu bên cạnh
-                hoặc qua thông tin liên hệ bên dưới. 
-                Đồng thời bạn cũng phải đền bù khoản tiền tương ứng cho thư viện. 
+                hoặc qua thông tin liên hệ bên dưới.
+                Đồng thời bạn cũng phải đền bù khoản tiền tương ứng cho thư viện.
                 Nếu làm mất sách hoặc quá hạn trả sách quá nhiều lần, tài khoản của bạn sẽ bị"
       danger: "cấm vĩnh viễn"
       address: "Địa chỉ"
