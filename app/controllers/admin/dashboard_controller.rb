@@ -3,9 +3,22 @@ class Admin::DashboardController < AdminController
   authorize_resource class: false
 
   def index
+    params.permit![:format]
+
     load_dashboard_counts
     load_category_data
     @borrow_books_by_category = borrow_books_by_category
+    @categories_search = Category.all
+    @authors_search = Author.all
+    @publishers_search = Publisher.all
+    @q = Book.ransack(params[:q])
+    @books = @q.result(distinct: true)
+               .includes(:authors, :categories, :publisher, :episodes)
+
+    respond_to do |format|
+      format.html
+      format.xlsx{render xlsx: "index", filename: "books_report.xlsx"}
+    end
   end
 
   private
