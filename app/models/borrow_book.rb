@@ -9,6 +9,9 @@ class BorrowBook < ApplicationRecord
                 overdue: 4,
                 lost: 5}
 
+  validates :lost_reason,
+            length: {maximum: Settings.models.borrow_book.lost_length}
+
   def localized_status
     I18n.t("activerecord.attributes.borrow_book.status.#{status}")
   end
@@ -30,6 +33,7 @@ class BorrowBook < ApplicationRecord
   scope :pending_requests, ->{where(status: "pending")}
   scope :return_requests, ->{where(status: %w(confirm overdue))}
   scope :history_requests, ->{where(status: %w(cancel lost returned))}
+  scope :sorted_by_created, ->{order(created_at: :desc)}
 
   scope(:borrowed_books_data_by_month, lambda do |year|
     joins(episode: {book: :categories})
@@ -40,6 +44,11 @@ class BorrowBook < ApplicationRecord
       .group("categories.name", "MONTH(borrow_cards.start_time)")
       .count
   end)
+
+  def episode_name_with_date
+    "##{borrow_card_id}-#{episode.name} " \
+    "(#{episode.compensation_fee} #{Settings.money_unit})"
+  end
 
   def self.ransackable_attributes _auth_object = nil
     %w(id user_name created_at updated_at)

@@ -1,0 +1,62 @@
+<% provide :link_page do %>
+  <%= t "views.borrow_books.title" %>
+<% end %>
+
+<%= render "shared/client_page_heading" %>
+
+<div class="contact-page section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 align-self-center">
+        <div class="left-text">
+          <div class="section-heading">
+            <h6><%= t "views.borrow_books.title" %></h6>
+            <h2><%= t "views.borrow_books.notice" %></h2>
+          </div>
+          <p>
+            <%= t "views.borrow_books.content" %>
+            <span class="text-danger font-weight-bold">
+              <%= t "views.borrow_books.danger" %>
+            </span>
+          </p>
+          <ul>
+            <li>
+              <span><%= t "views.borrow_books.address" %></span> 
+              <%= Settings.address %>
+            </li>
+            <li>
+              <span><%= t "views.borrow_books.phone" %></span> 
+              <%= Settings.phone %>
+            </li>
+            <li>
+              <span><%= t "views.borrow_books.email" %></span> 
+              <%= Settings.email %>
+            </li>
+            <li>
+              <span><%= t "views.borrow_books.bank" %></span> 
+              <%= image_tag "qr.png" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="right-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <%= form_with url: update_lost_reason_borrow_books_path, method: :patch, html: {id: "contact-form"} do |f| %>
+                <div class="mb-3">
+                  <%= f.select :id, 
+                        options_from_collection_for_select(@borrow_books, :id, :episode_name_with_date, selected: params.dig(:q, :id)), 
+                        {include_blank: t("views.borrow_books.select")}, 
+                        {data: {controller: "slim"}} %>
+                </div>
+                <%= f.text_area :lost_reason, id: "message", placeholder: t("views.borrow_books.place") %>
+                <%= button_tag t("views.borrow_books.btn"), type: "submit", class: "orange-button", id: "form-submit" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

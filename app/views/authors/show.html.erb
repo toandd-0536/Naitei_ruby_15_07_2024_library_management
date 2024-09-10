@@ -83,7 +83,7 @@
       </div>
       <div class="col-lg-6">
         <div class="main-button">
-          <%= link_to all_episodes_path(author_id: @author.id) do %>
+          <%= link_to all_episodes_path(q: { authors_id_eq: @author.id }) do %>
             <%= t "views.episodes.show.all" %>
           <% end %>
         </div>

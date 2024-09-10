@@ -45,7 +45,7 @@
           </li>
           <li><span><%= t "views.episodes.show.cat" %></span>
             <% @book.categories.each do |cat| %>
-              <%= link_to cat.name, all_episodes_path(category_id: cat.id) %>
+              <%= link_to cat.name, all_episodes_path(q: { categories_id_eq: cat.id }) %>
               <strong>, </strong>
             <% end %>
           </li>
@@ -113,7 +113,7 @@
       </div>
       <div class="col-lg-6">
         <div class="main-button">
-          <%= link_to all_episodes_path(book_id: @book.id) do %>
+          <%= link_to all_episodes_path(q: { book_id_eq: @book.id }) do %>
             <%= t "views.episodes.show.all" %>
           <% end %>
         </div>
