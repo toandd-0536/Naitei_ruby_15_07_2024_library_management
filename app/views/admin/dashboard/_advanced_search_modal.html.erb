@@ -1,0 +1,34 @@
+<div class="modal fade" id="advancedSearchModal" tabindex="-1" aria-labelledby="advancedSearchModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="advancedSearchModalLabel">Advanced Search</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= search_form_for @q, url: admin_root_path, method: :get, html: { class: "advanced-search-form", id: "advancedSearchForm" } do |f| %>
+          <div class="mb-3">
+            <%= f.label :name, t(".name") %>
+            <%= f.text_field :name_cont, class: "form-control" %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :categories, t("admin.books.new.cat") %>
+            <%= f.collection_select :categories_id_in, @categories_search, :id, :name, {include_blank: true}, { multiple: true, class: "form-control multi-select" } %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :authors, t("admin.books.new.author") %>
+            <%= f.collection_select :authors_id_in, @authors_search, :id, :name, {include_blank: true}, { multiple: true, class: "form-control multi-select" } %>
+          </div>
+          <div class="form-group">
+            <%= f.label :publisher_id_eq, t(".publisher") %>
+            <%= f.collection_select :publisher_id_eq, @publishers_search, :id, :name, {include_blank: true}, { multiple: true, class: "form-control multi-select" } %>
+          </div>
+          <div class="d-flex justify-content-between">
+            <%= button_tag t("admin.form.reset"), type: :button, class: "btn btn-secondary", id: "resetButton" %>
+            <%= button_tag t("admin.form.generate"), type: :button, class: "btn btn-sm btn-primary shadow-sm", id: "generateReportButton", data: { url: admin_root_path(format: :xlsx) } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

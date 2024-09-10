@@ -1,0 +1,15 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Books Report") do |sheet|
+  sheet.add_row ["Book", "Publisher", "Authors", "Categories", "Episode", "Quantity"]
+
+  @books.each do |book|
+    authors = book.authors.pluck(:name).join(", ")
+    categories = book.categories.pluck(:name).join(", ")
+
+    # Add a row for each episode of the book
+    book.episodes.each do |episode|
+      sheet.add_row [book.name, book.publisher.name, authors, categories, episode.name, episode.qty]
+    end
+  end
+end

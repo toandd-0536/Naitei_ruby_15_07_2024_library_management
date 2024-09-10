@@ -9,6 +9,8 @@ gem "bcrypt", "3.1.18"
 gem "bootsnap", require: false
 gem "bootstrap", "~> 5.2.0"
 gem "cancancan"
+gem "caxlsx"
+gem "caxlsx_rails"
 gem "config"
 gem "devise"
 gem "faker", "2.21.0"
