@@ -20,8 +20,8 @@
             <%= f.collection_select :authors_id_in, @authors_search, :id, :name, {include_blank: true}, { multiple: true, class: "form-control multi-select" } %>
           </div>
           <div class="form-group">
-            <%= f.label :publisher_id_eq, t(".publisher") %>
-            <%= f.collection_select :publisher_id_eq, @publishers_search, :id, :name, {include_blank: true}, { multiple: true, class: "form-control multi-select" } %>
+            <%= f.label :publisher_id_in, t(".publisher") %>
+            <%= f.collection_select :publisher_id_in, @publishers_search, :id, :name, {include_blank: true}, { multiple: true, class: "form-control multi-select" } %>
           </div>
           <div class="d-flex justify-content-between">
             <%= button_tag t("admin.form.reset"), type: :button, class: "btn btn-secondary", id: "resetButton" %>
